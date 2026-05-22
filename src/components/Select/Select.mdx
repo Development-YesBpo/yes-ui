@@ -1,0 +1,13 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as SelectStories from './Select.stories'
+
+<Meta of={SelectStories} />
+
+# Select
+
+Selector nativo con flecha personalizada, etiqueta accesible y sistema de estados idéntico al de Input.
+
+**Referencia:** `design-system-reference/preview/components-inputs.html` — campo "Estado de la gestión"
+
+<Canvas of={SelectStories.AllStates} />
+<Controls of={SelectStories.Default} />
