@@ -1,0 +1,13 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as TextareaStories from './Textarea.stories'
+
+<Meta of={TextareaStories} />
+
+# Textarea
+
+Área de texto multilínea. Comportamiento de estados idéntico al de Input (error, hint, disabled, required).
+
+**Referencia:** `design-system-reference/preview/components-inputs.html` — campo "Observaciones de gestión"
+
+<Canvas of={TextareaStories.AllStates} />
+<Controls of={TextareaStories.Default} />
