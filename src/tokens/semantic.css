@@ -222,6 +222,13 @@
   --yes-size-spinner-md: 20px;
   --yes-size-spinner-lg: 28px;
 
+  /* ── Button-specific sizing ──────────────────────────────── */
+  --yes-space-btn-gap:     6px;
+  --yes-size-btn-text-sm: 13px;
+  --yes-size-btn-text-md: 14px;
+  --yes-size-btn-text-lg: 15px;
+  --yes-size-btn-px-lg:   20px;
+
   /* ── Shadows / Elevation ─────────────────────────────────────── */
   --yes-shadow-sm:  var(--yes-primitive-shadow-sm);
   --yes-shadow-md:  var(--yes-primitive-shadow-md);

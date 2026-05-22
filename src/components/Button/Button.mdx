@@ -1,0 +1,30 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ButtonStories from './Button.stories'
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Botón de acción. Siempre lleva una etiqueta que describe exactamente la acción:
+"Guardar cambios", no "Aceptar". Nunca solo un ícono en posición primaria.
+
+**Referencia:** `preview/components-buttons.html`
+
+## Tonos
+
+| Tono | Uso |
+|------|-----|
+| `primary` | Acción principal de la pantalla |
+| `secondary` | Alternativa válida o acción secundaria |
+| `ghost` | Acción de menor jerarquía, con borde |
+| `green` | CTAs de confirmación positiva ("Enviar campaña") |
+| `danger` | Acciones destructivas o irreversibles |
+
+## Seguridad
+
+- `type="button"` por defecto — nunca envía formularios accidentalmente
+- `onClick` no se dispara si `disabled` o `isLoading`
+- `aria-disabled` + `aria-busy` para lectores de pantalla
+
+<Canvas of={ButtonStories.AllTones} />
+<Controls of={ButtonStories.Default} />
