@@ -1,0 +1,26 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as IconStories from './Icon.stories'
+
+<Meta of={IconStories} />
+
+# Icon
+
+Envuelve un ícono de [Lucide React](https://lucide.dev) con los defaults visuales de YES BPO:
+stroke de 1.75px, `currentColor`. Maneja `aria-label` / `aria-hidden` automáticamente.
+
+**Referencia:** `ui_kits/appcenter/Components.jsx` → función `Icon`
+
+## Uso
+
+```tsx
+import { Icon } from '@yes/ui'
+import { Check } from 'lucide-react'
+
+<Icon icon={Check} size={20} aria-label="Confirmado" />
+```
+
+Sin `aria-label`, el ícono se oculta a lectores de pantalla (`aria-hidden="true"`).
+Con `aria-label`, se expone como `role="img"`.
+
+<Canvas of={IconStories.CommonIcons} />
+<Controls of={IconStories.Default} />
