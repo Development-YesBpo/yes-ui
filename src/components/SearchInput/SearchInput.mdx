@@ -1,0 +1,33 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as SearchInputStories from './SearchInput.stories'
+
+<Meta of={SearchInputStories} />
+
+# SearchInput
+
+Campo de búsqueda con ícono `Search` de Lucide a la izquierda y botón `×` para limpiar
+cuando hay valor. Compone el componente `Icon` de Wave 1.
+
+**Referencia:** `design-system-reference/preview/components-inputs.html` — campo "Buscar contacto"
+
+## Uso
+
+```tsx
+import { SearchInput } from '@yes/ui'
+
+const [value, setValue] = useState('')
+
+<SearchInput
+  label="Buscar contacto"
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+  onClear={() => setValue('')}
+  placeholder="Nombre, teléfono o ID…"
+/>
+```
+
+- `onClear` es requerido para que aparezca el botón `×`.
+- Sin `onClear`, el componente opera como campo de búsqueda de solo lectura sin limpieza.
+
+<Canvas of={SearchInputStories.Interactive} />
+<Controls of={SearchInputStories.Default} />
