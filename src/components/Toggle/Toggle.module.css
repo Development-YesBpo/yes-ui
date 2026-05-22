@@ -1,0 +1,79 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--yes-space-2);
+}
+
+.hiddenInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.track {
+  position: relative;
+  width: var(--yes-size-toggle-w);
+  height: var(--yes-size-toggle-h);
+  border-radius: var(--yes-radius-toggle);
+  background: var(--yes-color-toggle-off);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--yes-duration-base) var(--yes-ease);
+  outline: none;
+}
+
+.track:focus-visible {
+  box-shadow: 0 0 0 3px var(--yes-color-focus-ring);
+}
+
+.trackOn {
+  background: var(--yes-color-toggle-on);
+}
+
+.trackDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.knob {
+  position: absolute;
+  top: var(--yes-size-toggle-knob-offset);
+  left: var(--yes-size-toggle-knob-offset);
+  width: var(--yes-size-toggle-knob);
+  height: var(--yes-size-toggle-knob);
+  background: var(--yes-color-surface);
+  border-radius: 50%;
+  box-shadow: var(--yes-shadow-toggle-knob);
+  transition: transform var(--yes-duration-base) var(--yes-ease);
+}
+
+.knobOn {
+  transform: translateX(
+    calc(
+      var(--yes-size-toggle-w) -
+      var(--yes-size-toggle-knob) -
+      2 * var(--yes-size-toggle-knob-offset)
+    )
+  );
+}
+
+.label {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: var(--yes-weight-medium);
+  color: var(--yes-color-field-label);
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.labelDisabled {
+  color: var(--yes-color-text-disabled);
+  cursor: not-allowed;
+}

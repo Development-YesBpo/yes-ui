@@ -1,0 +1,25 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ToggleStories from './Toggle.stories'
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+Interruptor binario. Usa `role="switch"` y `aria-checked` para accesibilidad completa.
+
+**Referencia:** `design-system-reference/preview/components-inputs.html` — campo "Notificaciones activas"
+
+## Uso
+
+```tsx
+import { Toggle } from '@yes/ui'
+
+// No controlado
+<Toggle label="Recibir alertas" defaultChecked />
+
+// Controlado
+<Toggle label="Recibir alertas" checked={on} onChange={setOn} />
+```
+
+<Canvas of={ToggleStories.AllStates} />
+<Controls of={ToggleStories.Default} />
