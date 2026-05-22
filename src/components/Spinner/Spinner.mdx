@@ -1,0 +1,23 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as SpinnerStories from './Spinner.stories'
+
+<Meta of={SpinnerStories} />
+
+# Spinner
+
+Indicador circular de carga. El color hereda `currentColor` del contenedor padre.
+Usar dentro de botones con `isLoading`, o en secciones que cargan datos.
+
+**Referencia:** `.spinner` en `preview/components-buttons.html`
+
+## Uso
+
+```tsx
+import { Spinner } from '@yes/ui'
+
+<Spinner size="sm" />  // dentro de botón
+<Spinner size="lg" />  // sección cargando
+```
+
+<Canvas of={SpinnerStories.AllSizes} />
+<Controls of={SpinnerStories.Default} />

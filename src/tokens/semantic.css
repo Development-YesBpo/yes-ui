@@ -217,6 +217,11 @@
   --yes-size-avatar-md: 32px;
   --yes-size-avatar-lg: 40px;
 
+  /* ── Spinner ─────────────────────────────────────────────────── */
+  --yes-size-spinner-sm: 14px;
+  --yes-size-spinner-md: 20px;
+  --yes-size-spinner-lg: 28px;
+
   /* ── Shadows / Elevation ─────────────────────────────────────── */
   --yes-shadow-sm:  var(--yes-primitive-shadow-sm);
   --yes-shadow-md:  var(--yes-primitive-shadow-md);
