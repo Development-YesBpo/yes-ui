@@ -1,0 +1,35 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as InputStories from './Input.stories'
+
+<Meta of={InputStories} />
+
+# Input
+
+Campo de texto controlado con etiqueta accesible, mensaje de error, hint y tres tamaños.
+
+**Referencia:** `design-system-reference/preview/components-inputs.html` — campos "Nombre del cliente", "Teléfono de contacto", "Correo electrónico"
+
+## Uso
+
+```tsx
+import { Input } from '@yes/ui'
+
+<Input
+  label="Nombre del cliente"
+  placeholder="Ej. María González"
+  hint="Nombre completo según registro"
+/>
+```
+
+Con error:
+
+```tsx
+<Input
+  label="Correo electrónico"
+  type="email"
+  error="Correo electrónico no válido"
+/>
+```
+
+<Canvas of={InputStories.AllStates} />
+<Controls of={InputStories.Default} />

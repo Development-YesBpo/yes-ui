@@ -1,0 +1,83 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yes-size-field-gap);
+  width: 100%;
+}
+
+.label {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-size-field-label-text);
+  font-weight: var(--yes-weight-semibold);
+  color: var(--yes-color-field-label);
+  line-height: 1.4;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.input {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  color: var(--yes-color-text);
+  background: var(--yes-color-surface);
+  border: 1px solid var(--yes-color-border-strong);
+  border-radius: var(--yes-radius-field);
+  padding: 0 var(--yes-space-3);
+  width: 100%;
+  outline: none;
+  transition: border-color var(--yes-duration-base) var(--yes-ease),
+              box-shadow var(--yes-duration-base) var(--yes-ease);
+  line-height: 1;
+}
+
+/* ── Sizes ─────────────────────────────────────────────────── */
+.sm { height: var(--yes-size-height-sm); }
+.md { height: var(--yes-size-height-md); }
+.lg { height: var(--yes-size-height-lg); }
+
+/* ── States ────────────────────────────────────────────────── */
+.input:focus {
+  border-color: var(--yes-color-border-focus);
+  box-shadow: 0 0 0 3px var(--yes-color-focus-ring);
+}
+
+.input:disabled {
+  background: var(--yes-color-surface-disabled);
+  color: var(--yes-color-text-disabled);
+  border-color: var(--yes-color-border-disabled);
+  cursor: not-allowed;
+}
+
+.inputError {
+  border-color: var(--yes-color-border-error);
+  box-shadow: 0 0 0 3px var(--yes-color-focus-ring-error);
+}
+
+.inputError:focus {
+  border-color: var(--yes-color-border-error);
+  box-shadow: 0 0 0 3px var(--yes-color-focus-ring-error);
+}
+
+.hint {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-size-field-hint-text);
+  color: var(--yes-color-field-hint);
+  line-height: 1.4;
+}
+
+.error {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-size-field-hint-text);
+  color: var(--yes-color-field-error);
+  line-height: 1.4;
+}
