@@ -1,0 +1,245 @@
+/**
+ * @yes/ui — Semantic Tokens
+ *
+ * Source of truth: design-system-reference/colors_and_type.css
+ * Maps primitives to design roles. Components reference ONLY these vars.
+ *
+ * Import order in product apps:
+ *   import '@yes/ui/tokens/primitives'   ← raw scale + Google Fonts
+ *   import '@yes/ui/tokens/default'      ← this file (light theme default)
+ *   import '@yes/ui/tokens/themes/dark'  ← optional dark override
+ */
+
+:root {
+
+  /* ── Brand ──────────────────────────────────────────────────── */
+  --yes-color-brand-primary: var(--yes-primitive-brand-blue);
+  --yes-color-brand-accent:  var(--yes-primitive-brand-green);
+
+  /* ── Interactive / Primary ───────────────────────────────────── */
+  --yes-color-primary:        var(--yes-primitive-brand-blue);
+  --yes-color-primary-hover:  var(--yes-primitive-blue-700);
+  --yes-color-primary-active: var(--yes-primitive-blue-800);
+  --yes-color-primary-subtle: var(--yes-primitive-blue-50);
+  --yes-color-primary-border: var(--yes-primitive-blue-200);
+  --yes-color-primary-fg:     var(--yes-primitive-white);
+
+  /* ── Secondary ───────────────────────────────────────────────── */
+  --yes-color-secondary:        var(--yes-primitive-white);
+  --yes-color-secondary-hover:  var(--yes-primitive-neutral-50);
+  --yes-color-secondary-active: var(--yes-primitive-neutral-100);
+  --yes-color-secondary-border: var(--yes-primitive-neutral-300);
+  --yes-color-secondary-fg:     var(--yes-primitive-neutral-700);
+
+  /* ── Ghost ───────────────────────────────────────────────────── */
+  --yes-color-ghost-hover:  var(--yes-primitive-neutral-100);
+  --yes-color-ghost-active: var(--yes-primitive-neutral-200);
+  --yes-color-ghost-fg:     var(--yes-primitive-neutral-700);
+
+  /* ── Danger ──────────────────────────────────────────────────── */
+  --yes-color-danger:        var(--yes-primitive-error-600);
+  --yes-color-danger-hover:  var(--yes-primitive-error-700);
+  --yes-color-danger-subtle: var(--yes-primitive-error-50);
+  --yes-color-danger-border: var(--yes-primitive-error-200);
+  --yes-color-danger-fg:     var(--yes-primitive-white);
+
+  /* ── Success ─────────────────────────────────────────────────── */
+  --yes-color-success:        var(--yes-primitive-success-600);
+  --yes-color-success-hover:  var(--yes-primitive-success-700);
+  --yes-color-success-subtle: var(--yes-primitive-success-100);
+  --yes-color-success-border: var(--yes-primitive-success-200);
+  --yes-color-success-fg:     var(--yes-primitive-success-700);
+  --yes-color-success-fg-on:  var(--yes-primitive-white);
+
+  /* ── Warning ─────────────────────────────────────────────────── */
+  --yes-color-warning:        var(--yes-primitive-warning-600);
+  --yes-color-warning-subtle: var(--yes-primitive-warning-100);
+  --yes-color-warning-border: var(--yes-primitive-warning-200);
+  --yes-color-warning-fg:     var(--yes-primitive-warning-700);
+
+  /* ── Info ────────────────────────────────────────────────────── */
+  --yes-color-info:        var(--yes-primitive-info-600);
+  --yes-color-info-subtle: var(--yes-primitive-info-100);
+  --yes-color-info-border: var(--yes-primitive-info-100);
+  --yes-color-info-fg:     var(--yes-primitive-info-700);
+
+  /* ── Neutral / Completado badge ──────────────────────────────── */
+  --yes-color-neutral:        var(--yes-primitive-neutral-100);
+  --yes-color-neutral-fg:     var(--yes-primitive-neutral-600);
+  --yes-color-neutral-border: var(--yes-primitive-neutral-300);
+
+  /* ── Blue badge (Completado) ─────────────────────────────────── */
+  --yes-color-badge-blue:        var(--yes-primitive-blue-50);
+  --yes-color-badge-blue-fg:     var(--yes-primitive-blue-500);
+  --yes-color-badge-blue-border: var(--yes-primitive-blue-200);
+
+  /* ── Purple (Programada) ─────────────────────────────────────── */
+  --yes-color-purple:        var(--yes-primitive-purple-100);
+  --yes-color-purple-fg:     var(--yes-primitive-purple-700);
+  --yes-color-purple-border: #E9D5FF;
+
+  /* ── Surface & Background ────────────────────────────────────── */
+  --yes-color-bg:              var(--yes-primitive-neutral-100);  /* #F3F4F6 */
+  --yes-color-bg-faint:        var(--yes-primitive-neutral-50);   /* #F9FAFB */
+  --yes-color-surface:         var(--yes-primitive-white);
+  --yes-color-surface-raised:  var(--yes-primitive-white);
+  --yes-color-surface-sunken:  var(--yes-primitive-neutral-50);   /* #FAFAFA toolbars */
+  --yes-color-surface-disabled:var(--yes-primitive-neutral-100);
+
+  /* ── Text ────────────────────────────────────────────────────── */
+  --yes-color-text:          var(--yes-primitive-neutral-900);
+  --yes-color-text-muted:    var(--yes-primitive-neutral-500);
+  --yes-color-text-subtle:   var(--yes-primitive-neutral-400);
+  --yes-color-text-disabled: var(--yes-primitive-neutral-400);
+  --yes-color-text-inverse:  var(--yes-primitive-white);
+  --yes-color-text-brand:    var(--yes-primitive-brand-blue);
+
+  /* ── Border ──────────────────────────────────────────────────── */
+  --yes-color-border:          var(--yes-primitive-neutral-200);  /* #E5E7EB */
+  --yes-color-border-subtle:   var(--yes-primitive-neutral-100);  /* #F3F4F6 */
+  --yes-color-border-strong:   var(--yes-primitive-neutral-300);  /* #D1D5DB */
+  --yes-color-border-focus:    var(--yes-primitive-brand-blue);
+  --yes-color-border-error:    var(--yes-primitive-error-500);
+  --yes-color-border-success:  var(--yes-primitive-success-600);
+  --yes-color-border-disabled: var(--yes-primitive-neutral-200);
+
+  /* ── Focus ring ──────────────────────────────────────────────── */
+  --yes-color-focus-ring:  var(--yes-primitive-focus-ring);
+
+  /* ── Scrim / Overlay ─────────────────────────────────────────── */
+  --yes-color-scrim: rgba(0, 0, 0, 0.5);
+
+  /* ── Sidebar ─────────────────────────────────────────────────── */
+  --yes-color-sidebar-bg:          var(--yes-primitive-blue-900);  /* #142860 */
+  --yes-color-sidebar-fg:          rgba(255, 255, 255, 0.75);
+  --yes-color-sidebar-fg-active:   var(--yes-primitive-white);
+  --yes-color-sidebar-item-active: rgba(255, 255, 255, 0.12);
+  --yes-color-sidebar-item-hover:  rgba(255, 255, 255, 0.07);
+  --yes-color-sidebar-border:      rgba(255, 255, 255, 0.08);
+  --yes-color-sidebar-badge-active: var(--yes-primitive-brand-green);
+  --yes-color-sidebar-badge-idle:   var(--yes-primitive-blue-700);
+
+  /* ── Channel colors ──────────────────────────────────────────── */
+  --yes-channel-wa-bg:     #D1FAE5;
+  --yes-channel-wa-fg:     #065F46;
+  --yes-channel-wa-border: #6EE7B7;
+  --yes-channel-sms-bg:     var(--yes-primitive-blue-50);
+  --yes-channel-sms-fg:     var(--yes-primitive-blue-500);
+  --yes-channel-sms-border: var(--yes-primitive-blue-200);
+  --yes-channel-email-bg:     var(--yes-primitive-warning-100);
+  --yes-channel-email-fg:     #92400E;
+  --yes-channel-email-border: var(--yes-primitive-warning-200);
+  --yes-channel-voice-bg:     var(--yes-primitive-purple-100);
+  --yes-channel-voice-fg:     var(--yes-primitive-purple-700);
+  --yes-channel-voice-border: #E9D5FF;
+
+  /* ── Typography ──────────────────────────────────────────────── */
+  --yes-font-display:  'Barlow Semi Condensed', 'Barlow', sans-serif;
+  --yes-font-heading:  'Barlow', sans-serif;
+  --yes-font-sans:     'Manrope', sans-serif;
+  --yes-font-mono:     'JetBrains Mono', 'Menlo', monospace;
+
+  --yes-text-xs:   var(--yes-primitive-text-xs);
+  --yes-text-sm:   var(--yes-primitive-text-sm);
+  --yes-text-base: var(--yes-primitive-text-base);
+  --yes-text-lg:   var(--yes-primitive-text-lg);
+  --yes-text-xl:   var(--yes-primitive-text-xl);
+  --yes-text-2xl:  var(--yes-primitive-text-2xl);
+  --yes-text-3xl:  var(--yes-primitive-text-3xl);
+  --yes-text-4xl:  var(--yes-primitive-text-4xl);
+
+  --yes-leading-tight:   var(--yes-primitive-leading-tight);
+  --yes-leading-snug:    var(--yes-primitive-leading-snug);
+  --yes-leading-normal:  var(--yes-primitive-leading-normal);
+  --yes-leading-relaxed: var(--yes-primitive-leading-relaxed);
+
+  --yes-weight-regular:   400;
+  --yes-weight-medium:    500;
+  --yes-weight-semibold:  600;
+  --yes-weight-bold:      700;
+  --yes-weight-extrabold: 800;
+
+  --yes-tracking-tight:   var(--yes-primitive-tracking-tight);
+  --yes-tracking-normal:  var(--yes-primitive-tracking-normal);
+  --yes-tracking-wide:    var(--yes-primitive-tracking-wide);
+  --yes-tracking-widest:  var(--yes-primitive-tracking-widest);
+
+  /* ── Border radius ───────────────────────────────────────────── */
+  --yes-radius-none:  var(--yes-primitive-radius-none);
+  --yes-radius-sm:    var(--yes-primitive-radius-sm);    /* 4px  — tags, internal */
+  --yes-radius-btn:   var(--yes-primitive-radius-md);    /* 6px  — buttons, inputs */
+  --yes-radius-card:  var(--yes-primitive-radius-lg);    /* 8px  — cards, containers */
+  --yes-radius-modal: var(--yes-primitive-radius-xl);    /* 12px — modals, drawers */
+  --yes-radius-2xl:   var(--yes-primitive-radius-2xl);   /* 16px */
+  --yes-radius-badge: var(--yes-primitive-radius-full);  /* 9999px — badges, chips */
+
+  /* ── Spacing ─────────────────────────────────────────────────── */
+  --yes-space-1:  var(--yes-primitive-space-1);
+  --yes-space-2:  var(--yes-primitive-space-2);
+  --yes-space-3:  var(--yes-primitive-space-3);
+  --yes-space-4:  var(--yes-primitive-space-4);
+  --yes-space-5:  var(--yes-primitive-space-5);
+  --yes-space-6:  var(--yes-primitive-space-6);
+  --yes-space-8:  var(--yes-primitive-space-8);
+  --yes-space-10: var(--yes-primitive-space-10);
+  --yes-space-12: var(--yes-primitive-space-12);
+  --yes-space-16: var(--yes-primitive-space-16);
+
+  /* ── Component sizing ────────────────────────────────────────── */
+  --yes-size-height-sm: 30px;
+  --yes-size-height-md: 36px;
+  --yes-size-height-lg: 44px;
+
+  --yes-size-px-sm: var(--yes-primitive-space-3);   /* 12px */
+  --yes-size-px-md: var(--yes-primitive-space-4);   /* 16px */
+  --yes-size-px-lg: var(--yes-primitive-space-6);   /* 24px */
+
+  --yes-size-text-sm: var(--yes-primitive-text-xs);   /* 12px — sm buttons */
+  --yes-size-text-md: 13px;                           /* 13px — md buttons (reference) */
+  --yes-size-text-lg: var(--yes-primitive-text-base); /* 16px — lg buttons */
+
+  --yes-size-sidebar-width:          220px;
+  --yes-size-sidebar-width-collapsed: 56px;
+
+  --yes-size-table-row-height:    44px;
+  --yes-size-table-header-height: 40px;
+  --yes-size-toolbar-height:      44px;
+  --yes-size-bulk-bar-height:     40px;
+
+  --yes-size-modal-sm:  400px;
+  --yes-size-modal-md:  600px;
+  --yes-size-modal-lg:  800px;
+  --yes-size-drawer-md: 480px;
+  --yes-size-drawer-lg: 640px;
+
+  /* ── Avatar ──────────────────────────────────────────────────── */
+  --yes-size-avatar-sm: 24px;
+  --yes-size-avatar-md: 32px;
+  --yes-size-avatar-lg: 40px;
+
+  /* ── Shadows / Elevation ─────────────────────────────────────── */
+  --yes-shadow-sm:  var(--yes-primitive-shadow-sm);
+  --yes-shadow-md:  var(--yes-primitive-shadow-md);
+  --yes-shadow-lg:  var(--yes-primitive-shadow-lg);
+  --yes-shadow-xl:  var(--yes-primitive-shadow-xl);
+  --yes-shadow-2xl: var(--yes-primitive-shadow-2xl);
+
+  /* ── Motion ──────────────────────────────────────────────────── */
+  --yes-duration-fast:   var(--yes-primitive-duration-fast);
+  --yes-duration-base:   var(--yes-primitive-duration-base);
+  --yes-duration-slow:   var(--yes-primitive-duration-slow);
+  --yes-duration-slower: var(--yes-primitive-duration-slower);
+  --yes-ease:            var(--yes-primitive-ease-standard);
+  --yes-ease-out:        var(--yes-primitive-ease-decelerate);
+  --yes-ease-in:         var(--yes-primitive-ease-accelerate);
+
+  /* ── Z-index ─────────────────────────────────────────────────── */
+  --yes-z-base:     var(--yes-primitive-z-base);
+  --yes-z-raised:   var(--yes-primitive-z-raised);
+  --yes-z-dropdown: var(--yes-primitive-z-dropdown);
+  --yes-z-sticky:   var(--yes-primitive-z-sticky);
+  --yes-z-overlay:  var(--yes-primitive-z-overlay);
+  --yes-z-modal:    var(--yes-primitive-z-modal);
+  --yes-z-toast:    var(--yes-primitive-z-toast);
+  --yes-z-tooltip:  var(--yes-primitive-z-tooltip);
+}

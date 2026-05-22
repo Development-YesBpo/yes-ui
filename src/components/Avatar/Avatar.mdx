@@ -1,0 +1,23 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as AvatarStories from './Avatar.stories'
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+Muestra las iniciales del usuario o su foto. El color de fondo es determinístico:
+el mismo nombre siempre produce el mismo color. Máximo 2 iniciales.
+
+**Referencia:** `ui_kits/appcenter/Components.jsx` → `avatarColor` + `Avatar`
+
+## Uso
+
+```tsx
+import { Avatar } from '@yes/ui'
+
+<Avatar name="Carlos Rodríguez" size="md" />
+<Avatar name="María Gómez" src="/foto.jpg" alt="Foto de María" size="lg" />
+```
+
+<Canvas of={AvatarStories.AllSizes} />
+<Controls of={AvatarStories.Default} />
