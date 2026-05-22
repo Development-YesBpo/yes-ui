@@ -242,6 +242,34 @@
   --yes-size-chip-px:       10px;
   --yes-color-chip-dismiss: var(--yes-primitive-blue-300);
 
+  /* ── Wave 2 — Field shared ───────────────────────────────── */
+  --yes-size-field-gap:         5px;   /* gap: label → control → hint */
+  --yes-size-field-label-text: 13px;   /* reference: .field-label font-size */
+  --yes-size-field-hint-text:  11px;   /* reference: .field-hint font-size */
+  --yes-radius-field:           var(--yes-radius-btn);  /* 6px */
+  --yes-color-field-label:      var(--yes-primitive-neutral-700); /* #374151 */
+  --yes-color-field-hint:       var(--yes-color-text-muted);      /* #6B7280 */
+  --yes-color-field-error:      var(--yes-primitive-error-500);   /* #DC2626 */
+  --yes-color-focus-ring-error: rgba(220, 38, 38, 0.12);
+  --yes-size-select-pr: 36px;   /* padding-right: room for custom chevron */
+  --yes-size-textarea-h:  70px;   /* reference: textarea default height */
+  --yes-size-textarea-py:  8px;   /* reference: textarea vertical padding */
+  --yes-size-checkbox: 16px;   /* checkbox width/height */
+
+  /* ── Toggle ──────────────────────────────────────────────── */
+  --yes-size-toggle-w:           40px;
+  --yes-size-toggle-h:           22px;
+  --yes-radius-toggle:           11px;
+  --yes-size-toggle-knob:        18px;
+  --yes-size-toggle-knob-offset:  2px;
+  --yes-color-toggle-on:         var(--yes-color-brand-accent);   /* #8CBC39 */
+  --yes-color-toggle-off:        var(--yes-color-border-strong);  /* #D1D5DB */
+  --yes-shadow-toggle-knob: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  /* ── SearchInput ─────────────────────────────────────────── */
+  --yes-size-search-icon-left: 10px;
+  --yes-size-search-pl:        34px;
+
   /* ── Shadows / Elevation ─────────────────────────────────────── */
   --yes-shadow-sm:  var(--yes-primitive-shadow-sm);
   --yes-shadow-md:  var(--yes-primitive-shadow-md);
