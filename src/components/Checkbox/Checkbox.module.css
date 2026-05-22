@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yes-size-field-gap);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--yes-space-2);
+}
+
+.checkbox {
+  width: var(--yes-size-checkbox);
+  height: var(--yes-size-checkbox);
+  flex-shrink: 0;
+  accent-color: var(--yes-color-primary);
+  cursor: pointer;
+}
+
+.checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.label {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: var(--yes-weight-medium);
+  color: var(--yes-color-field-label);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.labelDisabled {
+  color: var(--yes-color-text-disabled);
+  cursor: not-allowed;
+}
+
+.hint {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-size-field-hint-text);
+  color: var(--yes-color-field-hint);
+  line-height: 1.4;
+  padding-left: calc(var(--yes-size-checkbox) + var(--yes-space-2));
+}
+
+.error {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-size-field-hint-text);
+  color: var(--yes-color-field-error);
+  line-height: 1.4;
+  padding-left: calc(var(--yes-size-checkbox) + var(--yes-space-2));
+}

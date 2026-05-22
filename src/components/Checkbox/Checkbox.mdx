@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as CheckboxStories from './Checkbox.stories'
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+Casilla de verificación con soporte de estado indeterminado. El estado `indeterminate` se aplica
+vía `ref.current.indeterminate` — es una propiedad DOM, no un atributo HTML.
+
+**Referencia:** Wave 6 DataTable usa `indeterminate` para el checkbox "Seleccionar todo"
+cuando solo algunas filas están seleccionadas.
+
+## Uso básico
+
+```tsx
+import { Checkbox } from '@yes/ui'
+
+<Checkbox label="Aceptar términos" />
+```
+
+## Estado indeterminado
+
+```tsx
+<Checkbox
+  label="Seleccionar todo"
+  indeterminate={someSelected && !allSelected}
+  checked={allSelected}
+  onChange={handleSelectAll}
+/>
+```
+
+<Canvas of={CheckboxStories.IndeterminateDemo} />
+<Controls of={CheckboxStories.Default} />
