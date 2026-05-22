@@ -26,7 +26,7 @@ export { cn } from './utils/cn'
 // Uncomment as components are implemented:
 export { Icon } from './components/Icon'
 export { Button } from './components/Button'
-// export { Badge } from './components/Badge'
+export { Badge } from './components/Badge'
 // export { Input } from './components/Input'
 // export { Select } from './components/Select'
 // export { Textarea } from './components/Textarea'

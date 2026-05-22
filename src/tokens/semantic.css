@@ -229,6 +229,19 @@
   --yes-size-btn-text-lg: 15px;
   --yes-size-btn-px-lg:   20px;
 
+  /* ── Badge ───────────────────────────────────────────────── */
+  --yes-size-badge-py:  3px;
+  --yes-size-badge-px:  9px;
+  --yes-size-badge-dot: 6px;
+
+  /* ── ChannelBadge ────────────────────────────────────────── */
+  --yes-size-channel-badge-text: 11px;
+  --yes-size-channel-badge-py:    2px;
+
+  /* ── Chip ────────────────────────────────────────────────── */
+  --yes-size-chip-px:       10px;
+  --yes-color-chip-dismiss: var(--yes-primitive-blue-300);
+
   /* ── Shadows / Elevation ─────────────────────────────────────── */
   --yes-shadow-sm:  var(--yes-primitive-shadow-sm);
   --yes-shadow-md:  var(--yes-primitive-shadow-md);
