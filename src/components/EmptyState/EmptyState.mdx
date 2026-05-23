@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as EmptyStateStories from './EmptyState.stories'
+
+<Meta of={EmptyStateStories} />
+
+# EmptyState
+
+Comunica al usuario que no hay datos que mostrar en una sección. Siempre incluye un título claro y,
+cuando es posible, una descripción que explique qué hacer para poblar el espacio.
+
+**Referencia:** `preview/components-cards.html` — sección empty state card
+
+## Cuándo incluir cada elemento
+
+| Elemento | Cuándo usar |
+|----------|------------|
+| `icon` | Siempre que tengas un ícono relevante. Ayuda a reconocer el contexto. |
+| `description` | Cuando el estado vacío necesita explicación o instrucción. |
+| `action` | Cuando existe una acción directa para resolver el estado vacío. |
+
+## Uso
+
+```tsx
+import { EmptyState } from '@yes/ui'
+import { Inbox } from 'lucide-react'
+
+<EmptyState
+  icon={Inbox}
+  title="Sin contactos"
+  description="Importa tu lista de contactos para comenzar a enviar campañas."
+  action={{ label: 'Importar contactos', onClick: handleImport }}
+/>
+```
+
+<Canvas of={EmptyStateStories.AllVariants} />
+<Controls of={EmptyStateStories.Default} />
+
+## Accesibilidad
+
+- El título se renderiza como `<h3>`. Asegúrate de que sea coherente con la jerarquía de la página.
+- El ícono es `aria-hidden="true"` — solo decorativo.
+- El botón de acción sigue las reglas estándar de `Button`.
