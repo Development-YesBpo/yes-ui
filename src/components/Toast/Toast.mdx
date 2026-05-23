@@ -1,0 +1,47 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ToastStories from './Toast.stories'
+
+<Meta of={ToastStories} />
+
+# Toast
+
+Notificación flotante transitoria. Se posiciona en la esquina inferior derecha y desaparece automáticamente.
+Para alertas persistentes que requieren atención del usuario, usa `Alert`.
+
+**Referencia:** `preview/components-alerts.html` — sección Toast
+
+## Cuándo usar Toast vs Alert
+
+- **Toast:** notificación de fondo que no interrumpe el flujo; desaparece sola.
+- **Alert:** mensaje que el usuario debe leer antes de continuar; persiste hasta que se descarte.
+
+## Uso con useToast
+
+```tsx
+import { ToastContainer, useToast } from '@yes/ui'
+
+function MyPage() {
+  const { toasts, toast, dismiss } = useToast()
+
+  return (
+    <>
+      <button onClick={() => toast({ variant: 'success', title: 'Guardado' })}>
+        Guardar
+      </button>
+      <ToastContainer toasts={toasts} onDismiss={dismiss} />
+    </>
+  )
+}
+```
+
+## Límite de toasts
+
+`useToast` mantiene un máximo de 3 toasts simultáneos. Al llegar el cuarto, el más antiguo se elimina automáticamente.
+
+<Canvas of={ToastStories.AllVariants} />
+<Controls of={ToastStories.Default} />
+
+## Accesibilidad
+
+- `role="status"` + `aria-live="polite"` anuncia el mensaje en lectores de pantalla sin interrumpir.
+- El botón de cierre tiene `aria-label="Cerrar notificación"`.
