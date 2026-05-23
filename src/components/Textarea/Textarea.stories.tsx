@@ -5,7 +5,7 @@ import { Textarea } from './Textarea'
 const meta: Meta<typeof Textarea> = {
   title: 'Wave 2 — Form Controls/Textarea',
   component: Textarea,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

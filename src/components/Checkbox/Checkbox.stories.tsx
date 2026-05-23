@@ -6,7 +6,7 @@ import { Checkbox } from './Checkbox'
 const meta: Meta<typeof Checkbox> = {
   title: 'Wave 2 — Form Controls/Checkbox',
   component: Checkbox,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

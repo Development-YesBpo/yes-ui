@@ -5,7 +5,7 @@ import { Button } from './Button'
 const meta: Meta<typeof Button> = {
   title: 'Wave 1 — Atoms/Button',
   component: Button,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

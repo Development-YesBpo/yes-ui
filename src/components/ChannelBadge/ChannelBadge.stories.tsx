@@ -4,7 +4,7 @@ import { ChannelBadge } from './ChannelBadge'
 const meta: Meta<typeof ChannelBadge> = {
   title: 'Wave 1 — Atoms/ChannelBadge',
   component: ChannelBadge,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

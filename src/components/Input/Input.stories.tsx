@@ -5,7 +5,7 @@ import { Input } from './Input'
 const meta: Meta<typeof Input> = {
   title: 'Wave 2 — Form Controls/Input',
   component: Input,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

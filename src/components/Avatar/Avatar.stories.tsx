@@ -4,7 +4,7 @@ import { Avatar } from './Avatar'
 const meta: Meta<typeof Avatar> = {
   title: 'Wave 1 — Atoms/Avatar',
   component: Avatar,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

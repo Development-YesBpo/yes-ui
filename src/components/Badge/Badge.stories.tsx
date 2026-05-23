@@ -4,7 +4,7 @@ import { Badge } from './Badge'
 const meta: Meta<typeof Badge> = {
   title: 'Wave 1 — Atoms/Badge',
   component: Badge,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

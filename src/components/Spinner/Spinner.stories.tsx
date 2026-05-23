@@ -4,7 +4,7 @@ import { Spinner } from './Spinner'
 const meta: Meta<typeof Spinner> = {
   title: 'Wave 1 — Atoms/Spinner',
   component: Spinner,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

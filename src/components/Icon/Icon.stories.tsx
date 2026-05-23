@@ -5,7 +5,7 @@ import { Icon } from './Icon'
 const meta: Meta<typeof Icon> = {
   title: 'Wave 1 — Atoms/Icon',
   component: Icon,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

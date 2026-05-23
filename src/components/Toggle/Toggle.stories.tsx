@@ -6,7 +6,7 @@ import { Toggle } from './Toggle'
 const meta: Meta<typeof Toggle> = {
   title: 'Wave 2 — Form Controls/Toggle',
   component: Toggle,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

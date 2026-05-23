@@ -12,7 +12,7 @@ const options = [
 const meta: Meta<typeof Select> = {
   title: 'Wave 2 — Form Controls/Select',
   component: Select,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {

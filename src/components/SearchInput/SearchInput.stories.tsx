@@ -6,7 +6,7 @@ import { SearchInput } from './SearchInput'
 const meta: Meta<typeof SearchInput> = {
   title: 'Wave 2 — Form Controls/SearchInput',
   component: SearchInput,
-  tags: ['autodocs'],
+
   parameters: {
     layout: 'centered',
     docs: {
