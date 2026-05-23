@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as AlertStories from './Alert.stories'
+
+<Meta of={AlertStories} />
+
+# Alert
+
+Bloque de alerta semántica en línea. Comunica resultados de operaciones, advertencias
+o información contextual. No desaparece automáticamente — usa `Toast` para notificaciones transitorias.
+
+**Referencia:** `preview/components-alerts.html`
+
+## Variantes
+
+| Variante | Uso |
+|----------|-----|
+| `success` | Operación completada con éxito |
+| `error` | Fallo que requiere atención |
+| `warning` | Situación que puede requerir acción |
+| `info` | Información contextual neutral |
+
+## Cuándo usar Alert vs Toast
+
+- **Alert:** el usuario necesita leer el mensaje antes de continuar; el mensaje es consecuencia de una acción de la página actual.
+- **Toast:** notificación transitoria de fondo; el usuario no tiene que tomar acción.
+
+<Canvas of={AlertStories.AllVariants} />
+<Controls of={AlertStories.Default} />
+
+## Accesibilidad
+
+- `role="alert"` activa anuncio automático de lectores de pantalla.
+- El botón de cierre tiene `aria-label="Cerrar alerta"`.
+- El ícono es `aria-hidden="true"` — solo decorativo.
+
+## Personalización de tokens
+
+```css
+/* Sobrescribir en la hoja de estilos del producto */
+.my-page .alert-override {
+  --yes-color-success-subtle: #F0FFF4;
+  --yes-size-alert-accent: 6px;
+}
+```
