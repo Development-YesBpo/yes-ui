@@ -63,6 +63,39 @@
   --yes-color-info-border: var(--yes-primitive-info-100);
   --yes-color-info-fg:     var(--yes-primitive-info-700);
 
+  /* ── Alert ───────────────────────────────────────────────── */
+  --yes-color-alert-accent-success: var(--yes-primitive-success-300);
+  --yes-color-alert-accent-error:   var(--yes-primitive-error-300);
+  --yes-color-alert-accent-warning: var(--yes-primitive-warning-300);
+  --yes-color-alert-accent-info:    var(--yes-primitive-blue-300);
+
+  --yes-color-alert-desc-success: var(--yes-primitive-success-800);
+  --yes-color-alert-desc-error:   var(--yes-primitive-error-800);
+  --yes-color-alert-desc-warning: var(--yes-primitive-warning-900);
+  --yes-color-alert-desc-info:    var(--yes-primitive-blue-900);
+
+  --yes-color-alert-title-info:    var(--yes-primitive-blue-700);
+
+  --yes-size-alert-accent: 4px;
+  --yes-size-alert-icon:   16px;
+
+  /* ── Toast ───────────────────────────────────────────────── */
+  --yes-color-toast-bg:        var(--yes-primitive-neutral-800);
+  --yes-color-toast-fg:        var(--yes-primitive-neutral-50);
+  --yes-color-toast-close:     var(--yes-primitive-neutral-400);
+  --yes-size-toast-max-width:  360px;
+  --yes-size-toast-gap:        var(--yes-space-2);
+
+  /* ── Skeleton ────────────────────────────────────────────── */
+  --yes-color-skeleton-base:    var(--yes-primitive-neutral-200);
+  --yes-size-skeleton-height:   var(--yes-space-4);          /* 16px default */
+  --yes-duration-skeleton:      1.5s;
+
+  /* ── EmptyState ──────────────────────────────────────────── */
+  --yes-size-empty-icon:    40px;
+  --yes-size-empty-max-w:   320px;
+  --yes-size-empty-desc-w:  280px;
+
   /* ── Neutral / Completado badge ──────────────────────────────── */
   --yes-color-neutral:        var(--yes-primitive-neutral-100);
   --yes-color-neutral-fg:     var(--yes-primitive-neutral-600);
