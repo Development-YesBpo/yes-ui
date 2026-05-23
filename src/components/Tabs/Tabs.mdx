@@ -1,0 +1,35 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as TabsStories from './Tabs.stories'
+
+<Meta of={TabsStories} />
+
+# Tabs
+
+Navegación por pestañas controlada. El padre gestiona `activeId` — `Tabs` no tiene estado interno.
+
+**Referencia:** `design-system-reference/preview/components-nav.html` (sección tabs)
+
+## Cuándo usar
+
+- `underline` — contexto de página completa (debajo de un título de sección). Variante predeterminada.
+- `contained` — dentro de un card o panel donde el fondo necesita distinción visual.
+
+## Accesibilidad
+
+- `role="tablist"` en el contenedor.
+- `role="tab"` + `aria-selected` en cada pestaña.
+- Teclado: `Tab` navega entre pestañas; `Enter` / `Space` activa la pestaña enfocada.
+
+## Props
+
+<Controls />
+
+## Personalización de tokens
+
+```css
+/* Ejemplo: cambiar el color del indicador a verde marca */
+[data-yes-tabs] {
+  --yes-color-tabs-indicator: var(--yes-color-brand-accent);
+  --yes-color-tabs-label-active: var(--yes-color-brand-accent);
+}
+```

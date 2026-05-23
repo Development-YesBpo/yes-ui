@@ -1,0 +1,273 @@
+/*
+ * Sidebar structural styles — documentation only.
+ *
+ * The Sidebar component renders via React inline styles (React.CSSProperties)
+ * plus a single <style> tag injected at runtime for :hover / [aria-current]
+ * selectors. This mirrors the pattern used by Button, Alert, Skeleton, and
+ * Avatar in Waves 1–3, because the tsup library build does not yet have a
+ * CSS Modules loader. This file is kept per the @yes/ui 6-files-per-component
+ * convention and documents the structural intent of every rule. When the
+ * library build gains CSS-Modules support (`local-css` esbuild loader plus a
+ * matching ambient declaration), Sidebar.tsx can switch back to
+ * `import styles from './Sidebar.module.css'`.
+ */
+
+/* ── Root ─────────────────────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: var(--yes-size-sidebar-width);
+  min-height: 100vh;
+  background: var(--yes-color-sidebar-bg);
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 200ms ease;
+}
+
+.collapsed {
+  width: var(--yes-size-sidebar-width-collapsed);
+}
+
+/* ── Logo area ────────────────────────────────────────────────── */
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px 12px;
+  border-bottom: 1px solid var(--yes-color-sidebar-border);
+  flex-shrink: 0;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  overflow: hidden;
+}
+
+.logoHeading {
+  font-family: var(--yes-font-heading);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--yes-color-sidebar-fg-active);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.logoHeading span {
+  color: var(--yes-color-brand-accent);
+}
+
+.logoSub {
+  font-family: var(--yes-font-sans);
+  font-size: 10px;
+  color: var(--yes-color-sidebar-fg);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: opacity 150ms;
+}
+
+.collapsed .logoSub {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Toggle button ────────────────────────────────────────────── */
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: transparent;
+  color: var(--yes-color-sidebar-fg);
+  cursor: pointer;
+  border-radius: var(--yes-radius-btn);
+  flex-shrink: 0;
+  transition: background 120ms, color 120ms;
+}
+
+.toggleBtn:hover {
+  background: var(--yes-color-sidebar-item-hover);
+  color: var(--yes-color-sidebar-fg-active);
+}
+
+/* ── Nav body ─────────────────────────────────────────────────── */
+.navBody {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 8px;
+}
+
+/* ── Group label ──────────────────────────────────────────────── */
+.groupLabel {
+  font-family: var(--yes-font-sans);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yes-color-sidebar-fg);
+  opacity: 0.4;
+  padding: 4px 8px 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: opacity 150ms, max-height 150ms;
+  max-height: 32px;
+}
+
+.collapsed .groupLabel {
+  opacity: 0;
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  pointer-events: none;
+}
+
+/* ── Nav item ─────────────────────────────────────────────────── */
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: var(--yes-radius-btn);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--yes-color-sidebar-fg);
+  font-family: var(--yes-font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  width: 100%;
+  text-align: left;
+  transition: background 120ms, color 120ms;
+  white-space: nowrap;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.navItem:hover {
+  background: var(--yes-color-sidebar-item-hover);
+  color: var(--yes-color-sidebar-fg-active);
+}
+
+.navItem[aria-current='page'] {
+  background: var(--yes-color-sidebar-item-active);
+  color: var(--yes-color-sidebar-fg-active);
+  font-weight: 600;
+}
+
+/* ── Nav item icon ────────────────────────────────────────────── */
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* ── Nav item label ───────────────────────────────────────────── */
+.navLabel {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 150ms;
+}
+
+.collapsed .navLabel {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+}
+
+/* ── Nav badge ────────────────────────────────────────────────── */
+.navBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--yes-radius-badge);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  flex-shrink: 0;
+  background: var(--yes-color-sidebar-badge-idle);
+  color: var(--yes-color-sidebar-fg);
+  transition: opacity 150ms, background 120ms, color 120ms;
+}
+
+.navItem[aria-current='page'] .navBadge {
+  background: var(--yes-color-sidebar-badge-active);
+  color: var(--yes-color-surface);
+}
+
+.collapsed .navBadge {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Footer ───────────────────────────────────────────────────── */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 10px;
+  border-top: 1px solid var(--yes-color-sidebar-border);
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.userInfo {
+  flex: 1;
+  overflow: hidden;
+  transition: opacity 150ms;
+}
+
+.collapsed .userInfo {
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+}
+
+.userName {
+  font-family: var(--yes-font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--yes-color-sidebar-fg-active);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-family: var(--yes-font-sans);
+  font-size: 10px;
+  color: var(--yes-color-sidebar-fg);
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--yes-color-sidebar-fg);
+  opacity: 0.4;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--yes-radius-btn);
+  flex-shrink: 0;
+  transition: opacity 120ms, background 120ms;
+}
+
+.logoutBtn:hover {
+  opacity: 1;
+  background: var(--yes-color-sidebar-item-hover);
+}

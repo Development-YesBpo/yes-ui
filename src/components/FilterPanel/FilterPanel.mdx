@@ -1,0 +1,72 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as FilterPanelStories from './FilterPanel.stories'
+
+<Meta of={FilterPanelStories} />
+
+# FilterPanel
+
+Panel flotante de filtros avanzados. Agrupa controles por categoría — checkboxes,
+selects, y sliders — con acciones de limpiar y aplicar en el footer.
+
+**Referencia:** `design-system-reference/preview/components-meta-filters.html` → FilterPanel
+
+## Cuándo usar
+
+- Filtros avanzados en tablas con múltiples dimensiones
+- Combinado con `GroupFilter` (barra de búsqueda superior) + `FilterPanel` (panel avanzado)
+- Cuando los filtros son opcionales y no necesitan estar siempre visibles
+
+**No usar** para filtros inline simples — usa `GroupFilter`. No usar como diálogo — usa `Modal`.
+
+## Uso
+
+```tsx
+import { FilterPanel, Checkbox } from '@yes/ui'
+import { useState } from 'react'
+
+function TablaContactos() {
+  const [fpOpen, setFpOpen] = useState(false)
+
+  return (
+    <div style={{ position: 'relative' }}>
+      <button onClick={() => setFpOpen(true)}>Filtros avanzados</button>
+
+      <FilterPanel
+        open={fpOpen}
+        onClose={() => setFpOpen(false)}
+        onApply={handleApply}
+        onClear={handleClear}
+        style={{ top: 44, right: 0 }}
+      >
+        <FilterPanel.Group label="Estado">
+          <Checkbox label="Activo" />
+          <Checkbox label="Pendiente" />
+        </FilterPanel.Group>
+
+        <FilterPanel.Group label="Canal">
+          <Checkbox label="WhatsApp" />
+          <Checkbox label="SMS" />
+        </FilterPanel.Group>
+      </FilterPanel>
+    </div>
+  )
+}
+```
+
+## Posicionamiento
+
+`FilterPanel` es `position: absolute` — el contenedor padre debe ser `position: relative`.
+Usa el prop `style` para ajustar `top`, `right`, `left`, `bottom` según el trigger.
+
+## Subcomponente: FilterPanel.Group
+
+Agrupa controles bajo un label de sección:
+
+```tsx
+<FilterPanel.Group label="Estado">
+  <Checkbox label="Activo" />
+</FilterPanel.Group>
+```
+
+<Canvas of={FilterPanelStories.AllGroups} />
+<Controls of={FilterPanelStories.Default} />

@@ -1,0 +1,63 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as SidebarStories from './Sidebar.stories'
+
+<Meta of={SidebarStories} />
+
+# Sidebar
+
+Barra de navegación lateral de producto YES BPO. Fondo azul oscuro (#142860). Gestiona el estado de colapso de forma controlada — el padre provee `collapsed` y `onToggleCollapse`.
+
+**Referencia visual:** `design-system-reference/preview/components-nav.html`
+**Referencia de implementación:** `design-system-reference/ui_kits/appcenter/Components.jsx` → `AppSidebar`
+
+## Cuándo usar
+
+Cada producto YES BPO (AppCenter, PUY, Dashboard) tiene su propia instancia de Sidebar.
+El producto se identifica con la prop `product`. El filtrado de ítems por rol se hace
+**fuera** del componente — pasa solo los ítems que el usuario tiene permiso de ver.
+
+## Accesibilidad
+
+- `role="navigation"` con `aria-label="Navegación principal"`.
+- Ítems de nav son `<button>` con `aria-current="page"` en el ítem activo.
+- Modo colapsado: labels con `aria-hidden="true"` — el ícono lleva el título del botón para lectores de pantalla.
+- Botón de cerrar sesión con `aria-label="Cerrar sesión"`.
+
+## Props
+
+<Controls />
+
+## Personalización de tokens
+
+```css
+/* Ejemplo: cambiar el color de fondo del sidebar por producto */
+[data-yes-sidebar-root] {
+  --yes-color-sidebar-bg: #1a1a2e;
+}
+```
+
+## Migración desde implementación anterior
+
+Reemplazar `AppSidebar` de `ui_kits/appcenter/Components.jsx`:
+
+```tsx
+// Antes — prototipo inline
+<AppSidebar navItems={items} activeView={view} onNavigate={setView} user={user} />
+
+// Ahora — librería
+import { Sidebar } from '@yes/ui'
+<Sidebar
+  product="AppCenter"
+  navItems={items}
+  activeKey={view}
+  onNavigate={setView}
+  user={user}
+  onLogout={handleLogout}
+/>
+```
+
+Diferencias clave:
+- `activeView` → `activeKey`
+- `onNavigate` misma firma
+- `onLogout` ahora es prop requerida
+- Colapso: `collapsed` + `onToggleCollapse` (antes era estado interno en el prototipo)

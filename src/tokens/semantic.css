@@ -120,9 +120,10 @@
   --yes-color-surface-disabled:var(--yes-primitive-neutral-100);
 
   /* ── Text ────────────────────────────────────────────────────── */
-  --yes-color-text:          var(--yes-primitive-neutral-900);
-  --yes-color-text-muted:    var(--yes-primitive-neutral-500);
-  --yes-color-text-subtle:   var(--yes-primitive-neutral-400);
+  --yes-color-text:           var(--yes-primitive-neutral-900);
+  --yes-color-text-secondary: var(--yes-primitive-neutral-600);  /* #4B5563 body / panel-secondary */
+  --yes-color-text-muted:     var(--yes-primitive-neutral-500);
+  --yes-color-text-subtle:    var(--yes-primitive-neutral-400);
   --yes-color-text-disabled: var(--yes-primitive-neutral-400);
   --yes-color-text-inverse:  var(--yes-primitive-white);
   --yes-color-text-brand:    var(--yes-primitive-brand-blue);
@@ -140,7 +141,7 @@
   --yes-color-focus-ring:  var(--yes-primitive-focus-ring);
 
   /* ── Scrim / Overlay ─────────────────────────────────────────── */
-  --yes-color-scrim: rgba(0, 0, 0, 0.5);
+  --yes-color-scrim: rgba(0, 0, 0, 0.45);
 
   /* ── Sidebar ─────────────────────────────────────────────────── */
   --yes-color-sidebar-bg:          var(--yes-primitive-blue-900);  /* #142860 */
@@ -151,6 +152,14 @@
   --yes-color-sidebar-border:      rgba(255, 255, 255, 0.08);
   --yes-color-sidebar-badge-active: var(--yes-primitive-brand-green);
   --yes-color-sidebar-badge-idle:   var(--yes-primitive-blue-700);
+
+  /* ── Tabs ─────────────────────────────────────────────────────── */
+  --yes-color-tabs-border:          var(--yes-color-border);          /* #E5E7EB */
+  --yes-color-tabs-indicator:       var(--yes-color-primary);         /* #2B52A0 */
+  --yes-color-tabs-label-idle:      var(--yes-color-text-muted);      /* #6B7280 */
+  --yes-color-tabs-label-active:    var(--yes-color-primary);         /* #2B52A0 */
+  --yes-color-tabs-contained-bg:    var(--yes-color-border);          /* #E5E7EB panel track */
+  --yes-color-tabs-contained-tab:   var(--yes-color-surface);         /* #FFFFFF active tab */
 
   /* ── Channel colors ──────────────────────────────────────────── */
   --yes-channel-wa-bg:     #D1FAE5;
@@ -244,6 +253,7 @@
   --yes-size-modal-lg:  800px;
   --yes-size-drawer-md: 480px;
   --yes-size-drawer-lg: 640px;
+  --yes-size-filter-panel-width: 340px;
 
   /* ── Avatar ──────────────────────────────────────────────────── */
   --yes-size-avatar-sm: 24px;

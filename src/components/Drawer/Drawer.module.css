@@ -1,0 +1,101 @@
+/*
+ * Drawer — structural intent reference.
+ *
+ * NOTE: This file documents the intended layout/structure for the Drawer
+ * component, mapped to --yes-* tokens. The runtime component (Drawer.tsx)
+ * uses inline React.CSSProperties + an injected <style> block, matching
+ * the Wave 4 precedent (Tabs, Sidebar). This file is intentionally not
+ * imported — it exists to satisfy the 6-files rule and to serve as the
+ * canonical token mapping for visual review.
+ */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--yes-color-scrim);
+  z-index: var(--yes-z-modal);
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--yes-duration-base) var(--yes-ease);
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.panel {
+  background: var(--yes-color-surface);
+  border-left: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-card) 0 0 var(--yes-radius-card);
+  box-shadow: var(--yes-shadow-xl);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateX(100%);
+  transition: transform var(--yes-duration-base) var(--yes-ease-out);
+}
+
+.panel.open { transform: translateX(0); }
+
+.md { width: var(--yes-size-drawer-md); }
+.lg { width: var(--yes-size-drawer-lg); }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-bottom: 1px solid var(--yes-color-border);
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--yes-font-heading);
+  font-size: 15px;
+  font-weight: var(--yes-weight-bold);
+  color: var(--yes-color-text);
+  line-height: 1.3;
+}
+
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--yes-color-text-subtle);
+  font-size: 18px;
+  line-height: 1;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  transition: color var(--yes-duration-fast) var(--yes-ease);
+}
+
+.closeBtn:hover { color: var(--yes-color-text); }
+
+.body {
+  padding: var(--yes-space-3) var(--yes-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--yes-space-3);
+  overflow-y: auto;
+  flex: 1;
+  font-size: var(--yes-text-sm);
+  color: var(--yes-color-text);
+}
+
+.footer {
+  display: flex;
+  gap: var(--yes-space-2);
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-top: 1px solid var(--yes-color-border);
+  flex-shrink: 0;
+}

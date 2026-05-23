@@ -1,0 +1,97 @@
+/* ── Tabs root ────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 0;
+  position: relative;
+}
+
+/* ── Underline variant ────────────────────────────────────────── */
+.underline {
+  border-bottom: 2px solid var(--yes-color-tabs-border);
+}
+
+.underline .tab {
+  padding: 8px 16px;
+  font-family: var(--yes-font-sans);
+  font-size: 13px;
+  font-weight: var(--yes-weight-semibold);
+  color: var(--yes-color-tabs-label-idle);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color 120ms, border-color 120ms;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.underline .tab:hover {
+  color: var(--yes-color-tabs-label-active);
+}
+
+.underline .tab[aria-selected='true'] {
+  color: var(--yes-color-tabs-label-active);
+  border-bottom-color: var(--yes-color-tabs-indicator);
+  font-weight: var(--yes-weight-semibold);
+}
+
+/* ── Contained variant ────────────────────────────────────────── */
+.contained {
+  background: var(--yes-color-tabs-contained-bg);
+  border-radius: var(--yes-radius-btn);
+  padding: 3px;
+  gap: 2px;
+}
+
+.contained .tab {
+  padding: 6px 14px;
+  font-family: var(--yes-font-sans);
+  font-size: 13px;
+  font-weight: var(--yes-weight-semibold);
+  color: var(--yes-color-tabs-label-idle);
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  border-radius: calc(var(--yes-radius-btn) - 2px);
+  transition: color 120ms, background 120ms, box-shadow 120ms;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+}
+
+.contained .tab:hover {
+  color: var(--yes-color-text);
+}
+
+.contained .tab[aria-selected='true'] {
+  background: var(--yes-color-tabs-contained-tab);
+  color: var(--yes-color-text);
+  box-shadow: var(--yes-shadow-sm);
+}
+
+/* ── Count badge ──────────────────────────────────────────────── */
+.count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: var(--yes-radius-badge);
+  font-size: 11px;
+  font-weight: var(--yes-weight-semibold);
+  background: var(--yes-color-border);
+  color: var(--yes-color-text-muted);
+  line-height: 1;
+}
+
+.tab[aria-selected='true'] .count {
+  background: var(--yes-color-primary);
+  color: var(--yes-color-surface);
+}

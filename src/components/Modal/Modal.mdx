@@ -1,0 +1,60 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ModalStories from './Modal.stories'
+
+<Meta of={ModalStories} />
+
+# Modal
+
+Diálogo modal centrado con overlay semitransparente. Atrapa el foco mientras está abierto
+y cierra con Escape, clic en overlay, o botón ×.
+
+**Referencia:** `design-system-reference/preview/components-modals.html`
+
+## Cuándo usar
+
+- Confirmaciones destructivas (eliminar, desactivar)
+- Formularios breves que requieren contexto completo
+- Alertas que necesitan respuesta inmediata
+
+**No usar** para paneles laterales (usa `Drawer`) ni filtros flotantes (usa `FilterPanel`).
+
+## Uso
+
+```tsx
+import { Modal, Button } from '@yes/ui'
+import { useState } from 'react'
+
+function EliminarContacto() {
+  const [open, setOpen] = useState(false)
+  return (
+    <>
+      <Button tone="danger" onClick={() => setOpen(true)}>Eliminar</Button>
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        title="Eliminar contacto"
+        size="sm"
+        footer={
+          <>
+            <Button tone="secondary" onClick={() => setOpen(false)}>Cancelar</Button>
+            <Button tone="danger" onClick={handleDelete}>Confirmar eliminación</Button>
+          </>
+        }
+      >
+        <p>Esta acción no se puede deshacer.</p>
+      </Modal>
+    </>
+  )
+}
+```
+
+## Accesibilidad
+
+- `role="dialog"` + `aria-modal="true"` en el panel
+- `aria-labelledby` apunta al `<h2>` del título
+- Foco atrapado dentro del panel mientras está abierto (via `useFocusTrap`)
+- Al cerrar, el foco regresa al elemento que abrió el modal
+- Botón × tiene `aria-label="Cerrar"`
+
+<Canvas of={ModalStories.Default} />
+<Controls of={ModalStories.Default} />

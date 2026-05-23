@@ -1,0 +1,56 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as DrawerStories from './Drawer.stories'
+
+<Meta of={DrawerStories} />
+
+# Drawer
+
+Panel lateral deslizante desde la derecha. Muestra detalles de un registro o formularios
+de edición sin abandonar el contexto de la lista.
+
+**Referencia:** `design-system-reference/preview/components-modals.html` → panel lateral
+
+## Cuándo usar
+
+- Detalle de un contacto, campaña, o registro de tabla
+- Edición de campos secundarios sin navegación completa
+- Previsualización de contenido
+
+**No usar** para confirmaciones (usa `Modal`) ni filtros (usa `FilterPanel`).
+
+## Uso
+
+```tsx
+import { Drawer, Button } from '@yes/ui'
+import { useState } from 'react'
+
+function DetalleContacto({ contacto }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <>
+      <Button tone="secondary" onClick={() => setOpen(true)}>Ver detalle</Button>
+      <Drawer
+        open={open}
+        onClose={() => setOpen(false)}
+        title={contacto.nombre}
+        size="md"
+        footer={
+          <Button tone="primary" onClick={handleGuardar}>Guardar cambios</Button>
+        }
+      >
+        {/* contenido del panel */}
+      </Drawer>
+    </>
+  )
+}
+```
+
+## Accesibilidad
+
+- `role="dialog"` + `aria-modal="true"` en el panel
+- `aria-labelledby` apunta al `<h2>` del título
+- Foco atrapado dentro del panel mientras está abierto (via `useFocusTrap`)
+- Al cerrar, el foco regresa al elemento que abrió el drawer
+
+<Canvas of={DrawerStories.Default} />
+<Controls of={DrawerStories.Default} />

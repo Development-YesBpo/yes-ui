@@ -1,0 +1,122 @@
+/*
+ * FilterPanel — structural intent reference.
+ *
+ * NOTE: This file documents the intended layout/structure for the
+ * FilterPanel component, mapped to --yes-* tokens. The runtime component
+ * (FilterPanel.tsx) uses inline React.CSSProperties + an injected <style>
+ * block for hover states, matching the Wave 4 precedent (Tabs, Sidebar).
+ * This file is intentionally not imported — it satisfies the 6-files rule
+ * and serves as the canonical token mapping for visual review.
+ */
+
+.panel {
+  position: absolute;
+  background: var(--yes-color-surface);
+  border: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-card);
+  box-shadow: var(--yes-shadow-lg);
+  width: var(--yes-size-filter-panel-width);
+  overflow: hidden;
+  z-index: var(--yes-z-dropdown);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-bottom: 1px solid var(--yes-color-border);
+}
+
+.title {
+  font-family: var(--yes-font-heading);
+  font-size: 13px;
+  font-weight: var(--yes-weight-bold);
+  color: var(--yes-color-text);
+}
+
+.closeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: var(--yes-radius-sm);
+  border: 1px solid var(--yes-color-border);
+  background: var(--yes-color-bg);
+  cursor: pointer;
+  color: var(--yes-color-text-subtle);
+  font-size: 16px;
+  line-height: 1;
+  transition: color var(--yes-duration-fast) var(--yes-ease);
+}
+
+.closeBtn:hover { color: var(--yes-color-text); }
+
+.body {
+  padding: var(--yes-space-3) var(--yes-space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--yes-space-3);
+}
+
+.footer {
+  display: flex;
+  gap: var(--yes-space-2);
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-top: 1px solid var(--yes-color-border);
+  background: var(--yes-color-bg);
+}
+
+.clearBtn {
+  flex: 1;
+  height: 34px;
+  border-radius: var(--yes-radius-btn);
+  border: 1px solid var(--yes-color-border-strong);
+  background: transparent;
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: var(--yes-weight-semibold);
+  color: var(--yes-color-text-muted);
+  cursor: pointer;
+  transition: border-color var(--yes-duration-fast) var(--yes-ease);
+}
+
+.clearBtn:hover { border-color: var(--yes-color-text-muted); }
+
+.applyBtn {
+  flex: 2;
+  height: 34px;
+  border-radius: var(--yes-radius-btn);
+  border: none;
+  background: var(--yes-color-primary);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: var(--yes-weight-semibold);
+  color: var(--yes-color-surface);
+  cursor: pointer;
+  transition: background var(--yes-duration-fast) var(--yes-ease);
+}
+
+.applyBtn:hover { background: var(--yes-color-primary-hover); }
+
+/* ── FilterPanel.Group ─────────────────────────────── */
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.groupLabel {
+  font-size: 11px;
+  font-weight: var(--yes-weight-bold);
+  color: var(--yes-color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.groupContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--yes-space-1);
+}
