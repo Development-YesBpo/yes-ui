@@ -1,0 +1,43 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as SkeletonStories from './Skeleton.stories'
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+Marcador de posición animado con efecto shimmer. Sustituye visualmente el contenido mientras se carga.
+Siempre debe tener las mismas dimensiones que el contenido que reemplaza.
+
+## Uso básico
+
+```tsx
+import { Skeleton } from '@yes/ui'
+
+// Placeholder para una línea de texto
+<Skeleton height={14} />
+
+// Placeholder para un avatar circular
+<Skeleton width={40} height={40} borderRadius="9999px" />
+
+// Placeholder para una card
+<Skeleton height={120} borderRadius="8px" />
+```
+
+## Patrones comunes
+
+Combina múltiples `Skeleton` para replicar la estructura del contenido real:
+
+<Canvas of={SkeletonStories.CardSkeleton} />
+<Canvas of={SkeletonStories.TableRowSkeleton} />
+<Controls of={SkeletonStories.Default} />
+
+## Accesibilidad
+
+`aria-hidden="true"` — los lectores de pantalla ignoran el skeleton.
+Asegúrate de que la región que contiene los skeletons tenga `aria-busy="true"` mientras carga.
+
+```tsx
+<section aria-busy={isLoading} aria-label="Tabla de contactos">
+  {isLoading ? <TableRowSkeleton /> : <ContactsTable />}
+</section>
+```
