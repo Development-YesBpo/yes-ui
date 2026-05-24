@@ -1,0 +1,27 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as KPICardStories from './KPICard.stories'
+
+<Meta of={KPICardStories} />
+
+# KPICard
+
+Métrica de dashboard: label corto, valor grande en `Barlow Semi Condensed`, delta opcional con icono de tendencia.
+
+**Referencia:** `design-system-reference/preview/components-cards.html` (sección KPI) y `ui_kits/dashboard/DashComponents.jsx → KpiCard`.
+
+## Cuándo usar
+
+- En dashboards para destacar KPIs principales (contactos, conversiones, uptime).
+- Para deltas: usar `+` o `-` al inicio para que el componente detecte dirección automáticamente.
+- Color personalizado vía prop `color` para casos como uptime/branding.
+
+<Canvas of={KPICardStories.KPIRow} />
+
+## Accesibilidad
+
+- Iconos llevan `aria-hidden` — el label es la única información requerida por lectores de pantalla.
+- Delta dirección codificada por color + icono (no solo color).
+
+## Props
+
+<Controls />

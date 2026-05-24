@@ -1,0 +1,68 @@
+/*
+ * KPICard structural styles — documentation only.
+ *
+ * The KPICard component renders via React inline styles (React.CSSProperties)
+ * because the tsup library build does not yet have a CSS Modules loader.
+ * This file is kept per the @yes/ui 6-files-per-component convention.
+ */
+
+.root {
+  background: var(--yes-color-surface);
+  border: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-card);
+  box-shadow: var(--yes-shadow-sm);
+  padding: var(--yes-space-4) var(--yes-space-4-5);
+  flex: 1;
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: var(--yes-space-1-5);
+  margin-bottom: var(--yes-space-1-5);
+}
+
+.icon {
+  color: var(--yes-color-text-subtle);
+  flex-shrink: 0;
+}
+
+.label {
+  font-family: var(--yes-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--yes-color-text-subtle);
+}
+
+.value {
+  font-family: var(--yes-font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--yes-color-text);
+  line-height: 1;
+}
+
+.delta {
+  display: flex;
+  align-items: center;
+  gap: var(--yes-space-1);
+  margin-top: var(--yes-space-2);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  font-weight: 600;
+}
+
+.deltaUp {
+  color: var(--yes-color-kpi-up);
+}
+
+.deltaDown {
+  color: var(--yes-color-kpi-down);
+}
+
+.deltaLabel {
+  color: var(--yes-color-text-muted);
+  font-weight: 400;
+}

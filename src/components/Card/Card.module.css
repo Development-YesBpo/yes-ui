@@ -1,0 +1,51 @@
+/*
+ * Card structural styles — documentation only.
+ *
+ * The Card component renders via React inline styles (React.CSSProperties)
+ * plus a single <style> tag injected at runtime for :hover / :focus-visible
+ * selectors. This mirrors the pattern used across Wave 4/5 components,
+ * because the tsup library build does not yet have a CSS Modules loader.
+ * This file is kept per the @yes/ui 6-files-per-component convention.
+ */
+
+.root {
+  background: var(--yes-color-surface);
+  border: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-card);
+  box-shadow: var(--yes-shadow-sm);
+  overflow: hidden;
+}
+
+.interactive {
+  cursor: pointer;
+  transition: box-shadow 150ms, border-color 150ms;
+}
+
+.interactive:hover {
+  box-shadow: var(--yes-shadow-md);
+  border-color: var(--yes-color-border-strong);
+}
+
+.interactive:focus-visible {
+  outline: 2px solid var(--yes-color-primary);
+  outline-offset: 2px;
+}
+
+.header {
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-bottom: 1px solid var(--yes-color-border-faint);
+  font-family: var(--yes-font-heading);
+  font-size: var(--yes-text-sm);
+  font-weight: 700;
+  color: var(--yes-color-text);
+}
+
+.body {
+  padding: var(--yes-space-3-5) var(--yes-space-4);
+}
+
+.footer {
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-top: 1px solid var(--yes-color-border-faint);
+  background: var(--yes-color-surface-sunken);
+}

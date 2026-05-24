@@ -7,7 +7,6 @@ import { Button } from '../Button'
 const meta: Meta<typeof Drawer> = {
   title: 'Wave 5 — Overlay/Drawer',
   component: Drawer,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {

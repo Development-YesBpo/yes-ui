@@ -7,7 +7,6 @@ import { Checkbox } from '../Checkbox'
 const meta: Meta<typeof FilterPanel> = {
   title: 'Wave 5 — Overlay/FilterPanel',
   component: FilterPanel,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {

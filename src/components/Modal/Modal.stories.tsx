@@ -7,7 +7,6 @@ import { Button } from '../Button'
 const meta: Meta<typeof Modal> = {
   title: 'Wave 5 — Overlay/Modal',
   component: Modal,
-  tags: ['autodocs'],
   parameters: {
     layout: 'centered',
     docs: {

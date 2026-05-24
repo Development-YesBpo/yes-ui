@@ -41,7 +41,6 @@ const ANDREA: SidebarProps['user'] = {
 const meta: Meta<typeof Sidebar> = {
   title: 'Wave 4 — Navigation/Sidebar',
   component: Sidebar,
-  tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
     docs: {

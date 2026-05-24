@@ -1,0 +1,60 @@
+/*
+ * GroupFilter structural styles — documentation only.
+ *
+ * The GroupFilter component renders via React inline styles (React.CSSProperties)
+ * plus a single <style> tag injected at runtime for :hover selectors.
+ * This file is kept per the @yes/ui 6-files-per-component convention.
+ */
+
+.root {
+  background: var(--yes-color-surface);
+  border: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-card);
+  overflow: hidden;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--yes-space-2);
+  padding: var(--yes-space-3) var(--yes-space-4);
+}
+
+.footer {
+  display: flex;
+  gap: var(--yes-space-2);
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-top: 1px solid var(--yes-color-border-faint);
+  background: var(--yes-color-surface-sunken);
+}
+
+.btnClear {
+  flex: 1;
+  height: var(--yes-size-height-md);
+  border-radius: var(--yes-radius-btn);
+  border: 1px solid var(--yes-color-border);
+  background: var(--yes-color-surface);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: 600;
+  color: var(--yes-color-text-muted);
+  cursor: pointer;
+}
+
+.btnApply {
+  flex: 2;
+  height: var(--yes-size-height-md);
+  border-radius: var(--yes-radius-btn);
+  border: none;
+  background: var(--yes-color-primary);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: 600;
+  color: var(--yes-primitive-white);
+  cursor: pointer;
+}
+
+.btnApply:hover {
+  opacity: 0.9;
+}

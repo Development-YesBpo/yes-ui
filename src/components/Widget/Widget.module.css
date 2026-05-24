@@ -1,0 +1,34 @@
+/*
+ * Widget structural styles — documentation only.
+ *
+ * The Widget component renders via React inline styles (React.CSSProperties)
+ * because the tsup library build does not yet have a CSS Modules loader.
+ * This file is kept per the @yes/ui 6-files-per-component convention.
+ */
+
+.root {
+  background: var(--yes-color-surface);
+  border: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-card);
+  box-shadow: var(--yes-shadow-sm);
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--yes-space-3) var(--yes-space-4);
+  border-bottom: 1px solid var(--yes-color-border-faint);
+}
+
+.title {
+  font-family: var(--yes-font-heading);
+  font-size: var(--yes-text-sm);
+  font-weight: 700;
+  color: var(--yes-color-text);
+}
+
+.body {
+  padding: var(--yes-space-3-5) var(--yes-space-4);
+}

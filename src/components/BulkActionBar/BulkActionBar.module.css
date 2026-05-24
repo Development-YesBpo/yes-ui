@@ -1,0 +1,72 @@
+/*
+ * BulkActionBar structural styles — documentation only.
+ *
+ * The BulkActionBar component renders via React inline styles (React.CSSProperties)
+ * plus a single <style> tag injected at runtime for :hover selectors.
+ * This file is kept per the @yes/ui 6-files-per-component convention.
+ */
+
+.root {
+  background: var(--yes-color-selection-bg);
+  border: 1px solid var(--yes-color-selection-border);
+  border-radius: var(--yes-radius-card);
+  padding: 0 var(--yes-space-3-5);
+  height: var(--yes-size-bulk-bar-height);
+  display: flex;
+  align-items: center;
+  gap: var(--yes-space-1-5);
+}
+
+.count {
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: 700;
+  color: var(--yes-color-selection-text);
+  min-width: 100px;
+}
+
+.btn {
+  height: 28px;
+  padding: 0 var(--yes-space-2-5);
+  border-radius: var(--yes-radius-btn);
+  border: 1px solid var(--yes-color-selection-border);
+  background: var(--yes-color-surface);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  font-weight: 600;
+  color: var(--yes-color-selection-text);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+.btnDanger {
+  color: var(--yes-color-danger);
+  border-color: #FECACA;
+}
+
+.divider {
+  width: 1px;
+  height: 18px;
+  background: var(--yes-color-selection-border);
+  flex-shrink: 0;
+}
+
+.btnClear {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  font-weight: 600;
+  color: var(--yes-color-text-subtle);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btnClear:hover {
+  color: var(--yes-color-text-muted);
+}

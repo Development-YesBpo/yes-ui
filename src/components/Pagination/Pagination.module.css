@@ -1,0 +1,86 @@
+/*
+ * Pagination structural styles — documentation only.
+ *
+ * The Pagination component renders via React inline styles (React.CSSProperties)
+ * plus a single <style> tag injected at runtime for :hover / [aria-current]
+ * selectors. This mirrors the pattern used by Tabs, Sidebar, Alert, and
+ * Avatar, because the tsup library build does not yet have a CSS Modules
+ * loader. This file is kept per the @yes/ui 6-files-per-component convention
+ * and documents the structural intent of every rule.
+ */
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--yes-space-3);
+  flex-wrap: wrap;
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  color: var(--yes-color-text-muted);
+}
+
+.pageSize {
+  display: flex;
+  align-items: center;
+  gap: var(--yes-space-1);
+}
+
+.select {
+  height: var(--yes-size-pagination-btn);
+  border: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-btn);
+  padding: 0 var(--yes-space-2);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  color: var(--yes-color-text);
+  background: var(--yes-color-surface);
+}
+
+.info {
+  color: var(--yes-color-text-muted);
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: var(--yes-space-1);
+  margin-left: auto;
+}
+
+.btn {
+  width: var(--yes-size-pagination-btn);
+  height: var(--yes-size-pagination-btn);
+  border-radius: var(--yes-radius-btn);
+  border: 1px solid var(--yes-color-border);
+  background: var(--yes-color-surface);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  font-weight: 600;
+  color: var(--yes-color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 150ms, color 150ms;
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.btn:not(:disabled):not(.active):hover {
+  background: var(--yes-color-bg);
+}
+
+.active {
+  background: var(--yes-color-primary);
+  color: var(--yes-primitive-white);
+  border-color: var(--yes-color-primary);
+}
+
+.ellipsis {
+  border: none;
+  background: none;
+  cursor: default;
+}

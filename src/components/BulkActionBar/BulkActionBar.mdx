@@ -1,0 +1,32 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as BulkActionBarStories from './BulkActionBar.stories'
+
+<Meta of={BulkActionBarStories} />
+
+# BulkActionBar
+
+Barra contextual que aparece cuando el usuario selecciona una o más filas de una tabla. Muestra la cuenta, acciones estándar, acciones destructivas separadas por un divisor y un botón para limpiar la selección.
+
+**Referencia:** `design-system-reference/preview/components-table-advanced.html` y `components-meta-filters.html` (sección BulkActionBar).
+
+## Cuándo usar
+
+- Encima o debajo de tablas con selección múltiple (checkboxes en cada fila).
+- Cuando `count > 0`. Con `count = 0` el componente no renderiza nada — el padre no necesita esconderlo manualmente.
+
+<Canvas of={BulkActionBarStories.Default} />
+
+## Comportamiento
+
+- Acciones con `danger: true` se ordenan al final, después de un divisor visual.
+- "× Limpiar selección" siempre va alineado a la derecha.
+- Fondo y borde usan tokens `--yes-color-selection-*` para diferenciarse del resto de la tabla.
+
+## Accesibilidad
+
+- `role="toolbar"` con `aria-label="Acciones en lote"`.
+- El divisor es decorativo (`aria-hidden`).
+
+## Props
+
+<Controls />

@@ -1,0 +1,28 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as PaginationStories from './Pagination.stories'
+
+<Meta of={PaginationStories} />
+
+# Pagination
+
+Control de navegación por páginas para tablas y listas. Componente controlado — el padre gestiona `page` y `pageSize`.
+
+**Referencia:** `design-system-reference/preview/components-table-advanced.html` → sección Pagination.
+
+## Cuándo usar
+
+- Siempre en tablas con más de `pageSize` registros.
+- No usar en listas infinitas con scroll — usar scroll virtual en su lugar.
+
+<Canvas of={PaginationStories.Interactive} />
+
+## Accesibilidad
+
+- `<nav aria-label="Paginación">` envuelve el control.
+- Botones prev/next/first/last llevan `aria-label` descriptivo en español.
+- Página activa lleva `aria-current="page"`.
+- Cada botón numérico tiene `aria-label="Página N"` para lectores de pantalla.
+
+## Props
+
+<Controls />

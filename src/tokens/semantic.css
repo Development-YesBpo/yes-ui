@@ -131,6 +131,7 @@
   /* ── Border ──────────────────────────────────────────────────── */
   --yes-color-border:          var(--yes-primitive-neutral-200);  /* #E5E7EB */
   --yes-color-border-subtle:   var(--yes-primitive-neutral-100);  /* #F3F4F6 */
+  --yes-color-border-faint:    var(--yes-primitive-neutral-100);  /* #F3F4F6 — Card/Widget internal dividers */
   --yes-color-border-strong:   var(--yes-primitive-neutral-300);  /* #D1D5DB */
   --yes-color-border-focus:    var(--yes-primitive-brand-blue);
   --yes-color-border-error:    var(--yes-primitive-error-500);
@@ -216,16 +217,20 @@
   --yes-radius-badge: var(--yes-primitive-radius-full);  /* 9999px — badges, chips */
 
   /* ── Spacing ─────────────────────────────────────────────────── */
-  --yes-space-1:  var(--yes-primitive-space-1);
-  --yes-space-2:  var(--yes-primitive-space-2);
-  --yes-space-3:  var(--yes-primitive-space-3);
-  --yes-space-4:  var(--yes-primitive-space-4);
-  --yes-space-5:  var(--yes-primitive-space-5);
-  --yes-space-6:  var(--yes-primitive-space-6);
-  --yes-space-8:  var(--yes-primitive-space-8);
-  --yes-space-10: var(--yes-primitive-space-10);
-  --yes-space-12: var(--yes-primitive-space-12);
-  --yes-space-16: var(--yes-primitive-space-16);
+  --yes-space-1:    var(--yes-primitive-space-1);
+  --yes-space-1-5:  6px;   /* fractional — KPICard label row, Toolbar gap */
+  --yes-space-2:    var(--yes-primitive-space-2);
+  --yes-space-2-5:  10px;  /* fractional — BulkActionBar btn padding */
+  --yes-space-3:    var(--yes-primitive-space-3);
+  --yes-space-3-5:  14px;  /* fractional — Card body padding-y, BulkActionBar root padding-x */
+  --yes-space-4:    var(--yes-primitive-space-4);
+  --yes-space-4-5:  18px;  /* fractional — KPICard root padding-x */
+  --yes-space-5:    var(--yes-primitive-space-5);
+  --yes-space-6:    var(--yes-primitive-space-6);
+  --yes-space-8:    var(--yes-primitive-space-8);
+  --yes-space-10:   var(--yes-primitive-space-10);
+  --yes-space-12:   var(--yes-primitive-space-12);
+  --yes-space-16:   var(--yes-primitive-space-16);
 
   /* ── Component sizing ────────────────────────────────────────── */
   --yes-size-height-sm: 30px;
@@ -245,8 +250,9 @@
 
   --yes-size-table-row-height:    44px;
   --yes-size-table-header-height: 40px;
-  --yes-size-toolbar-height:      44px;
-  --yes-size-bulk-bar-height:     40px;
+  --yes-size-toolbar-height:      40px;
+  --yes-size-bulk-bar-height:     44px;
+  --yes-size-pagination-btn:      28px;
 
   --yes-size-modal-sm:  400px;
   --yes-size-modal-md:  600px;
@@ -312,6 +318,16 @@
   /* ── SearchInput ─────────────────────────────────────────── */
   --yes-size-search-icon-left: 10px;
   --yes-size-search-pl:        34px;
+
+  /* ── Wave 6a — Data Containers ─────────────────────────────── */
+  /* BulkActionBar / row selection */
+  --yes-color-selection-bg:     var(--yes-primitive-blue-50);    /* #EEF3FA */
+  --yes-color-selection-border: var(--yes-primitive-blue-200);   /* #B3C5E6 */
+  --yes-color-selection-text:   var(--yes-color-primary);        /* #2B52A0 */
+
+  /* KPICard delta direction */
+  --yes-color-kpi-up:   var(--yes-color-success);   /* #16A34A */
+  --yes-color-kpi-down: var(--yes-color-danger);    /* #DC2626 */
 
   /* ── Shadows / Elevation ─────────────────────────────────────── */
   --yes-shadow-sm:  var(--yes-primitive-shadow-sm);

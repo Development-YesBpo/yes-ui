@@ -1,0 +1,34 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as ToolbarStories from './Toolbar.stories'
+
+<Meta of={ToolbarStories} />
+
+# Toolbar
+
+Barra de herramientas para tablas: búsqueda, botón Filtrar con badge de cuenta, chips de filtros activos y slot de acciones a la derecha.
+
+**Referencia:** `design-system-reference/preview/components-table.html` y `components-table-advanced.html` (sección toolbar).
+
+## Cuándo usar
+
+- Encima de tablas/listas como punto único de control.
+- Para mostrar filtros aplicados como `Chip` dismissable (Wave 1).
+- Las acciones (Exportar, Nuevo, etc.) van siempre a la derecha.
+
+<Canvas of={ToolbarStories.WithFilters} />
+
+## Composición
+
+- `SearchInput` (Wave 2) — input de búsqueda con icono.
+- `Chip` (Wave 1) — chips de filtro activo, dismissable.
+- Botón Filtrar nativo con badge de cuenta inline.
+
+## Accesibilidad
+
+- `role="toolbar"` con `aria-label="Barra de herramientas"`.
+- Botón Filtrar lleva `aria-label` con cuenta cuando hay filtros activos.
+- Chips heredan `aria-label="Eliminar filtro"` del componente Chip.
+
+## Props
+
+<Controls />

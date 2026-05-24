@@ -1,0 +1,27 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as WidgetStories from './Widget.stories'
+
+<Meta of={WidgetStories} />
+
+# Widget
+
+Contenedor de dashboard con título a la izquierda, acción opcional a la derecha y body con contenido (gráficos, listas, métricas auxiliares).
+
+**Referencia:** `design-system-reference/preview/components-cards.html` y `ui_kits/dashboard/DashComponents.jsx → Widget`.
+
+## Cuándo usar
+
+- En vistas de dashboard para agrupar visualizaciones (line chart, bar chart, listas).
+- Para tarjetas de "Próximas X" / "Recientes" con enlace a vista completa vía `action`.
+- No usar para formularios — usar `Card` con header en su lugar.
+
+<Canvas of={WidgetStories.WithAction} />
+
+## Accesibilidad
+
+- Título visible (no oculto). Si el widget contiene una visualización compleja, agregar `aria-label` explícito en el children.
+- Acción opcional respeta tab order natural.
+
+## Props
+
+<Controls />

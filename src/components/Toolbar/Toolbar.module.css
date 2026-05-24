@@ -1,0 +1,59 @@
+/*
+ * Toolbar structural styles — documentation only.
+ *
+ * The Toolbar component renders via React inline styles (React.CSSProperties)
+ * plus a single <style> tag injected at runtime for :hover / [data-active]
+ * selectors. This mirrors the pattern used across Wave 4/5 components,
+ * because the tsup library build does not yet have a CSS Modules loader.
+ * This file is kept per the @yes/ui 6-files-per-component convention.
+ */
+
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--yes-space-2);
+  flex-wrap: wrap;
+  min-height: var(--yes-size-toolbar-height);
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--yes-space-1);
+  height: var(--yes-size-height-sm);
+  padding: 0 var(--yes-space-3);
+  border: 1px solid var(--yes-color-border);
+  border-radius: var(--yes-radius-btn);
+  background: var(--yes-color-surface);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-sm);
+  font-weight: 600;
+  color: var(--yes-color-text);
+  cursor: pointer;
+  transition: border-color 150ms, color 150ms;
+}
+
+.filterBtnActive {
+  border-color: var(--yes-color-primary);
+  color: var(--yes-color-primary);
+}
+
+.filterBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--yes-radius-badge);
+  background: var(--yes-color-primary);
+  color: var(--yes-primitive-white);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.actions {
+  margin-left: auto;
+  display: flex;
+  gap: var(--yes-space-1-5);
+  align-items: center;
+}

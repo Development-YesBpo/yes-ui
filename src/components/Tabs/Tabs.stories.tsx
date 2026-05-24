@@ -13,7 +13,6 @@ const CONVERSACIONES = [
 const meta: Meta<typeof Tabs> = {
   title: 'Wave 4 — Navigation/Tabs',
   component: Tabs,
-  tags: ['autodocs'],
   parameters: {
     layout: 'padded',
     docs: {

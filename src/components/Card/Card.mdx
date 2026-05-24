@@ -1,0 +1,27 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as CardStories from './Card.stories'
+
+<Meta of={CardStories} />
+
+# Card
+
+Contenedor de superficie con header, body y footer opcionales. Variante `interactive` para tarjetas seleccionables.
+
+**Referencia:** `design-system-reference/preview/components-cards.html`.
+
+## Cuándo usar
+
+- Para agrupar contenido relacionado (formularios, métricas, listas pequeñas).
+- Versión `interactive` para tarjetas seleccionables (galerías, selectores).
+- No usar para layouts de página completa — usar `PanelRich` o secciones nativas.
+
+<Canvas of={CardStories.WithHeaderAndFooter} />
+
+## Accesibilidad
+
+- `interactive` agrega `role="button"`, `tabIndex={0}`, soporte `Enter`/`Space`.
+- Foco visible con anillo primario (`outline: 2px var(--yes-color-primary)`).
+
+## Props
+
+<Controls />

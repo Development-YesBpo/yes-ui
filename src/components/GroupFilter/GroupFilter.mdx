@@ -1,0 +1,31 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as GroupFilterStories from './GroupFilter.stories'
+
+<Meta of={GroupFilterStories} />
+
+# GroupFilter
+
+Barra de filtros unificada con controles libres (selects, fechas, inputs) como children y footer con botones Aplicar/Limpiar.
+
+**Referencia:** `design-system-reference/preview/components-meta-filters.html` (sección GroupFilter) y `ui_kits/crm/CRMApp.jsx → FilterBar`.
+
+## Cuándo usar
+
+- Para combinar varios filtros en una sola operación (estado + campaña + rango de fechas).
+- Cuando los filtros no son inmediatos — el usuario configura todo y luego presiona Aplicar.
+- Para filtros inmediatos / búsqueda en vivo, usar `Toolbar` en su lugar.
+
+<Canvas of={GroupFilterStories.WithAllControls} />
+
+## Composición
+
+Los `children` son los controles de filtro libres — selects, inputs, date pickers, multi-selects. El componente solo gestiona el contenedor visual y los botones del footer.
+
+## Accesibilidad
+
+- Cada control hijo debe llevar su propio `aria-label`.
+- Aplicar es el botón primario (más grande, primary blue) — Limpiar es secundario (más pequeño, neutral).
+
+## Props
+
+<Controls />
