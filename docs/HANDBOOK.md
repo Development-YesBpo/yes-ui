@@ -352,37 +352,24 @@ Only when all 4 gates are GREEN: commit. Spanish commit message, no co-author li
 
 ---
 
-## 8 · Known issues and pre-existing debt
+## 8 · Known issues and intentional decisions
 
-Documented for future cleanup. None block the v1.0.0 ship.
+The v1.1.0 release resolved or formally accepted every issue from the prior list. Current state:
 
-### Storybook + MDX collision (worked around)
+### Resolved in v1.1.0
 
-Storybook 8.6 treats `tags: ['autodocs']` + sibling `.mdx` as a fatal indexing error. Every story file in the repo has the autodocs tag stripped. If a future story re-introduces it, the entire `index.json` returns invalid JSON. Symptom: empty Storybook UI; fix: `grep -l "tags: \['autodocs'\]" src/components/*/*.stories.tsx` and remove.
+- **Storybook autodocs + MDX collision** — `.storybook/main.ts` now sets `docs.autodocs: false`. The `tags: ['autodocs']` array is ignored project-wide, so adding it cannot break indexing. The `.mdx` file per component remains the canonical docs surface.
+- **`--yes-text-2xl` token collision** — verified zero component consumers; the global `--yes-text-2xl: 24px` and PageHeader's local `--yes-text-page-title: 22px` coexist without conflict.
+- **Avatar `size` enumerated, not numeric** — Avatar's `size` prop now accepts `Size | number` (named token OR raw pixels). Wave 8 components (`ConversationItem`, `MessageBubble`, `PanelRich`) pass numeric sizes (36 / 20 / 42).
+- **`exactOptionalPropertyTypes: true` spread workaround** — Avatar's `src` is typed `string | undefined`, so `src={maybeUndefined}` works without conditional spread. All 3 Wave 8 callers simplified.
 
-### CSS Modules not bundled (intentional)
+### Intentional architecture (not debt)
 
-tsup's esbuild doesn't load `*.module.css`. Every component uses inline styles + injected `<style>` blocks. The `.module.css` files exist as structural-intent documentation only. If you ever switch the build to a CSS-Modules-aware bundler, the components will need to be rewritten to actually import the modules.
+- **Inline `React.CSSProperties` + injected `<style>` block instead of CSS Modules.** Every component uses this pattern. The `.module.css` files in each component directory document structural intent but are **not imported** by the source. `tsup.config.ts` reflects this honestly (no more misleading `injectStyle: true`). If you ever switch the build to a CSS-Modules-aware bundler, every component needs a rewrite — that work is out of scope for the foreseeable future.
 
-### `--yes-text-2xl` token (worked around)
+### Mitigated
 
-Wave 7 plan called for `--yes-text-2xl: 22px`, but the token already existed mapped to 24 px. PageHeader uses a local `--yes-text-page-title: 22px` instead. Don't try to redefine `--yes-text-2xl` — it has consumers.
-
-### Avatar `size` is enumerated, not numeric
-
-Plans for ConversationItem / MessageBubble / PanelRich called for numeric Avatar sizes (28 / 36 / 42 px). Avatar only accepts `'sm' | 'md' | 'lg'` (24 / 32 / 40 px). Components clamp to the nearest legal size. If product needs exact pixel sizes, Avatar must grow a numeric `size` prop or new tokens.
-
-### `exactOptionalPropertyTypes: true` constraint
-
-The tsconfig is strict. Avatar's `src?: string` cannot be passed `undefined`. Use a conditional spread:
-
-```tsx
-<Avatar {...(user.avatarSrc ? { src: user.avatarSrc } : {})} name={user.name} size="sm" />
-```
-
-### IDE TS-server stale-diagnostics bug
-
-In this repo, the IDE TS server intermittently flags `Cannot find module './Component'` and `Property 'toBeInTheDocument' does not exist` for files that `pnpm typecheck` accepts cleanly. The diagnostics are demonstrably false (`pnpm test` passes, `pnpm typecheck` exits 0). Fix: restart the TS server. Do **not** modify code in response to these phantom errors.
+- **IDE TS-server stale-diagnostics bug.** Symptom: the editor's TS server intermittently reports `Cannot find module './X'` and `Property 'toBeInTheDocument' does not exist` for files that `pnpm typecheck` accepts cleanly. The bug is cross-tool, not in our code. Mitigation: `.vscode/settings.json` pins the workspace TypeScript version (`typescript.tsdk: "node_modules/typescript/lib"`) to reduce IDE-vs-tsc drift. When the diagnostics still surface, restart the TS server (`Cmd+Shift+P` → "TypeScript: Restart TS Server"). `pnpm typecheck` remains the source of truth — never modify code in response to these phantom errors.
 
 ---
 

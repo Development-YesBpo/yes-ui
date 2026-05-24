@@ -5,6 +5,31 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.1.0] — 2026-05-24
+
+Maintenance release. Resolves or formally accepts every entry from the
+v1.0.0 HANDBOOK § 8 "Known Issues and Pre-Existing Debt" list. No
+breaking API changes. 482 tests still passing, clean typecheck, clean
+build.
+
+### Added
+- `Avatar.size` now accepts `Size | number` — pass `size={36}` for product-specific pixel sizes; the existing `size="md"` keyword usage is unchanged.
+
+### Changed
+- `Avatar.src` typed `string | undefined` (explicit "accepts undefined") so consumers under `exactOptionalPropertyTypes: true` can pass optional values directly.
+- Wave 8 components (`ConversationItem`, `MessageBubble`, `PanelRich`) pass numeric Avatar sizes (36 / 20 / 42 px) and drop their conditional-spread workarounds for `src`.
+- Storybook autodocs disabled project-wide (`.storybook/main.ts` → `docs.autodocs: false`). `tags: ['autodocs']` in any story is now a safe no-op.
+- `tsup.config.ts` comment rewritten to reflect the actual inline-styles + injected `<style>` architecture; misleading `injectStyle: true` removed.
+
+### Removed
+- 3 ad-hoc avatar size tokens from `src/tokens/semantic.css`: `--yes-size-avatar-36`, `--yes-size-avatar-42`, `--yes-size-avatar-bubble`. Replaced by Avatar's numeric `size` prop.
+
+### Internal
+- `.vscode/settings.json` pins the workspace TypeScript version (`typescript.tsdk: "node_modules/typescript/lib"`) to reduce IDE TS-server vs. `tsc` drift.
+- `docs/HANDBOOK.md` § 8 rewritten as "Known issues and intentional decisions" reflecting the v1.1.0 resolutions.
+
+---
+
 ## [1.0.0] — 2026-05-24
 
 Library complete. 42 components across 8 thematic waves. 482 passing tests,

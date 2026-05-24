@@ -39,9 +39,6 @@ const BUBBLE_GROUP_BASE: React.CSSProperties = {
 }
 
 const AVATAR_STYLE: React.CSSProperties = {
-  width: 'var(--yes-size-avatar-bubble)',
-  height: 'var(--yes-size-avatar-bubble)',
-  fontSize: 'calc(var(--yes-size-avatar-bubble) * 0.36)',
   flexShrink: 0,
 }
 
@@ -127,7 +124,8 @@ export function MessageBubble({
       {!isOwn && senderName && (
         <Avatar
           name={senderName}
-          {...(senderAvatar ? { src: senderAvatar } : {})}
+          src={senderAvatar}
+          size={20}
           style={AVATAR_STYLE}
         />
       )}

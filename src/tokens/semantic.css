@@ -444,7 +444,6 @@
   /* ── Wave 8 — ConversationItem ────────────────────────────────── */
   --yes-size-conv-py:        11px;
   --yes-size-conv-px:        14px;
-  --yes-size-avatar-36:      36px;
   --yes-text-2xs:            11px;
   --yes-size-unread-badge:   18px;
   --yes-color-conv-active:   var(--yes-color-badge-blue);  /* #EEF3FA */
@@ -455,10 +454,8 @@
   --yes-size-bubble-px:          14px;
   --yes-color-bubble-own-time:   rgba(255, 255, 255, 0.65);
   --yes-color-bubble-other-bg:   var(--yes-color-bg);   /* #F3F4F6 */
-  --yes-size-avatar-bubble:      20px;
 
   /* ── Wave 8 — PanelRich ───────────────────────────────────────── */
   --yes-size-panel-rich:   340px;
-  --yes-size-avatar-42:    42px;
   --yes-text-panel-name:   15px;
 }

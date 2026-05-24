@@ -94,9 +94,6 @@ const HEADER_STYLE: React.CSSProperties = {
 }
 
 const AVATAR_STYLE: React.CSSProperties = {
-  width: 'var(--yes-size-avatar-42)',
-  height: 'var(--yes-size-avatar-42)',
-  fontSize: 'calc(var(--yes-size-avatar-42) * 0.36)',
   flexShrink: 0,
 }
 
@@ -300,7 +297,8 @@ export function PanelRich({
       <div style={HEADER_STYLE}>
         <Avatar
           name={contact.name}
-          {...(contact.avatarSrc ? { src: contact.avatarSrc } : {})}
+          src={contact.avatarSrc}
+          size={42}
           style={AVATAR_STYLE}
         />
         <div style={HEADER_INFO_STYLE}>

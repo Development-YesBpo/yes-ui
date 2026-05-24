@@ -55,9 +55,6 @@ const ACTIVE_STYLE: React.CSSProperties = {
 }
 
 const AVATAR_STYLE: React.CSSProperties = {
-  width: 'var(--yes-size-avatar-36)',
-  height: 'var(--yes-size-avatar-36)',
-  fontSize: 'calc(var(--yes-size-avatar-36) * 0.36)',
   flexShrink: 0,
 }
 
@@ -170,7 +167,8 @@ export function ConversationItem({
     >
       <Avatar
         name={name}
-        {...(avatarSrc ? { src: avatarSrc } : {})}
+        src={avatarSrc}
+        size={36}
         style={AVATAR_STYLE}
       />
       <div style={CONTENT_STYLE}>

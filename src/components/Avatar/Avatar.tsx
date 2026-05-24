@@ -35,8 +35,8 @@ const FONT_SIZE_TOKENS: Record<Size, string> = {
 
 interface AvatarProps extends BaseProps {
   name: string
-  size?: Size
-  src?: string
+  size?: Size | number   // 'sm'|'md'|'lg' = 24|32|40 px; or raw pixels for product-specific sizes
+  src?: string | undefined  // explicit "accepts undefined" under exactOptionalPropertyTypes: true
   alt?: string
 }
 
@@ -49,8 +49,9 @@ export function Avatar({
   style,
   'data-testid': testId,
 }: AvatarProps) {
-  const sizeVar = SIZE_TOKENS[size]
-  const fontSizeVar = FONT_SIZE_TOKENS[size]
+  const isNum = typeof size === 'number'
+  const sizeVar = isNum ? `${size}px` : SIZE_TOKENS[size as Size]
+  const fontSizeVar = isNum ? `${Math.round(size * 0.36)}px` : FONT_SIZE_TOKENS[size as Size]
 
   return (
     <div
