@@ -1,0 +1,226 @@
+/**
+ * @yes/ui — Layout utility classes
+ *
+ * Optional. Import only if you want a pre-built utility set instead of writing
+ * your own layout CSS for consumer apps.
+ *
+ *   import '@yes/ui/styles/layout'
+ *
+ * Every value routes through an existing `--yes-*` token defined in
+ * `src/tokens/semantic.css`. No hardcoded sizes except `0`, `1`, `100%`,
+ * `100vh`, `auto`, integer flex factors, and percentage grid fractions.
+ *
+ * Scale mapping (utility index → token → pixel value):
+ *   1  → --yes-space-1   →  4px
+ *   2  → --yes-space-2   →  8px
+ *   3  → --yes-space-3   → 12px
+ *   4  → --yes-space-4   → 16px
+ *   5  → --yes-space-5   → 20px
+ *   6  → --yes-space-6   → 24px
+ *   7  → --yes-space-8   → 32px   (no --yes-space-7 token; jumps to 32)
+ *   8  → --yes-space-12  → 48px
+ */
+
+/* ── Layout primitives ─────────────────────────────────────────── */
+.yes-stack {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.yes-row {
+  display: flex;
+  flex-direction: row;
+  min-width: 0;
+}
+
+.yes-row-wrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.yes-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.yes-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.yes-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.yes-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+/* ── Gap ───────────────────────────────────────────────────────── */
+.yes-gap-1 { gap: var(--yes-space-1); }
+.yes-gap-2 { gap: var(--yes-space-2); }
+.yes-gap-3 { gap: var(--yes-space-3); }
+.yes-gap-4 { gap: var(--yes-space-4); }
+.yes-gap-5 { gap: var(--yes-space-5); }
+.yes-gap-6 { gap: var(--yes-space-6); }
+.yes-gap-7 { gap: var(--yes-space-8); }
+.yes-gap-8 { gap: var(--yes-space-12); }
+
+/* ── Padding (all) ─────────────────────────────────────────────── */
+.yes-p-1 { padding: var(--yes-space-1); }
+.yes-p-2 { padding: var(--yes-space-2); }
+.yes-p-3 { padding: var(--yes-space-3); }
+.yes-p-4 { padding: var(--yes-space-4); }
+.yes-p-5 { padding: var(--yes-space-5); }
+.yes-p-6 { padding: var(--yes-space-6); }
+.yes-p-7 { padding: var(--yes-space-8); }
+.yes-p-8 { padding: var(--yes-space-12); }
+
+/* ── Padding X (horizontal) ────────────────────────────────────── */
+.yes-px-1 { padding-left: var(--yes-space-1);  padding-right: var(--yes-space-1); }
+.yes-px-2 { padding-left: var(--yes-space-2);  padding-right: var(--yes-space-2); }
+.yes-px-3 { padding-left: var(--yes-space-3);  padding-right: var(--yes-space-3); }
+.yes-px-4 { padding-left: var(--yes-space-4);  padding-right: var(--yes-space-4); }
+.yes-px-5 { padding-left: var(--yes-space-5);  padding-right: var(--yes-space-5); }
+.yes-px-6 { padding-left: var(--yes-space-6);  padding-right: var(--yes-space-6); }
+.yes-px-7 { padding-left: var(--yes-space-8);  padding-right: var(--yes-space-8); }
+.yes-px-8 { padding-left: var(--yes-space-12); padding-right: var(--yes-space-12); }
+
+/* ── Padding Y (vertical) ──────────────────────────────────────── */
+.yes-py-1 { padding-top: var(--yes-space-1);  padding-bottom: var(--yes-space-1); }
+.yes-py-2 { padding-top: var(--yes-space-2);  padding-bottom: var(--yes-space-2); }
+.yes-py-3 { padding-top: var(--yes-space-3);  padding-bottom: var(--yes-space-3); }
+.yes-py-4 { padding-top: var(--yes-space-4);  padding-bottom: var(--yes-space-4); }
+.yes-py-5 { padding-top: var(--yes-space-5);  padding-bottom: var(--yes-space-5); }
+.yes-py-6 { padding-top: var(--yes-space-6);  padding-bottom: var(--yes-space-6); }
+.yes-py-7 { padding-top: var(--yes-space-8);  padding-bottom: var(--yes-space-8); }
+.yes-py-8 { padding-top: var(--yes-space-12); padding-bottom: var(--yes-space-12); }
+
+/* ── Margin (all) ──────────────────────────────────────────────── */
+.yes-m-1 { margin: var(--yes-space-1); }
+.yes-m-2 { margin: var(--yes-space-2); }
+.yes-m-3 { margin: var(--yes-space-3); }
+.yes-m-4 { margin: var(--yes-space-4); }
+.yes-m-5 { margin: var(--yes-space-5); }
+.yes-m-6 { margin: var(--yes-space-6); }
+.yes-m-7 { margin: var(--yes-space-8); }
+.yes-m-8 { margin: var(--yes-space-12); }
+
+/* ── Margin X / Y ──────────────────────────────────────────────── */
+.yes-mx-1 { margin-left: var(--yes-space-1);  margin-right: var(--yes-space-1); }
+.yes-mx-2 { margin-left: var(--yes-space-2);  margin-right: var(--yes-space-2); }
+.yes-mx-3 { margin-left: var(--yes-space-3);  margin-right: var(--yes-space-3); }
+.yes-mx-4 { margin-left: var(--yes-space-4);  margin-right: var(--yes-space-4); }
+.yes-mx-5 { margin-left: var(--yes-space-5);  margin-right: var(--yes-space-5); }
+.yes-mx-6 { margin-left: var(--yes-space-6);  margin-right: var(--yes-space-6); }
+.yes-mx-7 { margin-left: var(--yes-space-8);  margin-right: var(--yes-space-8); }
+.yes-mx-8 { margin-left: var(--yes-space-12); margin-right: var(--yes-space-12); }
+
+.yes-my-1 { margin-top: var(--yes-space-1);  margin-bottom: var(--yes-space-1); }
+.yes-my-2 { margin-top: var(--yes-space-2);  margin-bottom: var(--yes-space-2); }
+.yes-my-3 { margin-top: var(--yes-space-3);  margin-bottom: var(--yes-space-3); }
+.yes-my-4 { margin-top: var(--yes-space-4);  margin-bottom: var(--yes-space-4); }
+.yes-my-5 { margin-top: var(--yes-space-5);  margin-bottom: var(--yes-space-5); }
+.yes-my-6 { margin-top: var(--yes-space-6);  margin-bottom: var(--yes-space-6); }
+.yes-my-7 { margin-top: var(--yes-space-8);  margin-bottom: var(--yes-space-8); }
+.yes-my-8 { margin-top: var(--yes-space-12); margin-bottom: var(--yes-space-12); }
+
+/* ── Margin Top / Bottom ───────────────────────────────────────── */
+.yes-mt-1 { margin-top: var(--yes-space-1); }
+.yes-mt-2 { margin-top: var(--yes-space-2); }
+.yes-mt-3 { margin-top: var(--yes-space-3); }
+.yes-mt-4 { margin-top: var(--yes-space-4); }
+.yes-mt-5 { margin-top: var(--yes-space-5); }
+.yes-mt-6 { margin-top: var(--yes-space-6); }
+.yes-mt-7 { margin-top: var(--yes-space-8); }
+.yes-mt-8 { margin-top: var(--yes-space-12); }
+.yes-mt-auto { margin-top: auto; }
+
+.yes-mb-1 { margin-bottom: var(--yes-space-1); }
+.yes-mb-2 { margin-bottom: var(--yes-space-2); }
+.yes-mb-3 { margin-bottom: var(--yes-space-3); }
+.yes-mb-4 { margin-bottom: var(--yes-space-4); }
+.yes-mb-5 { margin-bottom: var(--yes-space-5); }
+.yes-mb-6 { margin-bottom: var(--yes-space-6); }
+.yes-mb-7 { margin-bottom: var(--yes-space-8); }
+.yes-mb-8 { margin-bottom: var(--yes-space-12); }
+
+/* ── Alignment ─────────────────────────────────────────────────── */
+.yes-items-center   { align-items: center; }
+.yes-items-start    { align-items: flex-start; }
+.yes-items-end      { align-items: flex-end; }
+.yes-items-baseline { align-items: baseline; }
+.yes-items-stretch  { align-items: stretch; }
+
+.yes-justify-center  { justify-content: center; }
+.yes-justify-start   { justify-content: flex-start; }
+.yes-justify-end     { justify-content: flex-end; }
+.yes-justify-between { justify-content: space-between; }
+.yes-justify-around  { justify-content: space-around; }
+
+.yes-text-center { text-align: center; }
+.yes-text-right  { text-align: right; }
+
+/* ── Sizing ────────────────────────────────────────────────────── */
+.yes-flex-1 {
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.yes-flex-auto {
+  flex: 0 0 auto;
+}
+
+.yes-w-full { width: 100%; }
+.yes-h-full { height: 100%; }
+.yes-min-h-screen { min-height: 100vh; }
+
+.yes-w-side-list {
+  width: var(--yes-size-side-list);
+  flex-shrink: 0;
+}
+
+/* ── Surfaces ──────────────────────────────────────────────────── */
+.yes-page {
+  min-height: 100vh;
+  background: var(--yes-color-bg);
+  color: var(--yes-color-text);
+  font-family: var(--yes-font-sans);
+}
+
+.yes-app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--yes-color-bg);
+}
+
+.yes-main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--yes-space-6);
+  overflow-y: auto;
+}
+
+/* ── Typography helpers ────────────────────────────────────────── */
+.yes-h1 {
+  font-family: var(--yes-font-display);
+  font-size: var(--yes-text-3xl);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--yes-color-text);
+}
+
+.yes-h2 {
+  font-family: var(--yes-font-heading);
+  font-size: var(--yes-text-xl);
+  font-weight: 700;
+  color: var(--yes-color-text);
+}
+
+.yes-text-muted  { color: var(--yes-color-text-muted); }
+.yes-text-subtle { color: var(--yes-color-text-subtle); }

@@ -1,6 +1,6 @@
 {
   "name": "@yes/ui",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "YES BPO unified UI component library — 42 React components across 8 thematic waves",
   "type": "module",
   "license": "UNLICENSED",
@@ -14,7 +14,8 @@
     "./tokens/primitives": "./dist/tokens/primitives.css",
     "./tokens/default": "./dist/tokens/semantic.css",
     "./tokens/themes/light": "./dist/tokens/themes/light.css",
-    "./tokens/themes/dark": "./dist/tokens/themes/dark.css"
+    "./tokens/themes/dark": "./dist/tokens/themes/dark.css",
+    "./styles/layout": "./dist/styles/layout.css"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

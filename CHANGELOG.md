@@ -5,6 +5,37 @@ Format: [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [1.2.0] — 2026-05-24
+
+Additive release. Ships an optional layout utility stylesheet so consumer
+apps can compose dashboards, list/detail views, and chat shells without
+hand-rolling their own layout CSS. No component API changes. 482 tests
+still passing, clean typecheck, clean build.
+
+### Added
+- `@yes/ui/styles/layout` — utility CSS file exposing `.yes-stack`,
+  `.yes-row`, `.yes-row-wrap`, `.yes-grid-{2,3,4,6}`, `.yes-gap-{1..8}`,
+  `.yes-p-{1..8}` (plus `px-` / `py-`), `.yes-m-{1..8}` (plus `mx-` /
+  `my-` / `mt-` / `mb-` / `mt-auto`), alignment helpers (`yes-items-*`,
+  `yes-justify-*`, `yes-text-center`, `yes-text-right`), sizing
+  (`yes-flex-1`, `yes-flex-auto`, `yes-w-full`, `yes-h-full`,
+  `yes-min-h-screen`, `yes-w-side-list`), surfaces (`yes-page`,
+  `yes-app-shell`, `yes-main`), and typography helpers (`yes-h1`,
+  `yes-h2`, `yes-text-muted`, `yes-text-subtle`). Every value routes
+  through an existing `--yes-*` token — no hardcoded sizes.
+- `--yes-size-side-list: 320px` semantic token — width of the
+  conversation / nav list used by chat-style three-column layouts;
+  consumed by the `.yes-w-side-list` utility.
+- `scripts/copy-tokens.mjs` now also mirrors `src/styles/` → `dist/styles/`.
+- `scripts/check-dist.mjs` asserts `dist/styles/layout.css` is present
+  after build.
+
+### Changed
+- `package.json` exports a new subpath `./styles/layout` →
+  `./dist/styles/layout.css`. Existing token entrypoints are unchanged.
+
+---
+
 ## [1.1.0] — 2026-05-24
 
 Maintenance release. Resolves or formally accepts every entry from the

@@ -99,6 +99,20 @@ If it's a stale Storybook from a prior session, kill the PID and re-run. Never a
 
 ---
 
+## 3.5 · Layout utilities (`@yes/ui/styles/layout`)
+
+`@yes/ui` does not ship Stack / Grid / Container components — composition is the consumer's job. To avoid every consumer hand-rolling the same flex / grid / spacing rules, v1.2.0 adds an **optional** utility stylesheet:
+
+```ts
+import '@yes/ui/styles/layout'  // optional: utility classes for layout
+```
+
+It exposes a small set of `yes-`-prefixed classes (`.yes-stack`, `.yes-row`, `.yes-grid-{2,3,4,6}`, `.yes-gap-{1..8}`, `.yes-p-{1..8}` and its `px-` / `py-` variants, `.yes-m-{1..8}` and its `mx-` / `my-` / `mt-` / `mb-` / `mt-auto` variants, alignment helpers — `yes-items-*`, `yes-justify-*`, `yes-text-center`, `yes-text-right` — sizing — `yes-flex-1`, `yes-flex-auto`, `yes-w-full`, `yes-h-full`, `yes-min-h-screen` — surfaces — `yes-page`, `yes-app-shell`, `yes-main` — and typography helpers `yes-h1`, `yes-h2`, `yes-text-muted`, `yes-text-subtle`). Every value routes through an existing `--yes-*` semantic token: no hardcoded spacing, color, or radius. The mapping from utility index (`1..8`) to the underlying `--yes-space-*` token is documented at the top of `src/styles/layout.css`.
+
+Apps that prefer their own layout primitives (Tailwind, CSS Modules, styled-components) simply omit the import — there's no runtime cost when it's not loaded.
+
+---
+
 ## 4 · How to add a component (6-phase YES TDD)
 
 Every component follows the same Plan → 🔴 RED → Implement → 🟢 GREEN → Refactor → Automate loop. Each transition demands machine-readable evidence (pasted test output, not prose).

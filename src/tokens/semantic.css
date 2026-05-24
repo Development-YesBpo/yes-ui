@@ -458,4 +458,7 @@
   /* ── Wave 8 — PanelRich ───────────────────────────────────────── */
   --yes-size-panel-rich:   340px;
   --yes-text-panel-name:   15px;
+
+  /* ── Layout utilities (consumed by src/styles/layout.css) ─────── */
+  --yes-size-side-list: 320px;  /* chat-style conversation list / nav list */
 }
