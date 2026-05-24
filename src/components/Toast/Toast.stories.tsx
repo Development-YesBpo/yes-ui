@@ -21,13 +21,17 @@ export default meta
 type Story = StoryObj<typeof Toast>
 
 export const Default: Story = {
-  args: {
-    id: 'demo',
-    variant: 'success',
-    title: 'Registro guardado correctamente',
-    onDismiss: () => {},
-    duration: 99999,
-  },
+  render: () => (
+    <div style={{ width: 380 }}>
+      <Toast
+        id="demo"
+        variant="success"
+        title="Registro guardado correctamente"
+        onDismiss={() => {}}
+        duration={99999}
+      />
+    </div>
+  ),
 }
 
 export const AllVariants: Story = {

@@ -1,0 +1,35 @@
+/*
+ * Chip — structural intent documentation only.
+ * The component uses inline React.CSSProperties + injected <style> blocks
+ * because tsup esbuild has no CSS Modules loader in this build. See Chip.tsx.
+ */
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--yes-radius-badge);
+  border: 1px solid var(--yes-color-primary-border);
+  background: var(--yes-color-badge-blue);
+  color: var(--yes-color-primary);
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.dismiss {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 1px;
+  cursor: pointer;
+  color: var(--yes-color-chip-dismiss);
+  font-size: 14px;
+  line-height: 1;
+}

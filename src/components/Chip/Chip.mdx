@@ -1,0 +1,46 @@
+import { Meta, Controls, Canvas } from '@storybook/blocks'
+import * as ChipStories from './Chip.stories'
+
+<Meta of={ChipStories} />
+
+# Chip
+
+Etiqueta filtrable con texto y dismiss opcional. Se usa principalmente para mostrar
+filtros activos en barras de búsqueda y para representar selecciones en formularios
+de filtrado.
+
+**Referencia visual:** `design-system-reference/preview/components-badges.html` (sección filter chip).
+
+## Cuándo usar
+
+- **Filtros activos** en `Toolbar` o `GroupFilter` — pasar `onDismiss` para que el usuario pueda eliminar el filtro con un clic.
+- **Tags o etiquetas** estáticas en listados — omitir `onDismiss` para no mostrar el botón ×.
+
+Para etiquetas de estado semántico (Activo/Pendiente/Fallido), usar `Badge` en lugar de `Chip`.
+Para canales (WhatsApp/SMS/Voz/Correo), usar `ChannelBadge`.
+
+## Accesibilidad
+
+- El botón de dismiss tiene `aria-label="Eliminar filtro"` para que lectores de pantalla
+  anuncien la acción en español.
+- El componente raíz es un `<span>` con `display: inline-flex` — se puede colocar en cualquier flujo de texto sin romper la línea base.
+
+## Props
+
+<Controls />
+
+## Migración
+
+Reemplazar implementaciones inline en CRM/AppCenter:
+
+```tsx
+// Antes — prototipo inline
+<span className="filter-chip">
+  Estado: Activo
+  <button onClick={remove}>×</button>
+</span>
+
+// Ahora — librería
+import { Chip } from '@yes/ui'
+<Chip onDismiss={remove}>Estado: Activo</Chip>
+```
