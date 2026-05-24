@@ -74,7 +74,8 @@ export { Table } from './components/Table'
 export type { TableColumn, TableProps } from './components/Table'
 export { TableAdvanced } from './components/TableAdvanced'
 export type { TableAdvancedProps } from './components/TableAdvanced'
-// export { MessageBubble } from './components/MessageBubble'
+export { MessageBubble } from './components/MessageBubble'
+export type { MessageBubbleProps, MessageSender } from './components/MessageBubble'
 // export { MessageComposer } from './components/MessageComposer'
 export { ChannelBadge } from './components/ChannelBadge'
 export { Chip } from './components/Chip'
@@ -94,7 +95,29 @@ export { ActionMenu } from './components/ActionMenu'
 export type { ActionMenuProps, ActionMenuItem } from './components/ActionMenu'
 export { AdminBanner } from './components/AdminBanner'
 export type { AdminBannerProps, AdminBannerVariant } from './components/AdminBanner'
-// export { AgentStatusIndicator } from './components/AgentStatusIndicator'
+
+// ─── Wave 8 — Communication & Layout ──────────────────────────
+export { AgentStatusIndicator } from './components/AgentStatusIndicator'
+export type {
+  AgentStatusIndicatorProps,
+  AgentStatus,
+  AgentIndicatorSize,
+} from './components/AgentStatusIndicator'
+export { ConversationItem } from './components/ConversationItem'
+export type {
+  ConversationItemProps,
+  ConversationChannel,
+} from './components/ConversationItem'
+export { PanelRich } from './components/PanelRich'
+export type {
+  PanelRichProps,
+  PanelContact,
+  PanelContactField,
+  PanelHistoryItem,
+  PanelStatusVariant,
+  PanelTab,
+} from './components/PanelRich'
+
 // export { FileDropZone } from './components/FileDropZone'
 // export { TagInput } from './components/TagInput'
 // export { RichTextEditor } from './components/RichTextEditor'

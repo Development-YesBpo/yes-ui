@@ -1,0 +1,13 @@
+/**
+ * PanelRich — structural CSS placeholder.
+ *
+ * Per @yes/ui dist conventions (tsup esbuild has no CSS-Modules loader),
+ * actual styling lives inline as `React.CSSProperties` maps plus a guarded
+ * injected `<style>` block for tab/save :hover and :focus.
+ *
+ * This file exists solely to satisfy the 6-files-per-component rule.
+ * Do not import it from the component or from product apps.
+ *
+ * Reference: design-system-reference/preview/components-panel-rich.html
+ *            ui_kits/crm/CRMApp.jsx → DetailPanel
+ */

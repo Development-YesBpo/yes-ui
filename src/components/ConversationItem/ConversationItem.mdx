@@ -1,0 +1,38 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as Stories from './ConversationItem.stories'
+
+<Meta of={Stories} />
+
+# ConversationItem
+
+Fila de conversación en el panel de lista del AppCenter. Muestra avatar, nombre,
+vista previa del último mensaje, badge de canal, timestamp y contador de mensajes
+no leídos.
+
+**Referencia:** `ui_kits/appcenter/App.jsx` → ConversationList
+
+**Dependencias:** Avatar (Wave 1), ChannelBadge (Wave 1)
+
+## Uso
+
+```tsx
+import { ConversationItem } from '@yes/ui'
+
+<ConversationItem
+  name="Carlos Rodríguez"
+  lastMessage="¡Claro! Envíame el detalle por favor"
+  channel="whatsapp"
+  timestamp="2 min"
+  unreadCount={2}
+  isActive={activeId === conv.id}
+  onClick={() => setActiveId(conv.id)}
+/>
+```
+
+## Estado activo
+
+El estado activo (`isActive`) añade fondo `#EEF3FA` y borde izquierdo `3px solid
+#2B52A0`. Gestionarlo externamente — el componente no mantiene estado propio.
+
+<Canvas of={Stories.ConversationList} />
+<Controls of={Stories.Default} />

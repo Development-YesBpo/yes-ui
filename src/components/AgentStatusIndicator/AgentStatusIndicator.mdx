@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as Stories from './AgentStatusIndicator.stories'
+
+<Meta of={Stories} />
+
+# AgentStatusIndicator
+
+Muestra la disponibilidad operativa de un agente: un punto de color semántico
+con etiqueta opcional. Usado en listas de agentes, encabezados de sidebar y
+filas de tabla del módulo AppCenter.
+
+**Referencia:** `ui_kits/appcenter/Components.jsx` → StatusBadge / AgentView
+
+## Uso
+
+```tsx
+import { AgentStatusIndicator } from '@yes/ui'
+
+<AgentStatusIndicator status="disponible" />
+<AgentStatusIndicator status="ocupado" showLabel={false} size="sm" />
+```
+
+## Estados
+
+| Estado | Color | Token |
+|--------|-------|-------|
+| `disponible` | Verde | `--yes-color-success` |
+| `ocupado` | Ámbar | `--yes-color-warning` |
+| `en-llamada` | Azul | `--yes-color-info` |
+| `descanso` | Púrpura | `--yes-color-agent-descanso` |
+| `desconectado` | Gris | `--yes-color-text-subtle` |
+
+<Canvas of={Stories.AllStatuses} />
+<Controls of={Stories.Default} />

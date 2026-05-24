@@ -1,0 +1,38 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as Stories from './MessageBubble.stories'
+
+<Meta of={Stories} />
+
+# MessageBubble
+
+Burbuja individual de mensaje en un chat. Los mensajes del agente (`sender="own"`)
+se ubican a la derecha con fondo azul primario. Los mensajes del cliente
+(`sender="other"`) se ubican a la izquierda con fondo neutro.
+
+**Referencia:** `ui_kits/appcenter/App.jsx` → ChatPanel
+
+**Dependencias:** Avatar (Wave 1)
+
+## Uso
+
+```tsx
+import { MessageBubble } from '@yes/ui'
+
+// Mensaje propio (agente)
+<MessageBubble content="Hola, ¿cómo puedo ayudarte?" sender="own" timestamp="09:42" />
+
+// Mensaje del cliente
+<MessageBubble
+  content="Buenas tardes, tengo una consulta."
+  sender="other"
+  timestamp="09:41"
+  senderName="Carlos Rodríguez"
+/>
+```
+
+## Conversación completa
+
+Envolver múltiples burbujas en un contenedor flex-column con gap de 12px.
+
+<Canvas of={Stories.FullConversation} />
+<Controls of={Stories.OwnMessage} />

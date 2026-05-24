@@ -1,0 +1,49 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as Stories from './PanelRich.stories'
+
+<Meta of={Stories} />
+
+# PanelRich
+
+Panel lateral de detalle de contacto. Contiene tres tabs: **Info** (campos clave
+del registro), **Historial** (línea de tiempo de gestiones) y **Notas** (captura
+libre de texto).
+
+**Referencia:** `preview/components-panel-rich.html` + `ui_kits/crm/CRMApp.jsx` → DetailPanel
+
+**Dependencias:** Avatar (Wave 1), Badge (Wave 1)
+
+## Uso
+
+```tsx
+import { PanelRich } from '@yes/ui'
+
+<PanelRich
+  contact={{
+    name: 'Carlos Rodríguez',
+    role: 'Cliente Premium',
+    status: 'success',
+    fields: [
+      { label: 'Teléfono', value: '+57 310 555 0123' },
+      { label: 'Correo', value: 'carlos@example.com' },
+    ],
+  }}
+  history={[
+    { date: '21 may 2026 · 09:42', action: 'Llamada saliente — Contactado' },
+  ]}
+  onSaveNote={(note) => saveNote(contactId, note)}
+/>
+```
+
+## Integración con Drawer
+
+Para uso en overlay, envolver en `Drawer` (Wave 5):
+
+```tsx
+<Drawer isOpen={showPanel} onClose={() => setShowPanel(false)} placement="right">
+  <PanelRich contact={selectedContact} history={contactHistory} onSaveNote={handleSave} />
+</Drawer>
+```
+
+<Canvas of={Stories.InContext} />
+<Controls of={Stories.Default} />

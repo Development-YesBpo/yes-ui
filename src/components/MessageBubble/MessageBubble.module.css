@@ -1,0 +1,12 @@
+/**
+ * MessageBubble — structural CSS placeholder.
+ *
+ * Per @yes/ui dist conventions (tsup esbuild has no CSS-Modules loader),
+ * actual styling lives inline as `React.CSSProperties` maps with sender
+ * variants (own / other).
+ *
+ * This file exists solely to satisfy the 6-files-per-component rule.
+ * Do not import it from the component or from product apps.
+ *
+ * Reference: ui_kits/appcenter/App.jsx → ChatPanel
+ */
