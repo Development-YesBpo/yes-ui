@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as SegmentedControlStories from './SegmentedControl.stories'
+
+<Meta of={SegmentedControlStories} />
+
+# SegmentedControl
+
+Grupo de botones mutuamente excluyentes. Un solo valor activo a la vez. El botón activo recibe fondo blanco, color primario y sombra leve.
+
+Reference: `design-system-reference/preview/components-meta-actions.html` — GroupButton / Segmented control.
+
+## Usage
+
+```tsx
+const [view, setView] = useState('list')
+<SegmentedControl
+  options={[{ value: 'list', label: 'Lista' }, { value: 'card', label: 'Tarjeta' }]}
+  value={view}
+  onChange={setView}
+/>
+```
+
+## Props
+
+<Controls of={SegmentedControlStories.Default} />
+
+<Canvas of={SegmentedControlStories.Default} />

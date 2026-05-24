@@ -1,0 +1,39 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as AdminBannerStories from './AdminBanner.stories'
+
+<Meta of={AdminBannerStories} />
+
+# AdminBanner
+
+Banner de estado de sistema a nivel de página. Aparece en la parte superior de la vista para indicar un estado especial de sesión: impersonación, simulación de rol, modo solo lectura o sesión de superadministrador.
+
+Reference: `design-system-reference/preview/components-admin-banner.html`.
+
+## Variants
+
+| Variant | Context | Icon |
+|---------|---------|------|
+| `amber` | Impersonación de usuario | ⚠ |
+| `blue` | Simulación de rol | ◈ |
+| `neutral` | Modo solo lectura | ℹ |
+| `red` | Sesión de superadministrador | ⚡ |
+
+## Usage
+
+```tsx
+<AdminBanner
+  variant="amber"
+  badge="Asesora CRM"
+  message="Viendo como Laura Cifuentes · Bogotá"
+  actionLabel="Salir"
+  onAction={handleExitImpersonation}
+/>
+```
+
+## Props
+
+<Controls of={AdminBannerStories.Amber} />
+
+## All Variants
+
+<Canvas of={AdminBannerStories.AllVariants} />

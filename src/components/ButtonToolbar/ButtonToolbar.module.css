@@ -1,0 +1,13 @@
+/**
+ * ButtonToolbar — structural CSS placeholder.
+ *
+ * Per @yes/ui dist conventions (tsup esbuild has no CSS-Modules loader),
+ * actual styling lives inline as `React.CSSProperties` maps + a single
+ * guarded `<style>` block injected at module load (for :hover and
+ * :last-child rules).
+ *
+ * This file exists solely to satisfy the 6-files-per-component rule.
+ * Do not import it from the component or from product apps.
+ *
+ * Reference: design-system-reference/preview/components-meta-actions.html
+ */

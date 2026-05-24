@@ -1,0 +1,31 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as PageHeaderStories from './PageHeader.stories'
+
+<Meta of={PageHeaderStories} />
+
+# PageHeader
+
+Encabezado estándar de página. Combina migas de pan (breadcrumbs), título (Barlow 22px bold), subtítulo opcional y una zona de acciones a la derecha.
+
+Reference: `design-system-reference/preview/components-meta-actions.html`.
+
+## Usage
+
+```tsx
+<PageHeader
+  title="Contactos"
+  subtitle="248 registros"
+  breadcrumbs={[{ label: 'Inicio', href: '/' }, { label: 'Contactos' }]}
+  actions={<Button tone="primary">+ Nuevo</Button>}
+/>
+```
+
+## Props
+
+<Controls of={PageHeaderStories.Default} />
+
+## Variants
+
+<Canvas of={PageHeaderStories.Default} />
+<Canvas of={PageHeaderStories.TitleOnly} />
+<Canvas of={PageHeaderStories.NoBreadcrumb} />

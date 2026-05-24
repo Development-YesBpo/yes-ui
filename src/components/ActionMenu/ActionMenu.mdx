@@ -1,0 +1,30 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as ActionMenuStories from './ActionMenu.stories'
+
+<Meta of={ActionMenuStories} />
+
+# ActionMenu
+
+Menú contextual disparado por botón ⋯ (moreVertical). Cierra al hacer clic fuera o presionar Escape. Los ítems peligrosos se renderizan en rojo.
+
+Reference: `design-system-reference/preview/components-meta-actions.html`.
+
+## Usage
+
+```tsx
+<ActionMenu
+  items={[
+    { label: 'Editar', onClick: handleEdit },
+    { label: 'Eliminar', onClick: handleDelete, danger: true },
+  ]}
+/>
+```
+
+## Props
+
+<Controls of={ActionMenuStories.Default} />
+
+## Variants
+
+<Canvas of={ActionMenuStories.Default} />
+<Canvas of={ActionMenuStories.WithSections} />

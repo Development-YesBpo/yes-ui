@@ -1,0 +1,29 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as SplitButtonStories from './SplitButton.stories'
+
+<Meta of={SplitButtonStories} />
+
+# SplitButton
+
+Acción principal combinada con un dropdown de variantes. El botón izquierdo ejecuta la acción primaria; el chevron abre el menú de opciones.
+
+Reference: `design-system-reference/preview/components-meta-actions.html`.
+
+## Usage
+
+```tsx
+<SplitButton
+  label="Guardar cambios"
+  onMainClick={handleSave}
+  items={[
+    { label: 'Guardar y cerrar', onClick: handleSaveClose },
+    { label: 'Descartar cambios', onClick: handleDiscard, danger: true },
+  ]}
+/>
+```
+
+## Props
+
+<Controls of={SplitButtonStories.Default} />
+
+<Canvas of={SplitButtonStories.Default} />

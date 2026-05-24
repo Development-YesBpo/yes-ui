@@ -368,4 +368,71 @@
   --yes-z-modal:    var(--yes-primitive-z-modal);
   --yes-z-toast:    var(--yes-primitive-z-toast);
   --yes-z-tooltip:  var(--yes-primitive-z-tooltip);
+
+  /* ── Wave 7 — alias tokens (plan compatibility) ─────────────── */
+  --yes-color-surface-subtle: var(--yes-color-bg-faint);   /* #F9FAFB */
+  --yes-color-text-default:   var(--yes-color-text);       /* #111827 */
+  --yes-color-on-primary:     var(--yes-color-primary-fg); /* white */
+  --yes-radius-md:            var(--yes-radius-btn);       /* 6px */
+  --yes-radius-lg:            var(--yes-radius-card);      /* 8px */
+  --yes-font-body:            var(--yes-font-sans);        /* Manrope */
+  --yes-shadow-xs:            0 1px 2px rgba(0, 0, 0, 0.05);
+
+  /* ── Wave 7 — PageHeader ─────────────────────────────────────── */
+  --yes-text-page-title:  22px;
+  --yes-space-ph-top:     10px;
+  --yes-space-ph-bottom:  14px;
+
+  /* ── Wave 7 — SegmentedControl ───────────────────────────────── */
+  --yes-size-seg-h:       32px;
+  --yes-space-seg-px:     14px;
+
+  /* ── Wave 7 — ButtonToolbar ──────────────────────────────────── */
+  --yes-space-tb-px:      10px;
+
+  /* ── Wave 7 — SplitButton ────────────────────────────────────── */
+  --yes-size-split-h:        34px;
+  --yes-size-split-arrow:    30px;
+  --yes-color-split-divider: rgba(255, 255, 255, 0.2);
+  --yes-space-sd-py:          9px;
+
+  /* ── Wave 7 — ColumnManager ──────────────────────────────────── */
+  --yes-radius-xl:        10px;
+  --yes-size-cm-w:       210px;
+  --yes-size-cm-text:     11px;
+  --yes-space-cm-py:       7px;
+
+  /* ── Wave 7 — ActionMenu ─────────────────────────────────────── */
+  --yes-size-am-trigger:  32px;
+  --yes-size-am-w:       190px;
+
+  /* ── Wave 7 — AdminBanner ────────────────────────────────────── */
+  --yes-size-banner-h:        40px;
+  --yes-size-banner-border:    4px;
+  --yes-size-banner-dot:       5px;
+  --yes-size-banner-btn-h:    26px;
+
+  /* amber banner palette */
+  --yes-color-amber-bg:          #FFFBEB;
+  --yes-color-amber-border:      #F59E0B;
+  --yes-color-amber-text:        #78350F;
+  --yes-color-amber-pill-bg:     #FEF3C7;
+  --yes-color-amber-pill-border: #FCD34D;
+  --yes-color-amber-pill-text:   #92400E;
+
+  /* blue banner palette */
+  --yes-color-banner-blue-bg:          #EEF3FA;
+  --yes-color-banner-blue-text:        #1E3A8A;
+  --yes-color-banner-blue-pill-bg:     #D8E3F4;
+  --yes-color-banner-blue-pill-border: #B3C5E6;
+
+  /* red banner palette */
+  --yes-color-banner-red-bg:          #FFF1F1;
+  --yes-color-banner-red-text:        #7F1D1D;
+  --yes-color-banner-red-pill-bg:     #FEE2E2;
+  --yes-color-banner-red-pill-border: #FECACA;
+  --yes-color-banner-red-text-strong: #991B1B;
+
+  /* neutral banner pill */
+  --yes-color-banner-neutral-pill-text: #4B5563;
 }

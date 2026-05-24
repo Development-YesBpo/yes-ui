@@ -1,0 +1,27 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as ColumnManagerStories from './ColumnManager.stories'
+
+<Meta of={ColumnManagerStories} />
+
+# ColumnManager
+
+Panel para controlar la visibilidad y el orden de columnas de una tabla. La primera columna siempre está bloqueada (checkbox deshabilitado).
+
+Reference: `design-system-reference/preview/components-meta-actions.html`.
+
+## Usage
+
+```tsx
+<ColumnManager
+  columns={columns}
+  onVisibilityChange={(key, visible) => toggleColumn(key, visible)}
+  onApply={applyColumnState}
+  onReset={resetColumns}
+/>
+```
+
+## Props
+
+<Controls of={ColumnManagerStories.Default} />
+
+<Canvas of={ColumnManagerStories.Default} />

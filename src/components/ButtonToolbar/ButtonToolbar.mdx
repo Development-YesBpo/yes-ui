@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as ButtonToolbarStories from './ButtonToolbar.stories'
+
+<Meta of={ButtonToolbarStories} />
+
+# ButtonToolbar
+
+Fila compacta de botones de acción con borde compartido. Usa `ButtonToolbar` como contenedor y `ToolbarButton` para cada acción.
+
+Reference: `design-system-reference/preview/components-meta-actions.html`.
+
+## Usage
+
+```tsx
+<ButtonToolbar aria-label="Acciones de tabla">
+  <ToolbarButton onClick={handleExport}>Exportar</ToolbarButton>
+  <ToolbarButton onClick={handleFilter}>Filtrar</ToolbarButton>
+</ButtonToolbar>
+```
+
+## Props
+
+<Controls of={ButtonToolbarStories.Default} />
+
+<Canvas of={ButtonToolbarStories.Default} />
+<Canvas of={ButtonToolbarStories.WithDisabled} />
