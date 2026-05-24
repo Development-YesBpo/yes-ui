@@ -1,0 +1,26 @@
+/*
+ * Spinner structural styles — documentation only.
+ *
+ * The Spinner component renders via React inline styles (React.CSSProperties)
+ * plus an injected <style> tag at runtime for the @keyframes rotation rule.
+ * The tsup library build does not yet have a CSS Modules loader. This file
+ * is kept per the @yes/ui 6-files-per-component convention and documents
+ * the structural intent.
+ */
+
+.root {
+  display: inline-block;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--yes-color-border);
+  border-top-color: var(--yes-color-primary);
+  animation: yes-spinner-rotate 750ms linear infinite;
+}
+
+@keyframes yes-spinner-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.sizeSm { width: 14px; height: 14px; border-width: 2px; }
+.sizeMd { width: 18px; height: 18px; border-width: 2px; }
+.sizeLg { width: 24px; height: 24px; border-width: 3px; }

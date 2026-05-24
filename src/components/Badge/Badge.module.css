@@ -1,0 +1,21 @@
+/*
+ * Badge structural styles — documentation only.
+ *
+ * The Badge component renders via React inline styles (React.CSSProperties)
+ * because the tsup library build does not yet have a CSS Modules loader.
+ * This file is kept per the @yes/ui 6-files-per-component convention and
+ * documents the structural intent of the component.
+ */
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--yes-space-1);
+  padding: 2px 8px;
+  border-radius: var(--yes-radius-badge);
+  font-family: var(--yes-font-sans);
+  font-size: var(--yes-text-xs);
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}

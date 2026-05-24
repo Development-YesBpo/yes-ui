@@ -1,7 +1,7 @@
 {
   "name": "@yes/ui",
-  "version": "0.1.0",
-  "description": "YES BPO unified UI component library",
+  "version": "1.0.0",
+  "description": "YES BPO unified UI component library — 42 React components across 8 thematic waves",
   "type": "module",
   "license": "UNLICENSED",
   "private": false,

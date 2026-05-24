@@ -1,0 +1,11 @@
+/*
+ * Icon structural styles — documentation only.
+ *
+ * Icon is a thin wrapper around lucide-react that applies the YES design
+ * stroke (1.75px) and currentColor convention. The component renders the
+ * Lucide SVG directly without any wrapping styled element, so there is no
+ * runtime CSS to apply. This file exists per the @yes/ui
+ * 6-files-per-component convention.
+ */
+
+/* Lucide SVG inherits color via currentColor and size via the size prop. */

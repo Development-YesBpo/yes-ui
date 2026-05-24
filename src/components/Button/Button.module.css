@@ -1,0 +1,33 @@
+/*
+ * Button structural styles — documentation only.
+ *
+ * The Button component renders via React inline styles (React.CSSProperties)
+ * plus a single <style> tag injected at runtime for :hover / :focus-visible /
+ * :disabled selectors. The tsup library build does not yet have a CSS Modules
+ * loader. This file is kept per the @yes/ui 6-files-per-component convention
+ * and documents the structural intent of every rule.
+ */
+
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--yes-space-2);
+  border: 1px solid transparent;
+  border-radius: var(--yes-radius-btn);
+  font-family: var(--yes-font-sans);
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 120ms, color 120ms, border-color 120ms, box-shadow 120ms;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.root[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.sizeSm { height: var(--yes-size-height-sm); padding: 0 12px; font-size: 13px; }
+.sizeMd { height: var(--yes-size-height-md); padding: 0 16px; font-size: 14px; }
+.sizeLg { height: var(--yes-size-height-lg); padding: 0 20px; font-size: 15px; }
