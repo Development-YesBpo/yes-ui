@@ -1,0 +1,8 @@
+/**
+ * Table.module.css — Structural placeholder.
+ *
+ * The Table component uses inline React.CSSProperties + a guarded <style>
+ * injection (see Table.tsx) because the repository's tsup esbuild config
+ * does not include a CSS-Modules loader. This file is kept to satisfy the
+ * 6-files-per-component contract and is intentionally empty.
+ */

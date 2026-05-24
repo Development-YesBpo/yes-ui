@@ -1,0 +1,61 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as TableStories from './Table.stories'
+
+<Meta of={TableStories} />
+
+# Table
+
+Tabla de datos estándar. Soporta ordenamiento de columnas, selección de filas,
+estados de carga y vacío, y paginación. Todos los valores de celda pasan
+por `column.render()` para renderizado personalizado.
+
+**Referencia:** `design-system-reference/preview/components-table.html`
+**UI Kit:** `crm/CRMApp.jsx` → `ContactsTable`
+
+## Cuándo usar Table vs TableAdvanced
+
+| Caso | Componente |
+|------|-----------|
+| Lista simple con 1 sort activo | `Table` |
+| Operaciones en lote sobre registros | `TableAdvanced` |
+| Multi-sort con prioridad numerada | `TableAdvanced` |
+| Redimensión de columnas | `TableAdvanced` |
+| Gestión de visibilidad de columnas | `TableAdvanced` |
+
+## Uso
+
+```tsx
+import { Table } from '@yes/ui'
+import type { TableColumn } from '@yes/ui'
+
+const columns: TableColumn<Contact>[] = [
+  { key: 'name', header: 'Nombre', sortable: true },
+  { key: 'status', header: 'Estado', render: (val) => <Badge variant="success">{val}</Badge> },
+]
+
+<Table
+  columns={columns}
+  data={contacts}
+  getRowId={(c) => c.id}
+  selectable
+  selectedIds={selectedIds}
+  onSelectionChange={setSelectedIds}
+  sortKey={sortKey}
+  sortDirection={sortDir}
+  onSort={handleSort}
+  page={page}
+  pageSize={20}
+  total={total}
+  onPageChange={setPage}
+/>
+```
+
+## Accesibilidad
+
+- `aria-sort` en encabezados de columna ordenables.
+- Cada checkbox de selección expone `aria-label` descriptivo.
+- Estado de carga: filas skeleton — no se anuncia como contenido vivo.
+- Estado vacío: `EmptyState` con `title` legible por lectores de pantalla.
+
+<Canvas of={TableStories.WithData} />
+<Controls of={TableStories.Default} />

@@ -1,0 +1,67 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as TableAdvancedStories from './TableAdvanced.stories'
+
+<Meta of={TableAdvancedStories} />
+
+# TableAdvanced
+
+Extiende `Table` con operaciones en masa, ordenamiento multi-columna con prioridad
+numerada, redimensión de columnas por arrastre, y un gestor de visibilidad de columnas.
+Usar en pantallas de gestión intensiva: contactos CRM, reportes, colas de trabajo.
+
+**Referencia:** `design-system-reference/preview/components-table-advanced.html`
+**UI Kit:** `crm/CRMApp.jsx`
+
+## Diferencias respecto a Table
+
+| Feature | Table | TableAdvanced |
+|---------|-------|---------------|
+| Selección de filas | sí | sí |
+| Barra de acciones en masa | — | sí |
+| Sort de 1 columna | sí | sí |
+| Multi-sort con prioridad | — | sí |
+| Redimensión de columnas | — | sí |
+| Gestor de columnas | — | sí |
+
+## Uso
+
+```tsx
+import { TableAdvanced } from '@yes/ui'
+
+<TableAdvanced
+  columns={columns}
+  data={contacts}
+  getRowId={(c) => c.id}
+  selectable
+  selectedIds={selectedIds}
+  onSelectionChange={setSelectedIds}
+  sortConfig={[
+    { key: 'name', direction: 'asc' },
+    { key: 'createdAt', direction: 'desc' },
+  ]}
+  onSort={handleSort}
+  visibleColumns={visibleCols}
+  onColumnVisibilityChange={handleColVisibility}
+  onColumnReset={resetCols}
+  bulkActions={[
+    { label: 'Exportar', onClick: (ids) => exportContacts(ids) },
+    { label: 'Eliminar', onClick: (ids) => deleteContacts(ids), danger: true },
+  ]}
+/>
+```
+
+## Multi-sort
+
+`sortConfig` reemplaza `sortKey`/`sortDirection` cuando se provee. Cada entrada
+tiene prioridad según su posición en el array (índice 0 = prioridad 1). El badge
+de prioridad aparece automáticamente en el encabezado de cada columna activa.
+
+## Redimensión de columnas
+
+La redimensión es local al componente (estado `colWidths`). Para persistir el ancho
+entre sesiones, el consumidor debe envolver `onSort` y guardar manualmente, o
+extender el componente con un callback `onColumnWidthChange` (no provisto por
+defecto).
+
+<Canvas of={TableAdvancedStories.FullFeatured} />
+<Controls of={TableAdvancedStories.Default} />

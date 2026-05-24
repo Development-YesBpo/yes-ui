@@ -329,6 +329,20 @@
   --yes-color-kpi-up:   var(--yes-color-success);   /* #16A34A */
   --yes-color-kpi-down: var(--yes-color-danger);    /* #DC2626 */
 
+  /* ── Wave 6b — Table ──────────────────────────────────────── */
+  --yes-size-table-header-h:              38px;
+  --yes-size-table-header-text:           11px;
+  --yes-tracking-table-header:            0.04em;
+  --yes-size-table-row-selected-border:   3px;
+  --yes-size-table-action-btn:            26px;
+
+  /* ── Wave 6b — TableAdvanced ──────────────────────────────── */
+  --yes-size-table-bulk-btn-h:         28px;
+  --yes-color-table-bulk-divider:      #D8E3F4;
+  --yes-size-table-sort-priority:      14px;
+  --yes-size-table-sort-priority-text: 8px;
+  --yes-size-table-resize-handle-w:    3px;
+
   /* ── Shadows / Elevation ─────────────────────────────────────── */
   --yes-shadow-sm:  var(--yes-primitive-shadow-sm);
   --yes-shadow-md:  var(--yes-primitive-shadow-md);
