@@ -1,29 +1,29 @@
-import { Meta } from '@storybook/blocks'
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ChartFrameStories from './ChartFrame.stories'
 
-<Meta title="Wave 9 — Charts/ChartFrame/Docs" />
+<Meta of={ChartFrameStories} />
 
 # ChartFrame
 
-Envoltura compartida por todos los gráficos de `@yes/ui`.
+Envoltura compartida por todos los gráficos de `@yes/ui`. Aplica `role="img"` + `aria-label`, gestiona carga (`Skeleton`), estado vacío (`EmptyState`) y expone los datos a lectores de pantalla mediante una tabla oculta.
 
-**Qué hace:** aplica `role="img"` + `aria-label`, gestiona el estado de carga
-(`Skeleton`), el estado vacío (`EmptyState`) y renderiza una `<table>` oculta
-(solo para lectores de pantalla) con los datos del gráfico.
+**Referencia:** `Dashboard-Comps/Widget Gallery.html`
 
-**Referencia:** `Dashboard-Comps/Widget Gallery.html`.
+## Cuándo usar
+
+Nunca se usa directamente desde una aplicación. Cada componente gráfico lo compone internamente.
+
+- Pasar `loading` mientras los datos llegan desde la API.
+- Pasar `isEmpty` cuando la consulta no retorna filas.
+- Pasar `srTable` con los datos para accesibilidad completa.
+
+<Canvas of={ChartFrameStories.Loading} />
 
 ## Accesibilidad
 
-- El contenedor es `role="img"`; `ariaLabel` es obligatorio.
-- La tabla oculta (`srTable`) expone los datos a tecnología asistiva sin afectar el render visual.
+- El contenedor lleva `role="img"` y `aria-label` obligatorio.
+- La tabla oculta (`srTable`) expone todos los datos a tecnología asistiva sin afectar el render visual.
 
 ## Props
 
-| Prop | Tipo | Descripción |
-|------|------|-------------|
-| `ariaLabel` | `string` | Obligatorio. Alternativa textual del gráfico. |
-| `height` | `number` | Alto fijo en px. Default 148. |
-| `loading` | `boolean` | Muestra `Skeleton`. |
-| `isEmpty` | `boolean` | Muestra `EmptyState`. |
-| `emptyTitle` | `string` | Título del estado vacío. Default "Sin datos". |
-| `srTable` | `{ headers; rows }` | Tabla oculta para lectores de pantalla. |
+<Controls />

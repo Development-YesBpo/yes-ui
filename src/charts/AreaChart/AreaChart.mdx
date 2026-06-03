@@ -1,14 +1,26 @@
-{/* src/charts/AreaChart/AreaChart.mdx */}
-import { Meta } from '@storybook/blocks'
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as AreaChartStories from './AreaChart.stories'
 
-<Meta title="Wave 9 — Charts/AreaChart/Docs" />
+<Meta of={AreaChartStories} />
 
 # AreaChart
 
-Áreas apiladas (`@ant-design/plots` `Area`). Referencia: `Widget Gallery.html → AreaSVG`.
+Áreas apiladas para visualizar composición y volumen total simultáneamente. Usa `@ant-design/plots` (`Area`).
 
-**Cuándo usar:** composición + volumen total simultáneos. Para una sola métrica usa `LineChart`.
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → AreaSVG`
+
+## Cuándo usar
+
+- Distribución de volumen por canal a lo largo del tiempo (Teléfono / WhatsApp / Chat).
+- Cuando importa tanto la proporción como el total.
+- Para una sola serie sin apilamiento usa `LineChart`.
+
+<Canvas of={AreaChartStories.Stacked} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos disponible para lectores de pantalla.
 
 ## Props
-`data`, `xField`, `yField`, `seriesField`, `stacked` (default true), `ariaLabel` (obligatorio),
-`height`, `showLegend`, `loading`. Accesibilidad vía `ChartFrame` (`role="img"` + tabla oculta).
+
+<Controls />

@@ -1,15 +1,27 @@
-{/* src/charts/BarChart/BarChart.mdx */}
-import { Meta } from '@storybook/blocks'
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as BarChartStories from './BarChart.stories'
 
-<Meta title="Wave 9 — Charts/BarChart/Docs" />
+<Meta of={BarChartStories} />
 
 # BarChart
 
-Barras verticales (`@ant-design/plots` `Column`). Referencia: `Widget Gallery.html → BarSVG`.
+Barras verticales para comparar categorías. Usa `@ant-design/plots` (`Column`).
 
-**Cuándo usar:** comparación por categoría (pocas categorías).
-Para rankings con muchas categorías y etiquetas largas usa `HorizontalBarChart`.
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → BarSVG`
+
+## Cuándo usar
+
+- Comparación de pocas categorías (campañas, canales, períodos).
+- Con `colorByField` para colorear cada barra con el tono de la serie.
+- Con `grouped` para barras agrupadas lado a lado.
+- Para rankings con etiquetas largas (nombres de agentes) usa `HorizontalBarChart`.
+
+<Canvas of={BarChartStories.Default} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos disponible para lectores de pantalla.
 
 ## Props
-`data`, `xField`, `yField`, `colorByField`, `grouped`, `ariaLabel` (obligatorio), `height`,
-`showValues` (default true), `loading`. Accesibilidad vía `ChartFrame`.
+
+<Controls />

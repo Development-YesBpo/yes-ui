@@ -1,30 +1,26 @@
-{/* src/charts/LineChart/LineChart.mdx */}
-import { Meta } from '@storybook/blocks'
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as LineChartStories from './LineChart.stories'
 
-<Meta title="Wave 9 — Charts/LineChart/Docs" />
+<Meta of={LineChartStories} />
 
 # LineChart
 
-Serie temporal renderizada con `@ant-design/plots` (`Line`) y el renderer SVG.
+Serie temporal simple con línea suavizada y relleno de área opcional. Usa `@ant-design/plots` (`Line`).
 
-**Referencia:** `Dashboard-Comps/Widget Gallery.html → LineSVG`.
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → LineSVG`
 
-**Cuándo usar:** evolución de una métrica en el tiempo (1+ series).
-Para comparación por categoría usa `BarChart`; para composición usa `AreaChart`.
+## Cuándo usar
+
+- Evolución de una métrica en el tiempo (conversaciones por día, CSAT semanal).
+- Hasta 4 series simultáneas con `seriesField`.
+- Para composición de volumen usa `AreaChart`; para comparación por categoría usa `BarChart`.
+
+<Canvas of={LineChartStories.Default} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos disponible para lectores de pantalla.
 
 ## Props
 
-| Prop | Tipo | Descripción |
-|------|------|-------------|
-| `data` | `ChartDatum[]` | Filas de datos. |
-| `xField` | `string` | Campo del eje X. |
-| `yField` | `string` | Campo numérico del eje Y. |
-| `seriesField` | `string` | Divide en múltiples series. |
-| `curve` | `'linear' \| 'smooth'` | Forma de la línea. Default `smooth`. |
-| `area` | `boolean` | Rellena el área bajo la línea. |
-| `ariaLabel` | `string` | Obligatorio. Alternativa textual. |
-| `height` | `number` | Alto en px. Default 148. |
-| `loading` | `boolean` | Muestra `Skeleton`. |
-
-## Accesibilidad
-`role="img"` con `aria-label`, más una tabla oculta con los datos (vía `ChartFrame`).
+<Controls />

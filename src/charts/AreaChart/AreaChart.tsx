@@ -2,7 +2,7 @@
 import React from 'react'
 import { Area } from '@ant-design/plots'
 import { ChartFrame } from '../ChartFrame/ChartFrame'
-import { antvTheme, svgRenderer } from '../antvTheme'
+import { antvTheme } from '../antvTheme'
 import { defaultValueFormatter } from '../chartFormat'
 import type { BaseChartProps } from '../chartTypes'
 
@@ -66,7 +66,6 @@ export function AreaChart({
         legend={showLegend ? { color: { position: 'top' } } : false}
         label={showValues ? { text: yField } : false}
         axis={{ y: { gridStroke: showGrid ? undefined : 'transparent', labelFormatter: valueFormatter } }}
-        {...({ renderer: svgRenderer } as Record<string, unknown>)}
       />
     </ChartFrame>
   )

@@ -2,7 +2,7 @@
 import React from 'react'
 import { Line } from '@ant-design/plots'
 import { ChartFrame } from '../ChartFrame/ChartFrame'
-import { antvTheme, svgRenderer } from '../antvTheme'
+import { antvTheme } from '../antvTheme'
 import { defaultValueFormatter } from '../chartFormat'
 import type { BaseChartProps } from '../chartTypes'
 
@@ -69,7 +69,6 @@ export function LineChart({
         area={area ? {} : undefined}
         autoFit
         height={height}
-        renderer={svgRenderer}
         theme={colors ? { ...antvTheme, category10: colors } : antvTheme}
         legend={showLegend ? { color: { position: 'top' } } : false}
         label={showValues ? { text: yField } : false}
