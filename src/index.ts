@@ -18,6 +18,7 @@ export type { Tone, Size, StatusVariant, BaseProps, FieldProps } from './types/s
 export { useId } from './hooks/useId'
 export { useFocusTrap } from './hooks/useFocusTrap'
 export { useControllable } from './hooks/useControllable'
+export { useResizeObserver } from './hooks/useResizeObserver'
 
 // ─── Utils (public) ───────────────────────────────────────────
 export { cn } from './utils/cn'

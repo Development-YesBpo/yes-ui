@@ -8,7 +8,7 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   splitting: true,
-  external: ['react', 'react-dom'],
+  external: ['react', 'react-dom', '@ant-design/plots', '@antv/g-svg'],
   // Token CSS files (global custom properties) are copied separately
   // by scripts/copy-tokens.mjs — they must not be bundled into JS.
   //

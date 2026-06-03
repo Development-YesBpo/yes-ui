@@ -433,6 +433,22 @@
   --yes-color-banner-red-pill-border: #FECACA;
   --yes-color-banner-red-text-strong: #991B1B;
 
+  /* chart palette — mirrors src/tokens/chartTokens.ts (keep in sync) */
+  --yes-chart-1: #2B52A0;
+  --yes-chart-2: #8CBC39;
+  --yes-chart-3: #4D72BC;
+  --yes-chart-4: #D97706;
+  --yes-chart-5: #0891B2;
+  --yes-chart-6: #7C3AED;
+  --yes-chart-7: #be185d;
+  --yes-chart-8: #0f766e;
+  --yes-chart-grid: #E5E7EB;
+  --yes-chart-axis-label: #6B7280;
+  --yes-chart-heatmap-0: #EEF3FA;
+  --yes-chart-heatmap-1: #4D72BC;
+  --yes-chart-heatmap-2: #2B52A0;
+  --yes-chart-heatmap-3: #142860;
+
   /* neutral banner pill */
   --yes-color-banner-neutral-pill-text: #4B5563;
 
