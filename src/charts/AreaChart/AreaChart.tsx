@@ -26,6 +26,7 @@ export function AreaChart({
   colors,
   showGrid = true,
   showLegend = true,
+  showValues = false,
   valueFormatter = defaultValueFormatter,
   loading = false,
   className,
@@ -54,19 +55,18 @@ export function AreaChart({
       {...(testId !== undefined ? { 'data-testid': testId } : {})}
     >
       <Area
-        {...({
-          data: data as Array<Record<string, unknown>>,
-          xField,
-          yField,
-          colorField: seriesField,
-          stack: stacked,
-          autoFit: true,
-          height,
-          renderer: svgRenderer,
-          theme: colors ? { ...antvTheme, category10: colors } : antvTheme,
-          legend: showLegend ? { color: { position: 'top' } } : false,
-          axis: { y: { gridStroke: showGrid ? undefined : 'transparent', labelFormatter: valueFormatter } },
-        } as Record<string, unknown>)}
+        data={data as Array<Record<string, unknown>>}
+        xField={xField}
+        yField={yField}
+        {...(seriesField !== undefined ? { colorField: seriesField } : {})}
+        stack={stacked}
+        autoFit
+        height={height}
+        theme={colors ? { ...antvTheme, category10: colors } : antvTheme}
+        legend={showLegend ? { color: { position: 'top' } } : false}
+        label={showValues ? { text: yField } : false}
+        axis={{ y: { gridStroke: showGrid ? undefined : 'transparent', labelFormatter: valueFormatter } }}
+        {...({ renderer: svgRenderer } as Record<string, unknown>)}
       />
     </ChartFrame>
   )

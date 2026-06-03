@@ -44,4 +44,18 @@ describe('HorizontalBarChart', () => {
     render(<HorizontalBarChart data={[]} xField="value" yField="agent" ariaLabel="x" />)
     expect(screen.getByText('Sin datos')).toBeInTheDocument()
   })
+  it('shows a Skeleton and hides the chart when loading', () => {
+    render(
+      <HorizontalBarChart
+        data={DATA}
+        xField="value"
+        yField="agent"
+        ariaLabel="x"
+        loading
+        data-testid="hbc"
+      />,
+    )
+    expect(screen.queryByTestId('plots-bar')).not.toBeInTheDocument()
+    expect(screen.getByTestId('hbc')).toBeInTheDocument()
+  })
 })

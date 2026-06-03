@@ -32,4 +32,19 @@ describe('AreaChart', () => {
     render(<AreaChart data={[]} xField="day" yField="value" ariaLabel="x" />)
     expect(screen.getByText('Sin datos')).toBeInTheDocument()
   })
+  it('shows a Skeleton and hides the chart when loading', () => {
+    render(
+      <AreaChart
+        data={DATA}
+        xField="day"
+        yField="value"
+        seriesField="channel"
+        ariaLabel="x"
+        loading
+        data-testid="ac"
+      />,
+    )
+    expect(screen.queryByTestId('plots-area')).not.toBeInTheDocument()
+    expect(screen.getByTestId('ac')).toBeInTheDocument()
+  })
 })

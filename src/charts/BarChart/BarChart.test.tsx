@@ -37,4 +37,18 @@ describe('BarChart', () => {
     render(<BarChart data={[]} xField="label" yField="value" ariaLabel="x" />)
     expect(screen.getByText('Sin datos')).toBeInTheDocument()
   })
+  it('shows a Skeleton and hides the chart when loading', () => {
+    render(
+      <BarChart
+        data={DATA}
+        xField="label"
+        yField="value"
+        ariaLabel="x"
+        loading
+        data-testid="bc"
+      />,
+    )
+    expect(screen.queryByTestId('plots-column')).not.toBeInTheDocument()
+    expect(screen.getByTestId('bc')).toBeInTheDocument()
+  })
 })

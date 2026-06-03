@@ -43,6 +43,8 @@ export function HorizontalBarChart({
   ariaLabel,
   height = 180,
   colors,
+  showGrid = true,
+  showLegend = false,
   showValues = true,
   valueFormatter = defaultValueFormatter,
   loading = false,
@@ -76,9 +78,9 @@ export function HorizontalBarChart({
         height={height}
         renderer={svgRenderer}
         theme={colors ? { ...antvTheme, category10: colors } : antvTheme}
-        legend={false}
+        legend={showLegend ? { color: { position: 'top' } } : false}
         label={showValues ? { text: xField, position: 'right' } : false}
-        axis={{ x: { labelFormatter: valueFormatter } }}
+        axis={{ x: { labelFormatter: valueFormatter, gridStroke: showGrid ? undefined : 'transparent' } }}
       />
     </ChartFrame>
   )
