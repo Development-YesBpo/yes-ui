@@ -1,0 +1,16 @@
+{/* src/charts/HorizontalBarChart/HorizontalBarChart.mdx */}
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Wave 9 — Charts/HorizontalBarChart/Docs" />
+
+# HorizontalBarChart
+
+Barras horizontales (`@ant-design/plots` `Bar` — horizontal en G2 v5).
+Referencia: `Widget Gallery.html → HBarSVG`.
+
+**Cuándo usar:** rankings (agentes, campañas) con etiquetas largas — evita rotar texto.
+`sort` + `maxItems` producen un top-N.
+
+## Props
+`data`, `xField` (valor), `yField` (categoría), `sort` (`'asc'|'desc'`), `maxItems`,
+`ariaLabel` (obligatorio), `height` (default 180), `showValues`, `loading`. A11y vía `ChartFrame`.
