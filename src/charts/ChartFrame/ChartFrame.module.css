@@ -1,0 +1,3 @@
+/* Structural intent only — NOT imported (see HANDBOOK § 4 CSS Modules note).
+   Root: position relative, full width, min-height = height prop.
+   SR table: visually hidden (sr-only clip pattern), exposed to assistive tech. */

@@ -123,3 +123,9 @@ export type {
 // export { TagInput } from './components/TagInput'
 // export { RichTextEditor } from './components/RichTextEditor'
 // export { YesUIProvider } from './components/YesUIProvider'
+
+// ─── Charts (Wave 9) ──────────────────────────────────────────────
+export { LineChart } from './charts/LineChart'
+export type { LineChartProps } from './charts/LineChart'
+export type { BaseChartProps, ChartDatum } from './charts/chartTypes'
+export { antvTheme, antvThemeDark } from './charts/antvTheme'

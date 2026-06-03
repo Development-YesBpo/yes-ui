@@ -1,0 +1,30 @@
+{/* src/charts/LineChart/LineChart.mdx */}
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Wave 9 — Charts/LineChart/Docs" />
+
+# LineChart
+
+Serie temporal renderizada con `@ant-design/plots` (`Line`) y el renderer SVG.
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → LineSVG`.
+
+**Cuándo usar:** evolución de una métrica en el tiempo (1+ series).
+Para comparación por categoría usa `BarChart`; para composición usa `AreaChart`.
+
+## Props
+
+| Prop | Tipo | Descripción |
+|------|------|-------------|
+| `data` | `ChartDatum[]` | Filas de datos. |
+| `xField` | `string` | Campo del eje X. |
+| `yField` | `string` | Campo numérico del eje Y. |
+| `seriesField` | `string` | Divide en múltiples series. |
+| `curve` | `'linear' \| 'smooth'` | Forma de la línea. Default `smooth`. |
+| `area` | `boolean` | Rellena el área bajo la línea. |
+| `ariaLabel` | `string` | Obligatorio. Alternativa textual. |
+| `height` | `number` | Alto en px. Default 148. |
+| `loading` | `boolean` | Muestra `Skeleton`. |
+
+## Accesibilidad
+`role="img"` con `aria-label`, más una tabla oculta con los datos (vía `ChartFrame`).

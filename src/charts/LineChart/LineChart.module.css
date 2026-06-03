@@ -1,0 +1,3 @@
+/* src/charts/LineChart/LineChart.module.css */
+/* Structural intent only — NOT imported. LineChart delegates layout to ChartFrame
+   and AntV. No bespoke structural CSS. */

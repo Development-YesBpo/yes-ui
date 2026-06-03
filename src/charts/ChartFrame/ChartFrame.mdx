@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Wave 9 — Charts/ChartFrame/Docs" />
+
+# ChartFrame
+
+Envoltura compartida por todos los gráficos de `@yes/ui`.
+
+**Qué hace:** aplica `role="img"` + `aria-label`, gestiona el estado de carga
+(`Skeleton`), el estado vacío (`EmptyState`) y renderiza una `<table>` oculta
+(solo para lectores de pantalla) con los datos del gráfico.
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html`.
+
+## Accesibilidad
+
+- El contenedor es `role="img"`; `ariaLabel` es obligatorio.
+- La tabla oculta (`srTable`) expone los datos a tecnología asistiva sin afectar el render visual.
+
+## Props
+
+| Prop | Tipo | Descripción |
+|------|------|-------------|
+| `ariaLabel` | `string` | Obligatorio. Alternativa textual del gráfico. |
+| `height` | `number` | Alto fijo en px. Default 148. |
+| `loading` | `boolean` | Muestra `Skeleton`. |
+| `isEmpty` | `boolean` | Muestra `EmptyState`. |
+| `emptyTitle` | `string` | Título del estado vacío. Default "Sin datos". |
+| `srTable` | `{ headers; rows }` | Tabla oculta para lectores de pantalla. |
