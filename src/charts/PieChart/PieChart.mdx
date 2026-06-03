@@ -1,0 +1,43 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as PieChartStories from './PieChart.stories'
+
+<Meta of={PieChartStories} />
+
+# PieChart
+
+Distribución porcentual en sectores. Usa `@ant-design/plots` (`Pie`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → PieSVG`
+
+## Cuándo usar
+
+- Distribución de contactos por canal, motivo de llamada o estado.
+- Máximo 6–7 categorías; con más, los slices pequeños se vuelven ilegibles.
+- Para una sola categoría "hueca" con un KPI central usa `DonutChart`.
+- Para comparar magnitudes absolutas entre categorías usa `BarChart`.
+
+<Canvas of={PieChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `legendPosition` (default `'right'`) | Posición de la leyenda (top/right/bottom/left) | Ajustar al layout disponible |
+| `showLegend={false}` | Oculta la leyenda | Etiquetas perimetrales bastan |
+| `showValues` (default `true`) | Etiquetas externas con el nombre de cada slice | Apagar en versión compacta |
+
+<Canvas of={PieChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={PieChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `colorField` (categoría) y `angleField` (valor) disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={PieChartStories.Default} />

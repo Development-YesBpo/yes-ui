@@ -1,0 +1,43 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as BubbleChartStories from './BubbleChart.stories'
+
+<Meta of={BubbleChartStories} />
+
+# BubbleChart
+
+Dispersión con una tercera dimensión codificada en el radio de la burbuja. Usa `@ant-design/plots` (`Scatter` con `sizeField`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → BubbleSVG`
+
+## Cuándo usar
+
+- Campañas mapeadas en tres ejes: volumen × CSAT × costo relativo.
+- Cualquier caso donde tres métricas numéricas deben compararse simultáneamente.
+- Para solo dos dimensiones usa `ScatterChart`.
+
+<Canvas of={BubbleChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `sizeField` | Tercera dimensión en el radio | Requerido — define la métrica adicional |
+| `sizeRange` (default `[4, 40]`) | Tamaño mínimo/máximo en px | Ajustar al rango visual del dashboard |
+| `colorField` | Color por categoría | Distinguir grupos (campañas, productos) |
+| `xLabel` / `yLabel` | Etiquetas legibles en los ejes | Ocultar nombres de campo internos |
+
+<Canvas of={BubbleChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={BubbleChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `xField`, `yField`, `sizeField` y `colorField` disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={BubbleChartStories.Default} />

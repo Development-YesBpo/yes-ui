@@ -1,0 +1,3 @@
+/* src/charts/ChoroplethMap/ChoroplethMap.module.css */
+/* Structural intent only — NOT imported. ChoroplethMap delegates layout to
+   ChartFrame and react-map-gl. No bespoke structural CSS. */

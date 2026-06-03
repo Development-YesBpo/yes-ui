@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ScatterChartStories from './ScatterChart.stories'
+
+<Meta of={ScatterChartStories} />
+
+# ScatterChart
+
+Dispersión de puntos para identificar correlaciones y outliers entre dos métricas numéricas. Usa `@ant-design/plots` (`Scatter`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → ScatterSVG`
+
+## Cuándo usar
+
+- Correlación entre TMO y CSAT por agente — identifica outliers y cuadrantes de rendimiento.
+- Cualquier par de métricas numéricas donde el patrón de distribución importa.
+- Para una tercera dimensión codificada en tamaño usa `BubbleChart`.
+
+<Canvas of={ScatterChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `xLabel` / `yLabel` | Etiquetas legibles en los ejes | Ocultar nombres de campo internos |
+| `colorField` | Color por categoría | Distinguir grupos (equipos, regiones) |
+| `showLegend` | Leyenda superior | Cuando hay `colorField` |
+
+<Canvas of={ScatterChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={ScatterChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `xField`, `yField` y `colorField` (cuando aplica) disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={ScatterChartStories.Default} />

@@ -5,7 +5,7 @@ import * as BarChartStories from './BarChart.stories'
 
 # BarChart
 
-Barras verticales para comparar categorías. Usa `@ant-design/plots` (`Column`).
+Barras verticales para comparar valores entre categorías. Usa `@ant-design/plots` (`Column`).
 
 **Referencia:** `Dashboard-Comps/Widget Gallery.html → BarSVG`
 
@@ -13,15 +13,33 @@ Barras verticales para comparar categorías. Usa `@ant-design/plots` (`Column`).
 
 - Comparación de pocas categorías (campañas, canales, períodos).
 - Con `colorByField` para colorear cada barra con el tono de la serie.
-- Con `grouped` para barras agrupadas lado a lado.
-- Para rankings con etiquetas largas (nombres de agentes) usa `HorizontalBarChart`.
+- Con `grouped` para barras agrupadas lado a lado (comparación entre dimensiones secundarias).
+- Para rankings con nombres largos usa `HorizontalBarChart`; para temporalidad usa `LineChart`.
 
 <Canvas of={BarChartStories.Default} />
 
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `colorByField` | Color por categoría | Resaltar la dimensión categórica |
+| `grouped` | Barras lado a lado por sub-categoría | Comparar dos dimensiones (p. ej. campaña × trimestre) |
+| `showValues` (default `true`) | Etiquetas sobre cada barra | Datos pequeños y legibles |
+| `showLegend` | Leyenda superior | Cuando hay varias series |
+| `showGrid={false}` | Oculta cuadrícula | Embebido compacto en KPI |
+
+<Canvas of={BarChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={BarChartStories.States} />
+
 ## Accesibilidad
 
-`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos disponible para lectores de pantalla.
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos (`xField`, `colorByField`, `yField`) disponible para lectores de pantalla.
 
 ## Props
 
-<Controls />
+<Controls of={BarChartStories.Default} />

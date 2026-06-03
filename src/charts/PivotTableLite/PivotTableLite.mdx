@@ -1,0 +1,46 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as PivotTableLiteStories from './PivotTableLite.stories'
+
+<Meta of={PivotTableLiteStories} />
+
+# PivotTableLite
+
+Variante compacta de `PivotTable` — sin ordenamiento, sin gestión de columnas, ideal para embeds y widgets de resumen. Compone `TableAdvanced`.
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → PivotTableDemo (lite=true)`
+
+## Cuándo usar
+
+- Vistas de resumen en embeds donde el espacio es limitado.
+- Cuando no se necesita ordenamiento ni gestión de columnas visibles.
+- Máximo 4 `valueFields` recomendados para mantener la compacidad.
+- Para la versión completa con ordenamiento y color condicional usa `PivotTable`.
+
+<Canvas of={PivotTableLiteStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `showTotals` | Fila de totales al pie | Resumen al final |
+| `maxRows` | Limita filas visibles antes de los totales | Embeds, top-N rápido |
+| `totalLabel` (default `'Total'`) | Etiqueta de la fila de totales | Personalizar nombre del agregado |
+| `valueHeaders` | Etiquetas legibles para las columnas | Ocultar nombres de campo internos |
+
+A diferencia de `PivotTable`, **siempre** es `sortable: false` y no acepta `conditionalColor`.
+
+<Canvas of={PivotTableLiteStories.Variants} />
+
+## Estados
+
+`isLoading` muestra esqueletos de fila. Sin datos muestra el mensaje `emptyMessage` (default "Sin datos").
+
+<Canvas of={PivotTableLiteStories.States} />
+
+## Accesibilidad
+
+Hereda toda la accesibilidad de `TableAdvanced` — encabezados `<th>`, `scope`, navegación por teclado, ARIA roles.
+
+## Props
+
+<Controls of={PivotTableLiteStories.Default} />

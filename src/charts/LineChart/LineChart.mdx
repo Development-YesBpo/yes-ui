@@ -5,22 +5,43 @@ import * as LineChartStories from './LineChart.stories'
 
 # LineChart
 
-Serie temporal simple con línea suavizada y relleno de área opcional. Usa `@ant-design/plots` (`Line`).
+Serie temporal con línea suavizada o segmentada, con relleno de área opcional y soporte para múltiples series. Usa `@ant-design/plots` (`Line`).
 
 **Referencia:** `Dashboard-Comps/Widget Gallery.html → LineSVG`
 
 ## Cuándo usar
 
-- Evolución de una métrica en el tiempo (conversaciones por día, CSAT semanal).
-- Hasta 4 series simultáneas con `seriesField`.
-- Para composición de volumen usa `AreaChart`; para comparación por categoría usa `BarChart`.
+- Evolución de una métrica en el tiempo (conversaciones por día, CSAT semanal, AHT por hora).
+- Hasta 4 series simultáneas con `seriesField` y `showLegend`.
+- Para composición de volumen con varias categorías apiladas usa `AreaChart`.
+- Para comparación por categoría discreta usa `BarChart`.
 
 <Canvas of={LineChartStories.Default} />
 
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `curve="smooth"` (default) | Spline interpolado | Series con muchos puntos, tendencia continua |
+| `curve="linear"` | Segmentos rectos | Métricas discretas (CSAT diario) |
+| `area` | Rellena debajo de la línea | Resaltar acumulado o volumen |
+| `seriesField` | Múltiples líneas | Comparar canales / categorías |
+| `showGrid={false}` | Oculta cuadrícula | Embebido en KPI compacto |
+| `showLegend` | Leyenda superior | Cuando hay varias series |
+| `showValues` | Etiquetas sobre puntos | Datos de baja cardinalidad |
+
+<Canvas of={LineChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton` mientras llegan los datos. Cuando `data.length === 0` se muestra `EmptyState` con el título "Sin datos".
+
+<Canvas of={LineChartStories.States} />
+
 ## Accesibilidad
 
-`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos disponible para lectores de pantalla.
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Una tabla oculta con los datos queda disponible para lectores de pantalla — los encabezados son los nombres de campo (`xField`, `seriesField`, `yField`).
 
 ## Props
 
-<Controls />
+<Controls of={LineChartStories.Default} />

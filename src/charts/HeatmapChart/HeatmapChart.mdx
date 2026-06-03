@@ -1,0 +1,43 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as HeatmapChartStories from './HeatmapChart.stories'
+
+<Meta of={HeatmapChartStories} />
+
+# HeatmapChart
+
+Mapa de calor de intensidad por dos dimensiones categóricas. Usa `@ant-design/plots` (`Heatmap`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → HeatmapSVG`
+
+## Cuándo usar
+
+- Volumen de llamadas por hora del día × día de la semana — identifica picos de demanda y ventanas de baja carga.
+- Cualquier métrica que varía en dos dimensiones categóricas.
+- Los datos deben estar en **formato largo**: una fila por combinación `xField × yField`.
+
+<Canvas of={HeatmapChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `colorScale` | Rampa custom de bajo→alto | Identidad visual no estándar (cálido, verde brand) |
+| `height` | Alto del mapa | Ajustar densidad según número de filas |
+
+Por defecto usa `chartTokens.heatmapRamp` (azul claro → marino).
+
+<Canvas of={HeatmapChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={HeatmapChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `xField`, `yField` y `colorField` disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={HeatmapChartStories.Default} />

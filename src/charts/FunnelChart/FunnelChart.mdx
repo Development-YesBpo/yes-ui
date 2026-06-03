@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as FunnelChartStories from './FunnelChart.stories'
+
+<Meta of={FunnelChartStories} />
+
+# FunnelChart
+
+Embudo de conversión entre etapas de proceso. Usa `@ant-design/plots` (`Funnel`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → FunnelSVG`
+
+## Cuándo usar
+
+- Visualizar tasas de conversión en pipelines de atención: recibido → asignado → resuelto → cerrado.
+- Comparar abandono entre etapas sucesivas de un flujo.
+- Para distribución sin orden secuencial usa `PieChart`; para comparación de magnitudes usa `BarChart`.
+
+<Canvas of={FunnelChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `showConversion` (default `true`) | Muestra anotaciones de tasa entre etapas | Activar para análisis cuantitativo |
+| `showValues` (default `true`) | Etiqueta cada bloque con su valor absoluto | Apagar en versión minimal |
+| `showLegend` | Leyenda superior | Cuando los nombres son ambiguos |
+
+<Canvas of={FunnelChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={FunnelChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `xField` (etapa) y `yField` (total) disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={FunnelChartStories.Default} />

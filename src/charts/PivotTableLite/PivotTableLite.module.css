@@ -1,0 +1,7 @@
+/*
+ * PivotTableLite.module.css
+ *
+ * Structural intent only — NOT imported in the component.
+ * Compact pivot: no sorting controls, constrained column count (max 4 valueFields),
+ * suitable for embeds and summary widgets. Delegates all rendering to TableAdvanced.
+ */

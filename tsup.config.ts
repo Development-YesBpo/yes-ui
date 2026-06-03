@@ -8,7 +8,16 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   splitting: true,
-  external: ['react', 'react-dom', '@ant-design/plots', '@antv/g-svg'],
+  external: [
+    'react',
+    'react-dom',
+    '@ant-design/plots',
+    '@antv/g-svg',
+    'maplibre-gl',
+    'maplibre-gl/dist/maplibre-gl.css',
+    'react-map-gl',
+    'react-map-gl/maplibre',
+  ],
   // Token CSS files (global custom properties) are copied separately
   // by scripts/copy-tokens.mjs — they must not be bundled into JS.
   //

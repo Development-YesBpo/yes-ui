@@ -5,22 +5,40 @@ import * as HorizontalBarChartStories from './HorizontalBarChart.stories'
 
 # HorizontalBarChart
 
-Barras horizontales para rankings con etiquetas largas. Usa `@ant-design/plots` (`Bar`).
+Barras horizontales para rankings con etiquetas largas (nombres de agentes, campañas, productos). Usa `@ant-design/plots` (`Bar`).
 
 **Referencia:** `Dashboard-Comps/Widget Gallery.html → HBarSVG`
 
 ## Cuándo usar
 
-- Rankings de agentes, campañas o departamentos donde los nombres son largos.
-- Usar `sort="desc"` + `maxItems` para mostrar el top-N.
-- Para categorías cortas o comparación temporal usa `BarChart`.
+- Rankings con nombres largos que no caben verticalmente.
+- Top-N por una métrica con `sort="desc"` + `maxItems`.
+- Para categorías cortas o temporalidad usa `BarChart` (vertical).
 
-<Canvas of={HorizontalBarChartStories.Ranking} />
+<Canvas of={HorizontalBarChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `sort="desc"` | Ordena de mayor a menor | Rankings de mejores resultados |
+| `sort="asc"` | Ordena de menor a mayor | Bottom-N / casos a atender |
+| `maxItems` | Recorta a las primeras N | Top-5 o Top-10 |
+| `showValues` (default `true`) | Etiqueta valor al final de cada barra | Datos legibles |
+| `showGrid={false}` | Oculta cuadrícula | Embebido minimal |
+
+<Canvas of={HorizontalBarChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` (después de sort/limit) muestra `EmptyState`.
+
+<Canvas of={HorizontalBarChartStories.States} />
 
 ## Accesibilidad
 
-`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos disponible para lectores de pantalla.
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `yField` (categoría) y `xField` (valor) disponible para lectores de pantalla.
 
 ## Props
 
-<Controls />
+<Controls of={HorizontalBarChartStories.Default} />

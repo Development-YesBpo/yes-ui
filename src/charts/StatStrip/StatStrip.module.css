@@ -1,0 +1,12 @@
+/*
+ * StatStrip — structural intent only.
+ * All colors and sizes are applied via inline styles using var(--yes-*) tokens.
+ *
+ * Root: flex row, full width, overflow hidden, border + radius from --yes-radius-card.
+ * Cell: flex 1, center-aligned text, left border from --yes-color-border (except first).
+ * Value: Barlow Semi Condensed, 22px, bold, --yes-color-text.
+ * Unit: Manrope, 11px, --yes-color-text-muted.
+ * Label: Manrope, 9px, uppercase, --yes-color-text-subtle.
+ *
+ * This file is NOT imported — it documents the structural contract for reviewers.
+ */

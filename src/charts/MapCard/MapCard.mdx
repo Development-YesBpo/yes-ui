@@ -1,0 +1,51 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as MapCardStories from './MapCard.stories'
+
+<Meta of={MapCardStories} />
+
+# MapCard
+
+Mapa interactivo de burbujas (puntos) para visualizar métricas geolocalizadas. Usa `maplibre-gl` con `react-map-gl` y consume estilos de teselas gratuitos de MapLibre.
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → MapPlaceholder` · `Gap Widgets - Implementation Spec.html § 05 map-card`
+
+## Cuándo usar
+
+- Distribución geográfica de una métrica puntual (llamadas por ciudad, tickets por sede, conversiones por punto de venta).
+- Comparación de magnitudes entre ubicaciones — el radio de cada burbuja interpola entre el mínimo y máximo del campo `sizeField`.
+- Para mapas con regiones administrativas (departamentos, municipios) usa `ChoroplethMap`.
+
+> **Setup:** El consumidor debe importar `'maplibre-gl/dist/maplibre-gl.css'` una vez en su app entry — el componente no lo hace para evitar bundlear 700 KB de CSS en consumers que nunca renderizan un mapa.
+
+<Canvas of={MapCardStories.Default} />
+
+## Datos
+
+`data` debe ser un `GeoJSON.FeatureCollection` de `Point`. Cada `Feature.properties` contiene los campos referenciados por `sizeField` y, opcionalmente, `colorField`.
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `sizeField` | Radio de cada burbuja interpolado entre min y max | Requerido — define la métrica |
+| `colorField` | Color por categoría | Distinguir ciudades / regiones |
+| `center` (default Colombia `{-74.3, 4.6}`) | Centro inicial del mapa | Otros países o zonas focales |
+| `zoom` (default `5`) | Nivel de zoom inicial | Acercar a una ciudad específica |
+| `height` (default `300`) | Altura del mapa en px | Adaptar al layout del dashboard |
+
+<Canvas of={MapCardStories.Variants} />
+
+## Estados
+
+- `loading` → muestra `Skeleton` mientras se inicializa.
+- `data.features.length === 0` → muestra `EmptyState` ("Sin datos").
+
+<Canvas of={MapCardStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). El mapa interactivo es complementario; la información esencial debe estar disponible también en una tabla adyacente.
+
+## Props
+
+<Controls of={MapCardStories.Default} />

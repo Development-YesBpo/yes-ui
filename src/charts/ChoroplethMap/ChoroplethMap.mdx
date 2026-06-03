@@ -1,0 +1,53 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ChoroplethMapStories from './ChoroplethMap.stories'
+
+<Meta of={ChoroplethMapStories} />
+
+# ChoroplethMap
+
+Mapa coroplético — colorea regiones administrativas (polígonos) según una métrica numérica. La intensidad del color interpola entre el mínimo y máximo del campo `valueField`.
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → MapPlaceholder` · `Gap Widgets - Implementation Spec.html § 06 choropleth-map`
+
+## Cuándo usar
+
+- Densidad o magnitud de una métrica por región (contactos por departamento, conversiones por municipio).
+- Comparación entre regiones — la intensidad del color refleja la magnitud relativa.
+- Para puntos geolocalizados (ciudades, sedes) usa `MapCard` con burbujas.
+
+> **Setup:** El consumidor debe importar `'maplibre-gl/dist/maplibre-gl.css'` una vez en su app entry.
+
+<Canvas of={ChoroplethMapStories.Default} />
+
+## Datos
+
+`data` debe ser un `GeoJSON.FeatureCollection` de `Polygon` / `MultiPolygon`. Cada `Feature.properties` debe incluir el campo numérico referenciado por `valueField`.
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `valueField` | Métrica que define el color de cada región | Requerido |
+| `colorScale` | Rampa custom de bajo→alto | Identidad visual no estándar |
+| `center` (default Colombia `{-74.3, 4.6}`) | Centro inicial del mapa | Otros países o zonas focales |
+| `zoom` (default `5`) | Nivel de zoom inicial | Acercar a una región específica |
+| `height` (default `300`) | Altura del mapa en px | Adaptar al layout |
+
+Por defecto usa `chartTokens.heatmapRamp` (azul claro → marino YES).
+
+<Canvas of={ChoroplethMapStories.Variants} />
+
+## Estados
+
+- `loading` → muestra `Skeleton`.
+- `data.features.length === 0` → muestra `EmptyState` ("Sin datos").
+
+<Canvas of={ChoroplethMapStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). La interpretación geográfica del color es complementaria; provee una tabla de regiones y valores cuando el dato sea esencial.
+
+## Props
+
+<Controls of={ChoroplethMapStories.Default} />

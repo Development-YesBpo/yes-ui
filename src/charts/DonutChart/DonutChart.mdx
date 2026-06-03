@@ -1,0 +1,44 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as DonutChartStories from './DonutChart.stories'
+
+<Meta of={DonutChartStories} />
+
+# DonutChart
+
+Pie con centro hueco, ideal para mostrar un KPI o etiqueta central. Usa `@ant-design/plots` (`Pie` con `innerRadius`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → DonutSVG`
+
+## Cuándo usar
+
+- Distribución por motivo de contacto, estado o categoría con un total o nombre en el centro.
+- Cuando el espacio central aporta contexto (total de contactos, nombre de la métrica).
+- Sin necesidad de centro hueco usa `PieChart`.
+
+<Canvas of={DonutChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `innerRadius` (default `0.55`) | Define el grosor del anillo (0 = pie completo, 1 = anillo) | Adaptar al peso visual deseado |
+| `centerLabel` | Texto pequeño en el centro | Identificar la métrica (ej. "MOTIVOS") |
+| `centerValue` | Valor grande en el centro | Mostrar el total o KPI principal |
+| `showLegend` (default `true`) | Leyenda lateral derecha | Apagar para versión minimal |
+| `showValues` | Etiquetas externas | Cuando hay pocas categorías |
+
+<Canvas of={DonutChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={DonutChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `colorField` y `angleField` disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={DonutChartStories.Default} />

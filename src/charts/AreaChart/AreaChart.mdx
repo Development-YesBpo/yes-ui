@@ -12,15 +12,35 @@ import * as AreaChartStories from './AreaChart.stories'
 ## Cuándo usar
 
 - Distribución de volumen por canal a lo largo del tiempo (Teléfono / WhatsApp / Chat).
-- Cuando importa tanto la proporción como el total.
-- Para una sola serie sin apilamiento usa `LineChart`.
+- Cuando importa tanto la proporción como el total acumulado.
+- Para una sola serie sin apilamiento usa `LineChart` con `area`.
+- Para comparación entre categorías discretas usa `BarChart`.
 
-<Canvas of={AreaChartStories.Stacked} />
+<Canvas of={AreaChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `stacked` (default `true`) | Apila las series una sobre otra | Composición + total |
+| `stacked={false}` | Superpone las áreas | Comparar magnitudes individuales |
+| `seriesField` | Múltiples áreas por categoría | Series por canal / región |
+| `showGrid={false}` | Oculta cuadrícula | Embebido compacto |
+| `showLegend` (default `true`) | Leyenda superior | Cuando hay varias series |
+| `showValues` | Etiquetas sobre puntos | Datos de baja cardinalidad |
+
+<Canvas of={AreaChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={AreaChartStories.States} />
 
 ## Accesibilidad
 
-`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos disponible para lectores de pantalla.
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con los datos (`xField`, `seriesField`, `yField`) disponible para lectores de pantalla.
 
 ## Props
 
-<Controls />
+<Controls of={AreaChartStories.Default} />

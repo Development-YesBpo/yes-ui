@@ -1,0 +1,45 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as StatStripStories from './StatStrip.stories'
+
+<Meta of={StatStripStories} />
+
+# StatStrip
+
+Fila compacta de métricas operativas en tiempo real. Componente DOM puro — sin AntV, sin ChartFrame.
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → StatStrip`
+
+## Cuándo usar
+
+- Barra de estado superior de un dashboard operativo (agentes activos, en cola, nivel de servicio, abandono, AHT).
+- Cuando se necesitan 3–6 métricas de un vistazo sin la jerarquía de un `KPICard`.
+- Para métricas individuales con delta o variación porcentual usa `KPICard`.
+
+<Canvas of={StatStripStories.Default} />
+
+## Variantes
+
+| Forma | Uso |
+|-------|-----|
+| 3 celdas | Comparación día/comparación corta (Hoy / Ayer / Var.) |
+| 4 celdas | Dashboard de resumen (Conversaciones / CSAT / T. respuesta / Agentes) |
+| 5 celdas | Contact center operativo (Activos / Cola / SL / Abandono / AHT) |
+| 6+ celdas | Solo en pantallas anchas — más allá pierde densidad visual |
+
+Cada `StatStripItem` acepta `label` (requerido), `value` (requerido) y `unit` opcional para sufijos pequeños como "min".
+
+<Canvas of={StatStripStories.Variants} />
+
+## Estados
+
+`StatStrip` no implementa estados `loading` o `empty` — espera siempre recibir `items` con al menos un elemento. Maneja el estado en el contenedor de datos.
+
+<Canvas of={StatStripStories.States} />
+
+## Accesibilidad
+
+Cada métrica es texto visible con su etiqueta. **No usa `role="img"`** — el contenido es directamente legible por tecnología asistiva sin atributos adicionales. No requiere `aria-label`.
+
+## Props
+
+<Controls of={StatStripStories.Default} />

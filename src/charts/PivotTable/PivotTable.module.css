@@ -1,0 +1,8 @@
+/*
+ * PivotTable.module.css
+ *
+ * Structural intent only — NOT imported in the component.
+ * Root: passthrough div wrapping TableAdvanced.
+ * Totals row: bold rowField + primary color on value cells (via render functions).
+ * No custom layout — TableAdvanced handles the full table chrome.
+ */

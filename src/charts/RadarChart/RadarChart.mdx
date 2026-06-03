@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as RadarChartStories from './RadarChart.stories'
+
+<Meta of={RadarChartStories} />
+
+# RadarChart
+
+Comparación multidimensional de KPIs en formato araña. Usa `@ant-design/plots` (`Radar`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → RadarSVG`
+
+## Cuándo usar
+
+- Comparar el desempeño de un agente frente al promedio del equipo en múltiples dimensiones (TMO, CSAT, FCR, Adherencia, Calidad, Eficiencia).
+- Visualizar fortalezas y áreas de mejora de forma simultánea.
+- Los datos deben estar en **formato largo**: una fila por cada combinación `eje × serie`.
+
+<Canvas of={RadarChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `colorField` | Define las series superpuestas | Comparar agentes / períodos / equipos |
+| `max` (default `100`) | Tope de la escala radial | Datos con rangos distintos a 0–100 |
+| `showLegend` (default `true`) | Leyenda superior | Apagar cuando los colores ya son obvios |
+
+<Canvas of={RadarChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={RadarChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `xField`, `colorField` y `yField` disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={RadarChartStories.Default} />

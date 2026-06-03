@@ -1,0 +1,42 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as ComboChartStories from './ComboChart.stories'
+
+<Meta of={ComboChartStories} />
+
+# ComboChart
+
+Barras de volumen con línea de porcentaje en ejes Y duales. Usa `@ant-design/plots` (`DualAxes`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → ComboSVG`
+
+## Cuándo usar
+
+- Volumen absoluto (llamadas) junto a un porcentaje de calidad (nivel de servicio, CSAT) en la misma gráfica.
+- Sin ejes duales, una de las dos series queda aplastada por la diferencia de escala.
+- Para una sola métrica temporal usa `LineChart`; para sólo categorías usa `BarChart`.
+
+<Canvas of={ComboChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `barName` / `lineName` | Etiqueta de cada serie en la leyenda | Mostrar nombres legibles, no nombres de campo |
+| `barColor` / `lineColor` | Color por serie | Resaltar identidad visual de cada métrica |
+| `showLegend` (default `true`) | Leyenda superior | Apagar en KPI compacto |
+
+<Canvas of={ComboChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={ComboChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `xField`, `barField` y `lineField` disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={ComboChartStories.Default} />

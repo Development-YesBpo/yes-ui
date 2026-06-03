@@ -1,0 +1,45 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as PivotTableStories from './PivotTable.stories'
+
+<Meta of={PivotTableStories} />
+
+# PivotTable
+
+Tabla pivote con fila de dimensión, columnas de métricas numéricas y fila de totales opcional. Compone `TableAdvanced`.
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → PivotTableDemo`
+
+## Cuándo usar
+
+- Comparar métricas por agente, campaña o período en una sola tabla.
+- Con `showTotals` para ver el resumen al pie.
+- Con `conditionalColor` para colorear CSAT (verde/ámbar/rojo) o cualquier métrica con umbrales.
+- Para embeds compactos sin ordenamiento usa `PivotTableLite`.
+
+<Canvas of={PivotTableStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `showTotals` | Fila de totales al pie con tipografía resaltada | Resumen rápido al final |
+| `totalLabel` (default `'Total'`) | Etiqueta de la fila de totales | Personalizar nombre del agregado |
+| `conditionalColor` | Callback `(field, value) → color` | Pintar valores según umbrales (CSAT verde/ámbar/rojo) |
+| `sortable` (default `true`) | Controles de ordenamiento por columna | Apagar en vistas estáticas |
+| `valueHeaders` | Etiquetas legibles para las columnas de valor | Ocultar nombres de campo internos |
+
+<Canvas of={PivotTableStories.Variants} />
+
+## Estados
+
+`isLoading` muestra esqueletos de fila. Sin datos muestra el mensaje `emptyMessage` (default "Sin datos").
+
+<Canvas of={PivotTableStories.States} />
+
+## Accesibilidad
+
+Hereda toda la accesibilidad de `TableAdvanced` — encabezados `<th>`, `scope`, navegación por teclado, ARIA roles. Cuando usas `conditionalColor`, asegúrate de que el contraste cumpla WCAG AA (relación 4.5:1 mínimo para texto pequeño).
+
+## Props
+
+<Controls of={PivotTableStories.Default} />

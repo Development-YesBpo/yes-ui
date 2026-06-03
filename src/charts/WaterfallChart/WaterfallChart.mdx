@@ -1,0 +1,43 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import * as WaterfallChartStories from './WaterfallChart.stories'
+
+<Meta of={WaterfallChartStories} />
+
+# WaterfallChart
+
+Variación acumulada con bloques positivos (verde), negativos (rojo) y totales (navy). Usa `@ant-design/plots` (`Waterfall`).
+
+**Referencia:** `Dashboard-Comps/Widget Gallery.html → WaterfallSVG`
+
+## Cuándo usar
+
+- Comparación entre dos períodos mostrando los factores individuales que explican la diferencia.
+- Semana a semana o trimestre a trimestre: Base → +Campañas → −Estacional → Total.
+- Marca cada total con el campo `isTotal: true` en los datos (o cambia el nombre del campo vía `totalField`).
+- Para series temporales continuas usa `LineChart`; para comparación simple usa `BarChart`.
+
+<Canvas of={WaterfallChartStories.Default} />
+
+## Variantes
+
+| Prop | Efecto | Cuándo |
+|------|--------|--------|
+| `positiveColor` / `negativeColor` / `totalColor` | Sobrescribe los colores por defecto de cada tipo | Identidad visual no estándar |
+| `totalField` (default `'isTotal'`) | Campo que marca filas como totales | Datos pre-existentes con otro nombre |
+| `showValues` (default `true`) | Etiqueta cada bloque con su delta | Apagar en versión compacta |
+
+<Canvas of={WaterfallChartStories.Variants} />
+
+## Estados
+
+`loading` muestra un `Skeleton`. `data.length === 0` muestra `EmptyState` con título "Sin datos".
+
+<Canvas of={WaterfallChartStories.States} />
+
+## Accesibilidad
+
+`role="img"` con `aria-label` obligatorio (vía `ChartFrame`). Tabla oculta con `xField` (etapa) y `yField` (delta) disponible para lectores de pantalla.
+
+## Props
+
+<Controls of={WaterfallChartStories.Default} />

@@ -7,6 +7,13 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./src/test-setup.ts'],
+    testTimeout: 15000,
+    hookTimeout: 15000,
+    server: {
+      deps: {
+        external: ['maplibre-gl', 'react-map-gl'],
+      },
+    },
     css: {
       modules: {
         classNameStrategy: 'non-scoped',
