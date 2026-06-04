@@ -1,187 +1,180 @@
 # @yes/ui
 
-YES BPO unified UI component library. Replaces the independently-built component sets across AppCenter, CRM v1, DASHBOARD, AUTO-NOM, PECS, YES Links, and Lead Getter with a single, tokenized, tested, and documented source of truth.
+Librería de componentes UI unificada para YES BPO. Reemplaza los sets de componentes construidos por separado en AppCenter, CRM v1, DASHBOARD, AUTO-NOM, PECS, YES Links y Lead Getter con una sola fuente de verdad — tokenizada, testeada y documentada.
 
-**Current state:** v1.0.0 — 42 components across 8 thematic waves, 482 passing tests, full Storybook documentation. See [CHANGELOG](./CHANGELOG.md) for the full release log and [docs/HANDBOOK.md](./docs/HANDBOOK.md) for the operations guide (how to run, capture evidence, report, and verify).
+**Estado actual:** v1.2.0 — **42 componentes base + 19 charts** (61 widgets exportados), **591 tests pasando**, Storybook completo.
 
----
-
-## Component catalog
-
-42 components grouped by the wave in which they shipped. Every component is exported by name from `@yes/ui` and documented in Storybook (`pnpm dev` → http://localhost:6006).
-
-| Wave | Theme | Components |
-|------|-------|------------|
-| 1 | Atoms | `Icon` · `Avatar` · `Spinner` · `Button` · `Badge` · `ChannelBadge` · `Chip` |
-| 2 | Form controls | `Input` · `Select` · `Textarea` · `Toggle` · `SearchInput` · `Checkbox` |
-| 3 | Feedback | `Alert` · `Toast` (+ `ToastContainer`, `useToast`) · `Skeleton` · `EmptyState` |
-| 4 | Navigation | `Tabs` · `Sidebar` |
-| 5 | Overlay | `Modal` · `Drawer` · `FilterPanel` (+ `FilterPanel.Group`) |
-| 6a | Data containers | `Pagination` · `Card` · `KPICard` · `Widget` · `Toolbar` · `GroupFilter` · `BulkActionBar` |
-| 6b | Tables | `Table` · `TableAdvanced` |
-| 7 | Meta actions | `PageHeader` · `SegmentedControl` · `ButtonToolbar` (+ `ToolbarButton`) · `SplitButton` · `ColumnManager` · `ActionMenu` · `AdminBanner` |
-| 8 | Communication & layout | `AgentStatusIndicator` · `ConversationItem` · `MessageBubble` · `PanelRich` |
+🔗 **Storybook en vivo:** https://development-yesbpo.github.io/yes-ui/
 
 ---
 
-## Installation
+## Catálogo de componentes
+
+Cada componente se exporta por nombre desde `@yes/ui` y se documenta en Storybook con stories `Default`, `Variants`, `States` e `Interactive` + página MDX con tabla de variantes y controles.
+
+### Wave 1 — Atoms (7)
+`Icon` · `Avatar` · `Spinner` · `Button` · `Badge` · `ChannelBadge` · `Chip`
+
+### Wave 2 — Controles de formulario (6)
+`Input` · `Select` · `Textarea` · `Toggle` · `SearchInput` · `Checkbox`
+
+### Wave 3 — Feedback (4)
+`Alert` · `Toast` (+ `ToastContainer`, `useToast`) · `Skeleton` · `EmptyState`
+
+### Wave 4 — Navegación (2)
+`Tabs` · `Sidebar`
+
+### Wave 5 — Overlay (3)
+`Modal` · `Drawer` · `FilterPanel`
+
+### Wave 6 — Datos (9)
+`Card` · `KPICard` · `Widget` · `Table` · `TableAdvanced` · `Pagination` · `Toolbar` · `GroupFilter` · `BulkActionBar`
+
+### Wave 7 — Meta acciones (7)
+`PageHeader` · `SegmentedControl` · `ButtonToolbar` (+ `ToolbarButton`) · `SplitButton` · `ColumnManager` · `ActionMenu` · `AdminBanner`
+
+### Wave 8 — Comunicación y layout (4)
+`AgentStatusIndicator` · `ConversationItem` · `MessageBubble` · `PanelRich`
+
+### Wave 9 — Charts (19)
+
+| Categoría | Widgets |
+|-----------|---------|
+| Series temporales | `LineChart` · `AreaChart` |
+| Barras | `BarChart` · `HorizontalBarChart` |
+| Composición | `PieChart` · `DonutChart` · `FunnelChart` |
+| Distribución | `ScatterChart` · `BubbleChart` · `HeatmapChart` |
+| Comparación | `RadarChart` · `ComboChart` (doble eje) · `WaterfallChart` |
+| Métricas / tablas | `StatStrip` · `PivotTable` · `PivotTableLite` |
+| Mapas | `MapCard` (burbujas geolocalizadas) · `ChoroplethMap` (regiones) |
+
+Charts usan `@ant-design/plots` (renderer SVG vía `@antv/g-svg`). Mapas usan `maplibre-gl` + `react-map-gl`.
+
+---
+
+## Instalación
 
 ```bash
 pnpm add @yes/ui
 ```
 
-Peer dependencies (install if not already present):
-
-```bash
-pnpm add react react-dom
-```
-
----
-
-## Setup
-
-### 1. Import tokens
-
-Add to your app's global CSS entry point (e.g. `globals.css`, `main.css`):
-
-```css
-/* Required — raw scale values */
-@import '@yes/ui/tokens/primitives';
-
-/* Required — semantic token mappings (light theme by default) */
-@import '@yes/ui/tokens/default';
-
-/* Optional — dark theme overrides */
-@import '@yes/ui/tokens/themes/dark';
-```
-
-Or in your JS/TS entry:
-
 ```ts
+// 1. Tokens (importar una sola vez en el entry de la app)
 import '@yes/ui/tokens/primitives'
 import '@yes/ui/tokens/default'
-// import '@yes/ui/tokens/themes/dark'  // optional
+import '@yes/ui/tokens/themes/light'   // o themes/dark
+
+// 2. Componentes
+import { Button, KPICard, LineChart, MapCard } from '@yes/ui'
 ```
 
-### 2. Apply theme attribute (optional)
+Si usas los charts de mapas (`MapCard`, `ChoroplethMap`), añade también:
 
-To enable dark mode on a specific subtree:
-
-```html
-<div data-yes-theme="dark">
-  <!-- dark-themed content here -->
-</div>
-```
-
-To toggle globally, set `data-yes-theme` on `<html>` or `<body>`.
-
----
-
-## Usage
-
-```tsx
-import { Button, Badge, Input } from '@yes/ui'
-
-function MyPage() {
-  return (
-    <div>
-      <Input
-        label="Nombre del cliente"
-        name="customerName"
-        onChange={(e) => setValue(e.target.value)}
-      />
-      <Badge variant="success">Activo</Badge>
-      <Button tone="primary" onClick={handleSave}>
-        Guardar cambios
-      </Button>
-    </div>
-  )
-}
+```ts
+import 'maplibre-gl/dist/maplibre-gl.css'
 ```
 
 ---
 
-## Token customization
+## Comandos
 
-Override semantic tokens in your product's CSS to adapt the library to your product's context without forking components:
+| Comando | Qué hace |
+|---------|----------|
+| `pnpm dev` | Storybook local en http://localhost:6006 |
+| `pnpm test` | Vitest (591 tests) |
+| `pnpm typecheck` | TypeScript en modo estricto (`exactOptionalPropertyTypes`) |
+| `pnpm build` | Compila la librería → `dist/` (ESM + CJS + d.ts) |
+| `pnpm build:storybook` | Storybook estático → `storybook-static/` |
+| `pnpm check-dist` | Verifica que `dist/` tenga todos los artefactos esperados |
 
-```css
-/* my-product/globals.css */
-@import '@yes/ui/tokens/primitives';
-@import '@yes/ui/tokens/default';
+---
 
-/* Override only what differs in this product */
-:root {
-  --yes-color-primary: #0070f3;
-  --yes-color-sidebar-bg: #111111;
-}
+## Stack técnico
+
+- React 18 + TypeScript 5 (`strict` + `exactOptionalPropertyTypes` + `noUncheckedIndexedAccess`)
+- Vite 6 + tsup (build), Vitest + RTL + jsdom (tests)
+- Storybook 8.6 (`react-vite`)
+- `@ant-design/plots` para charts cartesianos / circulares / radar / waterfall / funnel
+- `maplibre-gl` + `react-map-gl` para mapas (`MapCard`, `ChoroplethMap`)
+- Lucide para iconos
+- pnpm 9.15
+
+---
+
+## Tokens
+
+Toda decisión visual deriva de `design-system-reference/colors_and_type.css`:
+
+| Familia | Tokens CSS | Equivalente en código |
+|---------|------------|----------------------|
+| Color | `--yes-color-*` (`semantic.css`) | — |
+| Tipografía | `--yes-font-*`, `--yes-text-*` | Manrope (body) · Barlow Semi Condensed (display) · JetBrains Mono (code) |
+| Radius | `--yes-radius-*` | 6 / 8 / 12 / 9999 px |
+| Charts (canvas/SVG) | `--yes-chart-*` | `chartTokens.ts` (typed source of truth) |
+
+Para temas alternativos importa `@yes/ui/tokens/themes/dark` después de `default`.
+
+---
+
+## Estructura del repo
+
 ```
+src/
+├── components/   ← Wave 1–8 (42 componentes)
+├── charts/       ← Wave 9 (19 widgets) + ChartFrame (wrapper interno)
+├── tokens/       ← primitives.css + semantic.css + themes/
+├── hooks/        ← useId · useFocusTrap · useControllable · useResizeObserver
+├── utils/        ← cn · polymorphic
+├── types/        ← BaseProps · FieldProps · Tone · Size · StatusVariant
+└── index.ts      ← API pública (barrel)
 
-Components consume `--yes-*` variables — they automatically reflect your overrides.
-
----
-
-## Component checklist (for contributors)
-
-Every component in `@yes/ui` must have:
-
-- [ ] `ComponentName.tsx` — implementation
-- [ ] `ComponentName.module.css` — structural CSS only (no colors/sizes, use tokens)
-- [ ] `ComponentName.test.tsx` — Vitest + RTL unit tests
-- [ ] `ComponentName.stories.tsx` — Storybook stories (Default, AllTones, AllSizes, Interactive)
-- [ ] `ComponentName.mdx` — Storybook documentation page
-- [ ] `index.ts` — barrel export
-- [ ] Entry in `src/index.ts`
-
----
-
-## Prop interface conventions
-
-All components share these base props:
-
-| Prop | Type | Description |
-|------|------|-------------|
-| `className` | `string` | Appended to root element. Never overrides internal structure. |
-| `style` | `CSSProperties` | For dynamic token overrides only. |
-| `data-testid` | `string` | Passed to root element for testing. |
-
-Interactive components add:
-
-| Prop | Type | Description |
-|------|------|-------------|
-| `tone` | `'primary' \| 'secondary' \| 'danger' \| 'ghost' \| 'outline'` | Semantic color variant. |
-| `size` | `'sm' \| 'md' \| 'lg'` | Component size. |
-| `as` | `React.ElementType` | Polymorphic element override. |
-| `disabled` | `boolean` | Sets aria-disabled and prevents interaction. |
-
-Form fields add:
-
-| Prop | Type | Description |
-|------|------|-------------|
-| `label` | `string` | Required. Accessible label (visible or screen-reader-only). |
-| `hideLabel` | `boolean` | Visually hides label but keeps it for screen readers. |
-| `error` | `string` | Error message. Triggers error state and aria-invalid. |
-| `hint` | `string` | Help text below the field. |
-
----
-
-## Development
-
-```bash
-pnpm install
-pnpm dev          # Storybook on :6006
-pnpm test         # Vitest
-pnpm test:watch   # Vitest watch mode
-pnpm build        # tsup + copy tokens → dist/
-pnpm typecheck    # tsc --noEmit
+.storybook/        ← Configuración de Storybook (main.ts + preview.ts)
+.github/workflows/ ← CI: deploy de Storybook a GitHub Pages
+design-system-reference/  ← Referencias visuales (preview HTML por componente)
+docs/              ← HANDBOOK + planes de wave + specs
 ```
 
 ---
 
-## Safety guarantees
+## Cómo contribuir
 
-- **No CSS leaking** — structural styles are CSS Modules (hashed class names). Token CSS only sets `--yes-*` custom properties.
-- **No double triggers** — all event handlers via React synthetic events. Buttons have explicit `type="button"` unless overridden.
-- **SSR safe** — no `window`/`document` access at module level. All browser APIs inside effects.
-- **No XSS vectors** — zero `dangerouslySetInnerHTML` in the package.
-- **Peer deps not bundled** — `react` and `react-dom` are peerDependencies; no double-React in host apps.
+Cada componente sigue el **contrato de 6 archivos**: `.tsx`, `.module.css`, `.test.tsx`, `.stories.tsx`, `.mdx`, `index.ts`. Sin excepciones.
+
+Flujo de trabajo: **RED → GREEN → VISUAL**
+
+1. **RED** — escribir tests primero (`.test.tsx`), correr `pnpm test`, confirmar que fallan por la razón esperada.
+2. **GREEN** — implementar lo mínimo para hacer pasar los tests. CSS modules solo estructura (sin colores, sin tamaños hardcodeados — todo vía `var(--yes-*)`).
+3. **VISUAL** — comparar Storybook contra `design-system-reference/preview/components-{name}.html` lado a lado. La salida debe coincidir píxel-a-píxel.
+
+### Branch protection en `main`
+
+- Push directo bloqueado — todo cambio entra vía Pull Request.
+- 1 aprobación requerida; reviews stale se descartan al haber nuevos commits.
+- Status checks del workflow de Storybook obligatorios.
+- Sin force push, sin eliminación de la branch.
+- Conversaciones del PR deben resolverse antes del merge.
+- `enforce_admins: true` — la regla también aplica a admins.
+
+### Otras reglas
+
+- Commits en español, mensaje conciso.
+- Sin co-author lines.
+- Sin `dangerouslySetInnerHTML`, sin `window`/`document` a nivel de módulo, sin `addEventListener` directo dentro de componentes.
+- Botones siempre `type="button"` salvo que sean explícitamente `type="submit"`.
+- Texto de UI en español colombiano.
+
+Ver `CLAUDE.md` para el reglamento completo y `docs/HANDBOOK.md` para operaciones (cómo correr, capturar evidencia, reportar y verificar).
+
+---
+
+## Seguridad
+
+- Secret scanning + push protection activados en GitHub (bloquea push si detecta credenciales).
+- Sin tokens, claves ni `.env` rastreados en historia (verificado contra todo blob del repo).
+- `.gitignore` excluye `node_modules/`, `dist/`, `storybook-static/`, `.env*`, `*.pem`, `*.key`, `*.p12`, `*.pfx` y junk de OS.
+
+---
+
+## Licencia
+
+UNLICENSED — uso interno YES BPO.
