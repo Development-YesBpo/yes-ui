@@ -1,0 +1,28 @@
+/**
+ * @yes/ui — Light Theme
+ *
+ * Default theme. Applied on :root.
+ * semantic.css already defines light values — this file exists
+ * for explicit [data-yes-theme="light"] scoping when dark is the page default.
+ */
+
+[data-yes-theme="light"] {
+  --yes-color-bg:               #f8fafc;
+  --yes-color-surface:          #ffffff;
+  --yes-color-surface-raised:   #ffffff;
+  --yes-color-surface-overlay:  #ffffff;
+  --yes-color-surface-sunken:   #f1f5f9;
+  --yes-color-surface-disabled: #f1f5f9;
+
+  --yes-color-text:          #0f172a;
+  --yes-color-text-muted:    #64748b;
+  --yes-color-text-subtle:   #94a3b8;
+  --yes-color-text-disabled: #cbd5e1;
+  --yes-color-text-inverse:  #ffffff;
+
+  --yes-color-border:          #e2e8f0;
+  --yes-color-border-strong:   #cbd5e1;
+  --yes-color-border-disabled: #e2e8f0;
+
+  --yes-color-scrim: rgb(0 0 0 / 0.5);
+}

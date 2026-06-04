@@ -1,0 +1,171 @@
+/**
+ * @yes/ui — Primitive Tokens
+ *
+ * Source of truth: design-system-reference/colors_and_type.css
+ * All values match that file exactly. Do not change without updating the reference.
+ *
+ * Components NEVER reference these directly.
+ * Semantic tokens (semantic.css) map primitives to roles.
+ */
+
+/* ── Google Fonts ──────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&family=Barlow+Semi+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+
+  /* ── Brand ─────────────────────────────────────────────────── */
+  --yes-primitive-brand-blue:  #2B52A0;
+  --yes-primitive-brand-green: #8CBC39;
+
+  /* ── Blue scale ────────────────────────────────────────────── */
+  --yes-primitive-blue-950: #0D1F4A;
+  --yes-primitive-blue-900: #142860;
+  --yes-primitive-blue-800: #1A3474;
+  --yes-primitive-blue-700: #213F8A;
+  --yes-primitive-blue-600: #274CA0;
+  --yes-primitive-blue-500: #2B52A0;
+  --yes-primitive-blue-400: #4D72BC;
+  --yes-primitive-blue-300: #7E9CD1;
+  --yes-primitive-blue-200: #B3C5E6;
+  --yes-primitive-blue-100: #D8E3F4;
+  --yes-primitive-blue-50:  #EEF3FA;
+
+  /* ── Green scale ───────────────────────────────────────────── */
+  --yes-primitive-green-950: #1A2E0A;
+  --yes-primitive-green-900: #234010;
+  --yes-primitive-green-800: #2E5516;
+  --yes-primitive-green-700: #3D6E1E;
+  --yes-primitive-green-600: #5A9A28;
+  --yes-primitive-green-500: #8CBC39;
+  --yes-primitive-green-400: #A5CE5E;
+  --yes-primitive-green-300: #BEDD88;
+  --yes-primitive-green-200: #D4EBB0;
+  --yes-primitive-green-100: #E8F5D4;
+  --yes-primitive-green-50:  #F4FAE9;
+
+  /* ── Neutral scale ─────────────────────────────────────────── */
+  --yes-primitive-neutral-950: #030712;
+  --yes-primitive-neutral-900: #111827;
+  --yes-primitive-neutral-800: #1F2937;
+  --yes-primitive-neutral-700: #374151;
+  --yes-primitive-neutral-600: #4B5563;
+  --yes-primitive-neutral-500: #6B7280;
+  --yes-primitive-neutral-400: #9CA3AF;
+  --yes-primitive-neutral-300: #D1D5DB;
+  --yes-primitive-neutral-200: #E5E7EB;
+  --yes-primitive-neutral-100: #F3F4F6;
+  --yes-primitive-neutral-50:  #F9FAFB;
+  --yes-primitive-white:       #FFFFFF;
+
+  /* ── Semantic: Success ─────────────────────────────────────── */
+  --yes-primitive-success-700: #15803D;
+  --yes-primitive-success-600: #16A34A;
+  --yes-primitive-success-500: #22C55E;
+  --yes-primitive-success-200: #A7F3C0;
+  --yes-primitive-success-100: #DCFCE7;
+  --yes-primitive-success-50:  #F0FDF4;
+
+  /* ── Semantic: Error ───────────────────────────────────────── */
+  --yes-primitive-error-700: #B91C1C;
+  --yes-primitive-error-600: #DC2626;
+  --yes-primitive-error-500: #EF4444;
+  --yes-primitive-error-200: #FECACA;
+  --yes-primitive-error-100: #FEE2E2;
+  --yes-primitive-error-50:  #FEF2F2;
+
+  /* ── Semantic: Warning ─────────────────────────────────────── */
+  --yes-primitive-warning-700: #B45309;
+  --yes-primitive-warning-600: #D97706;
+  --yes-primitive-warning-500: #F59E0B;
+  --yes-primitive-warning-200: #FDE68A;
+  --yes-primitive-warning-100: #FEF3C7;
+  --yes-primitive-warning-50:  #FFFBEB;
+
+  /* ── Semantic: Info ────────────────────────────────────────── */
+  --yes-primitive-info-700: #1D4ED8;
+  --yes-primitive-info-600: #2563EB;
+  --yes-primitive-info-500: #3B82F6;
+  --yes-primitive-info-100: #DBEAFE;
+  --yes-primitive-info-50:  #EFF6FF;
+
+  /* ── Semantic: Purple (campaigns/programada) ───────────────── */
+  --yes-primitive-purple-700: #6B21A8;
+  --yes-primitive-purple-500: #7C3AED;
+  --yes-primitive-purple-100: #F3E8FF;
+
+  /* ── Type scale ────────────────────────────────────────────── */
+  --yes-primitive-text-xs:   0.75rem;    /* 12px */
+  --yes-primitive-text-sm:   0.875rem;   /* 14px */
+  --yes-primitive-text-base: 1rem;       /* 16px */
+  --yes-primitive-text-lg:   1.125rem;   /* 18px */
+  --yes-primitive-text-xl:   1.25rem;    /* 20px */
+  --yes-primitive-text-2xl:  1.5rem;     /* 24px */
+  --yes-primitive-text-3xl:  1.875rem;   /* 30px */
+  --yes-primitive-text-4xl:  2.25rem;    /* 36px */
+  --yes-primitive-text-5xl:  3rem;       /* 48px */
+
+  /* ── Line heights ──────────────────────────────────────────── */
+  --yes-primitive-leading-tight:   1.2;
+  --yes-primitive-leading-snug:    1.35;
+  --yes-primitive-leading-normal:  1.5;
+  --yes-primitive-leading-relaxed: 1.65;
+
+  /* ── Letter spacing ────────────────────────────────────────── */
+  --yes-primitive-tracking-tight:   -0.02em;
+  --yes-primitive-tracking-normal:   0em;
+  --yes-primitive-tracking-wide:     0.04em;
+  --yes-primitive-tracking-widest:   0.08em;
+
+  /* ── Spacing scale ─────────────────────────────────────────── */
+  --yes-primitive-space-0:  0;
+  --yes-primitive-space-1:  0.25rem;   /* 4px  */
+  --yes-primitive-space-2:  0.5rem;    /* 8px  */
+  --yes-primitive-space-3:  0.75rem;   /* 12px */
+  --yes-primitive-space-4:  1rem;      /* 16px */
+  --yes-primitive-space-5:  1.25rem;   /* 20px */
+  --yes-primitive-space-6:  1.5rem;    /* 24px */
+  --yes-primitive-space-8:  2rem;      /* 32px */
+  --yes-primitive-space-10: 2.5rem;    /* 40px */
+  --yes-primitive-space-12: 3rem;      /* 48px */
+  --yes-primitive-space-16: 4rem;      /* 64px */
+  --yes-primitive-space-20: 5rem;      /* 80px */
+  --yes-primitive-space-24: 6rem;      /* 96px */
+
+  /* ── Border radius ─────────────────────────────────────────── */
+  --yes-primitive-radius-none: 0px;
+  --yes-primitive-radius-sm:   4px;
+  --yes-primitive-radius-md:   6px;
+  --yes-primitive-radius-lg:   8px;
+  --yes-primitive-radius-xl:   12px;
+  --yes-primitive-radius-2xl:  16px;
+  --yes-primitive-radius-full: 9999px;
+
+  /* ── Shadows ───────────────────────────────────────────────── */
+  --yes-primitive-shadow-sm:  0 1px 2px 0 rgba(0,0,0,0.05);
+  --yes-primitive-shadow-md:  0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px -1px rgba(0,0,0,0.06);
+  --yes-primitive-shadow-lg:  0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.06);
+  --yes-primitive-shadow-xl:  0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.05);
+  --yes-primitive-shadow-2xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.05);
+  --yes-primitive-focus-ring: 0 0 0 3px rgba(43,82,160,0.35);
+
+  /* ── Duration ──────────────────────────────────────────────── */
+  --yes-primitive-duration-fast:   100ms;
+  --yes-primitive-duration-base:   150ms;
+  --yes-primitive-duration-slow:   250ms;
+  --yes-primitive-duration-slower: 350ms;
+
+  /* ── Easing ────────────────────────────────────────────────── */
+  --yes-primitive-ease-standard:   cubic-bezier(0.4, 0, 0.2, 1);
+  --yes-primitive-ease-decelerate: cubic-bezier(0.0, 0.0, 0.2, 1);
+  --yes-primitive-ease-accelerate: cubic-bezier(0.4, 0.0, 1.0, 1.0);
+
+  /* ── Z-index ───────────────────────────────────────────────── */
+  --yes-primitive-z-base:     0;
+  --yes-primitive-z-raised:   100;
+  --yes-primitive-z-dropdown: 200;
+  --yes-primitive-z-sticky:   300;
+  --yes-primitive-z-overlay:  400;
+  --yes-primitive-z-modal:    500;
+  --yes-primitive-z-toast:    600;
+  --yes-primitive-z-tooltip:  700;
+}
