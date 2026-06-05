@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+env:
+  NODE_VERSION: '22'
+
+jobs:
+  release:
+    name: Build, test and publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write   # publish to GitHub Packages
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm version is read from package.json "packageManager" (do NOT also pass version: here)
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@development-yesbpo'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: pnpm typecheck
+
+      - name: Run tests
+        run: pnpm test
+
+      - name: Build library
+        run: pnpm build
+
+      - name: Verify dist outputs
+        run: pnpm check-dist
+
+      - name: Publish to GitHub Packages
+        run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

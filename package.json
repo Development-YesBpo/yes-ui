@@ -1,10 +1,17 @@
 {
-  "name": "@yes/ui",
+  "name": "@development-yesbpo/ui",
   "version": "1.2.0",
   "description": "YES BPO unified UI component library — 42 React components across 8 thematic waves",
   "type": "module",
   "license": "UNLICENSED",
   "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Development-YesBpo/yes-ui.git"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
